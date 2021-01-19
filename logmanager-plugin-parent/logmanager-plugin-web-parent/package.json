@@ -1,0 +1,10 @@
+{
+  "name": "logmanager-plugin-web-parent",
+  "version": "1.0.0",
+  "description": "Dummy package.json for logmanager-plugin-web-parent",
+  "author": "Synectiks",
+  "license": "SSPL-1.0",
+  "scripts": {
+    "build": "echo 'Dummy build script for logmanager-plugin-web-parent'"
+  }
+}

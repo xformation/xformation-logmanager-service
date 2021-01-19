@@ -1,0 +1,25 @@
+{
+  "name": "${pluginClassName}",
+  "version": "${version}",
+  "description": "",
+  
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint src",
+    "lint:path": "eslint",
+    "test": "jest"
+  },
+  "keywords": [
+    "logmanager"
+  ],
+  "author": "${ownerName} <${ownerEmail}>",
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "logmanager"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "logmanager-web-plugin": "file:${serverCheckoutPath}/logmanager-web-interface/packages/logmanager-web-plugin"
+  }
+}
