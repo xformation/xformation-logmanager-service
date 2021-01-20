@@ -722,7 +722,7 @@
                 <artifactId>forbiddenapis</artifactId>
                 <configuration>
                     <suppressAnnotations>
-                        <suppressAnnotation>org.graylog2.shared.SuppressForbidden</suppressAnnotation>
+                        <suppressAnnotation>com.synectiks.process.server.shared.SuppressForbidden</suppressAnnotation>
                     </suppressAnnotations>
                     <!-- disallow undocumented classes like sun.misc.Unsafe: -->
                     <internalRuntimeForbidden>false</internalRuntimeForbidden>

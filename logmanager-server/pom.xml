@@ -38,7 +38,7 @@
     </mailingLists>
 	-->
     <properties>
-        <mainClass>org.graylog2.bootstrap.Main</mainClass>
+        <mainClass>com.synectiks.process.server.bootstrap.Main</mainClass>
         <webInterface.path>../logmanager-web-interface</webInterface.path>
         <skip.web.build>false</skip.web.build>
 

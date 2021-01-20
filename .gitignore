@@ -19,7 +19,7 @@ data/*
 
 dependency-reduced-pom.xml
 
-/graylog2-rest-routes/src/main/java/org/graylog2/restroutes/generated
+/logmanager2-rest-routes/src/main/java/com/synectiks/process/server/restroutes/generated
 
 /misc/elasticsearch.yml.2
 /misc/elasticsearch.yml.dev
@@ -36,7 +36,7 @@ dependency-reduced-pom.xml
 
 **/pom.xml.versionsBackup
 
-/graylog2-server/src/main/resources/web-interface/assets/**/*
+/logmanager-server/src/main/resources/web-interface/assets/**/*
 
 **/hs_err_pid*.log
 

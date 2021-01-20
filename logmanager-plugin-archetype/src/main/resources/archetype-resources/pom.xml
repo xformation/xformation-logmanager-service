@@ -130,7 +130,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Graylog-Plugin-Properties-Path>${project.groupId}.${project.artifactId}</Graylog-Plugin-Properties-Path>
+                            <Logmanager-Plugin-Properties-Path>${project.groupId}.${project.artifactId}</Logmanager-Plugin-Properties-Path>
                         </manifestEntries>
                     </archive>
                 </configuration>

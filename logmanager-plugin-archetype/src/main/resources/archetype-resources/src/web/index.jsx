@@ -1,6 +1,6 @@
 import 'webpack-entry';
 
-import { PluginManifest, PluginStore } from 'graylog-web-plugin/plugin';
+import { PluginManifest, PluginStore } from 'logmanager-web-plugin/plugin';
 
 import packageJson from '../../package.json';
 

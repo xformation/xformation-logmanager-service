@@ -8,7 +8,7 @@
         <module>logmanager-plugin-archetype</module>
         <module>logmanager-storage-elasticsearch6</module>
         <!--<module>logmanager-storage-elasticsearch7</module>-->
-        <module>distribution</module>
+        <module>logmanager-distribution</module>
     </modules>
 
     <groupId>com.synectiks.logmanager</groupId>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Graylog REST API browser</title>
+  <title>Logmanager REST API browser</title>
   <base href="${baseUri}api-browser/${globalModePath}">
   <link href='css/fonts.css' rel='stylesheet' type='text/css'/>
   <link href='css/highlight.default.css' media='screen' rel='stylesheet' type='text/css'/>
@@ -63,7 +63,7 @@
     $('#input_apiPassword').change(updateApiAuth);
 
     // Add CSRF header
-    window.authorizations.add("csrf", new ApiKeyAuthorization("X-Requested-By", "Graylog API Browser", "header"));
+    window.authorizations.add("csrf", new ApiKeyAuthorization("X-Requested-By", "Logmanager API Browser", "header"));
 
     window.swaggerUi.load();
   });
@@ -76,7 +76,7 @@
   <h3>Attention</h3>
   <p>
   The API browser is running in global mode. API requests made against this URI will not be bound to a specific node,
-  but might end up on any random node in your Graylog cluster. Keep that in mind when using node specific API requests.
+  but might end up on any random node in your Logmanager cluster. Keep that in mind when using node specific API requests.
   </p>
 </div>
 <div id='header'>

@@ -8,7 +8,7 @@ PS=${PS:=$(which ps)}
 JAVA_CMD=${JAVA_CMD:=$(which java)}
 
 get_pid() {
-    cat "${GRAYLOG_PID}" 2> /dev/null
+    cat "${LOGMANAGER_PID}" 2> /dev/null
 }
 
 pid_running() {
@@ -32,63 +32,63 @@ then
 fi
 
 # resolve links - $0 may be a softlink
-GRAYLOGCTL="$0"
+LOGMANAGERCTL="$0"
 
-while [ -h "$GRAYLOGCTL" ]; do
-    ls=$(ls -ld "$GRAYLOGCTL")
+while [ -h "$LOGMANAGERCTL" ]; do
+    ls=$(ls -ld "$LOGMANAGERCTL")
     link=$(expr "$ls" : '.*-> \(.*\)$')
     if expr "$link" : '/.*' > /dev/null; then
-        GRAYLOGCTL="$link"
+        LOGMANAGERCTL="$link"
     else
-        GRAYLOGCTL=$(dirname "$GRAYLOGCTL")/"$link"
+        LOGMANAGERCTL=$(dirname "$LOGMANAGERCTL")/"$link"
     fi
 done
 
 # take variables from environment if set
-GRAYLOGCTL_DIR=${GRAYLOGCTL_DIR:=$(dirname "$GRAYLOGCTL")}
-GRAYLOG_SERVER_JAR=${GRAYLOG_SERVER_JAR:=graylog.jar}
-GRAYLOG_CONF=${GRAYLOG_CONF:=/etc/graylog/server/server.conf}
-GRAYLOG_PID=${GRAYLOG_PID:=/tmp/graylog.pid}
-LOG_FILE=${LOG_FILE:=log/graylog-server.log}
+LOGMANAGERCTL_DIR=${LOGMANAGERCTL_DIR:=$(dirname "$LOGMANAGERCTL")}
+LOGMANAGER_SERVER_JAR=${LOGMANAGER_SERVER_JAR:=logmanager.jar}
+LOGMANAGER_CONF=${LOGMANAGER_CONF:=/opt/logmanager/server.conf}
+LOGMANAGER_PID=${LOGMANAGER_PID:=/opt/logmanager/logmanager.pid}
+LOG_FILE=${LOG_FILE:=log/logmanager-server.log}
 LOG4J=${LOG4J:=}
-DEFAULT_JAVA_OPTS="-Djava.library.path=${GRAYLOGCTL_DIR}/../lib/sigar -Djdk.tls.acknowledgeCloseNotify=true -Xms1g -Xmx1g -XX:NewRatio=1 -server -XX:+ResizeTLAB -XX:+UseConcMarkSweepGC -XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:-OmitStackTraceInFastThrow"
+DEFAULT_JAVA_OPTS="-Djava.library.path=${LOGMANAGERCTL_DIR}/../lib/sigar -Djdk.tls.acknowledgeCloseNotify=true -Xms1g -Xmx1g -XX:NewRatio=1 -server -XX:+ResizeTLAB -XX:+UseConcMarkSweepGC -XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:-OmitStackTraceInFastThrow"
 if $JAVA_CMD -XX:+PrintFlagsFinal 2>&1 |grep -q UseParNewGC; then
 	DEFAULT_JAVA_OPTS="${DEFAULT_JAVA_OPTS} -XX:+UseParNewGC"
 fi
 JAVA_OPTS="${JAVA_OPTS:="$DEFAULT_JAVA_OPTS"}"
 
 start() {
-    echo "Starting graylog-server ..."
-    cd "$GRAYLOGCTL_DIR/.."
-    "${NOHUP}" "${JAVA_CMD}" ${JAVA_OPTS} ${LOG4J} -jar "${GRAYLOG_SERVER_JAR}" server -f "${GRAYLOG_CONF}" -p "${GRAYLOG_PID}" >> "${LOG_FILE}" 2>> "${LOG_FILE}" &
+    echo "Starting logmanager-server ..."
+    cd "$LOGMANAGERCTL_DIR/.."
+    "${NOHUP}" "${JAVA_CMD}" ${JAVA_OPTS} ${LOG4J} -jar "${LOGMANAGER_SERVER_JAR}" server -f "${LOGMANAGER_CONF}" -p "${LOGMANAGER_PID}" >> "${LOG_FILE}" 2>> "${LOG_FILE}" &
 }
 
 run() {
-    echo "Running graylog-server ..."
-    cd "$GRAYLOGCTL_DIR/.."
-    exec "${JAVA_CMD}" ${JAVA_OPTS} ${LOG4J} -jar "${GRAYLOG_SERVER_JAR}" server -f "${GRAYLOG_CONF}" -p "${GRAYLOG_PID}"
+    echo "Running logmanager-server ..."
+    cd "$LOGMANAGERCTL_DIR/.."
+    exec "${JAVA_CMD}" ${JAVA_OPTS} ${LOG4J} -jar "${LOGMANAGER_SERVER_JAR}" server -f "${LOGMANAGER_CONF}" -p "${LOGMANAGER_PID}"
 }
 
 stop() {
-    if [ ! -f "${GRAYLOG_PID}" ]; then
-      die "Not stopping. PID file not found: ${GRAYLOG_PID}"
+    if [ ! -f "${LOGMANAGER_PID}" ]; then
+      die "Not stopping. PID file not found: ${LOGMANAGER_PID}"
     fi
 
     PID=$(get_pid)
 
-    echo "Stopping graylog-server ($PID) ..."
-    echo "Waiting for graylog-server to halt."
+    echo "Stopping logmanager-server ($PID) ..."
+    echo "Waiting for logmanager-server to halt."
 
     kill $PID
 
     while "$PS" -p $PID > /dev/null; do sleep 1; done;
-    rm -f "${GRAYLOG_PID}"
+    rm -f "${LOGMANAGER_PID}"
 
-    echo "graylog-server stopped"
+    echo "logmanager-server stopped"
 }
 
 restart() {
-    echo "Restarting graylog-server ..."
+    echo "Restarting logmanager-server ..."
     stop
     start
 }
@@ -97,15 +97,15 @@ status() {
     PID=$(get_pid)
     if [ ! -z $PID ]; then
         if pid_running $PID; then
-            echo "graylog-server running with PID ${PID}"
+            echo "logmanager-server running with PID ${PID}"
             return 0
         else
-            rm "${GRAYLOG_PID}"
-            die "Removed stale PID file ${GRAYLOG_PID} with ${PID}."
+            rm "${LOGMANAGER_PID}"
+            die "Removed stale PID file ${LOGMANAGER_PID} with ${PID}."
         fi
     fi
 
-    die "graylog-server not running"
+    die "logmanager-server not running"
 }
 
 case "$CMD" in
