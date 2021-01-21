@@ -7,7 +7,7 @@
         <module>logmanager-plugin-parent</module>
         <module>logmanager-plugin-archetype</module>
         <module>logmanager-storage-elasticsearch6</module>
-        <!--<module>logmanager-storage-elasticsearch7</module>-->
+        <module>logmanager-storage-elasticsearch7</module>
         <module>logmanager-distribution</module>
     </modules>
 

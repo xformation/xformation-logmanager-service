@@ -61,10 +61,10 @@
             <source>${project.basedir}/../logmanager-storage-elasticsearch6/target/logmanager-storage-elasticsearch6-${project.version}.jar</source>
             <outputDirectory>plugin/</outputDirectory>
         </file>
-        <!--
+        
 		<file>
-            <source>${project.basedir}/../graylog-storage-elasticsearch7/target/graylog-storage-elasticsearch7-${project.version}.jar</source>
+            <source>${project.basedir}/../logmanager-storage-elasticsearch7/target/logmanager-storage-elasticsearch7-${project.version}.jar</source>
             <outputDirectory>plugin/</outputDirectory>
-        </file>-->
+        </file>
     </files>
 </assembly>

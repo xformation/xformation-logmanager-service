@@ -188,6 +188,7 @@ http_bind_address = 127.0.0.1:7037
 #
 # Default: http://127.0.0.1:9200
 #elasticsearch_hosts = http://node1:9200,http://user:password@node2:19200
+elasticsearch_hosts = http://127.0.0.1:9200
 
 # Maximum amount of time to wait for successfull connection to Elasticsearch HTTP port.
 #
