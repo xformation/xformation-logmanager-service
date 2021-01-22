@@ -8,8 +8,8 @@ import com.synectiks.process.server.contentpacks.model.constraints.ConstraintChe
 import com.synectiks.process.server.contentpacks.model.constraints.PluginVersionConstraint;
 import com.synectiks.process.server.plugin.PluginMetaData;
 import com.synectiks.process.server.plugin.Version;
-import com.vdurmont.semver4j.Requirement;
-import com.vdurmont.semver4j.Semver;
+import com.synectiks.process.server.semver4j.Requirement;
+import com.synectiks.process.server.semver4j.Semver;
 
 import javax.inject.Inject;
 import java.util.Collection;

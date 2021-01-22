@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.auto.value.AutoValue;
 import com.synectiks.process.server.plugin.PluginMetaData;
 import com.synectiks.process.server.plugin.Version;
-import com.vdurmont.semver4j.Requirement;
+import com.synectiks.process.server.semver4j.Requirement;
 
 import java.util.Optional;
 

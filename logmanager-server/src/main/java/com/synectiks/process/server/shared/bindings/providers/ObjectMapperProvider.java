@@ -37,8 +37,8 @@ import com.synectiks.process.server.security.encryption.EncryptedValueService;
 import com.synectiks.process.server.shared.jackson.SizeSerializer;
 import com.synectiks.process.server.shared.plugins.GraylogClassLoader;
 import com.synectiks.process.server.shared.rest.RangeJsonSerializer;
-import com.vdurmont.semver4j.Requirement;
-import com.vdurmont.semver4j.Semver;
+import com.synectiks.process.server.semver4j.Requirement;
+import com.synectiks.process.server.semver4j.Semver;
 
 import org.joda.time.Period;
 

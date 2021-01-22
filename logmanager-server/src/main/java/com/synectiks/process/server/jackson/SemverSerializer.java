@@ -5,7 +5,7 @@ package com.synectiks.process.server.jackson;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import com.vdurmont.semver4j.Semver;
+import com.synectiks.process.server.semver4j.Semver;
 
 import java.io.IOException;
 

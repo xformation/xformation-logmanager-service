@@ -7,8 +7,8 @@ import com.google.common.collect.ImmutableSet;
 import com.synectiks.process.server.contentpacks.model.constraints.Constraint;
 import com.synectiks.process.server.contentpacks.model.constraints.ConstraintCheckResult;
 import com.synectiks.process.server.contentpacks.model.constraints.GraylogVersionConstraint;
-import com.vdurmont.semver4j.Requirement;
-import com.vdurmont.semver4j.Semver;
+import com.synectiks.process.server.semver4j.Requirement;
+import com.synectiks.process.server.semver4j.Semver;
 
 import java.util.Collection;
 import java.util.Set;

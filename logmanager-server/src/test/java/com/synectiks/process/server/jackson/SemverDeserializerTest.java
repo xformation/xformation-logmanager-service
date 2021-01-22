@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.synectiks.process.server.jackson.SemverDeserializer;
-import com.vdurmont.semver4j.Semver;
+import com.synectiks.process.server.semver4j.Semver;
 import org.junit.Before;
 import org.junit.Test;
 

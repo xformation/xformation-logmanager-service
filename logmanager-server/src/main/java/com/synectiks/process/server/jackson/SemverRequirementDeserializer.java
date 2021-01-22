@@ -7,9 +7,9 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.JsonTokenId;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.vdurmont.semver4j.Requirement;
-import com.vdurmont.semver4j.Semver;
-import com.vdurmont.semver4j.SemverException;
+import com.synectiks.process.server.semver4j.Requirement;
+import com.synectiks.process.server.semver4j.Semver;
+import com.synectiks.process.server.semver4j.SemverException;
 
 import java.io.IOException;
 
