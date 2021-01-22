@@ -174,11 +174,11 @@
                 <version>${okhttp.version}</version>
             </dependency>
 
-            <dependency>
+            <!-- <dependency>
                 <groupId>org.graylog2</groupId>
                 <artifactId>syslog4j</artifactId>
                 <version>${syslog4j.version}</version>
-            </dependency>
+            </dependency> -->
 
             <!-- Cmdline and configuration -->
             <dependency>

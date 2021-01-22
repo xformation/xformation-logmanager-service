@@ -22,11 +22,11 @@ import com.synectiks.process.server.plugin.inputs.codecs.CodecAggregator;
 import com.synectiks.process.server.plugin.inputs.transports.NettyTransport;
 import com.synectiks.process.server.plugin.journal.RawMessage;
 
-import org.graylog2.syslog4j.server.SyslogServerEventIF;
-import org.graylog2.syslog4j.server.impl.event.CiscoSyslogServerEvent;
-import org.graylog2.syslog4j.server.impl.event.FortiGateSyslogEvent;
-import org.graylog2.syslog4j.server.impl.event.SyslogServerEvent;
-import org.graylog2.syslog4j.server.impl.event.structured.StructuredSyslogServerEvent;
+import com.synectiks.process.server.syslog4j.server.SyslogServerEventIF;
+import com.synectiks.process.server.syslog4j.server.impl.event.CiscoSyslogServerEvent;
+import com.synectiks.process.server.syslog4j.server.impl.event.FortiGateSyslogEvent;
+import com.synectiks.process.server.syslog4j.server.impl.event.SyslogServerEvent;
+import com.synectiks.process.server.syslog4j.server.impl.event.structured.StructuredSyslogServerEvent;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

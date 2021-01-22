@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableMap;
 import com.synectiks.process.server.inputs.codecs.SyslogCodec;
 import com.synectiks.process.server.plugin.configuration.Configuration;
 
-import org.graylog2.syslog4j.server.impl.event.structured.StructuredSyslogServerEvent;
+import com.synectiks.process.server.syslog4j.server.impl.event.structured.StructuredSyslogServerEvent;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
