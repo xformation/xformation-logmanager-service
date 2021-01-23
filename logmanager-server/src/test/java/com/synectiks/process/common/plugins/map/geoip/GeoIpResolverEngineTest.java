@@ -4,7 +4,7 @@ package com.synectiks.process.common.plugins.map.geoip;
 
 import com.codahale.metrics.MetricFilter;
 import com.codahale.metrics.MetricRegistry;
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.google.common.collect.Maps;
 import com.google.common.net.InetAddresses;
 import com.synectiks.process.common.plugins.map.ConditionalRunner;

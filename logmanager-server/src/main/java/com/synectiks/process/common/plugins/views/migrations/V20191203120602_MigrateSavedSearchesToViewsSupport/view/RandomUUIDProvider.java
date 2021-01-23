@@ -2,7 +2,7 @@
  * */
 package com.synectiks.process.common.plugins.views.migrations.V20191203120602_MigrateSavedSearchesToViewsSupport.view;
 
-import com.eaio.uuid.UUIDGen;
+import com.synectiks.process.server.uuid.UUIDGen;
 
 import javax.inject.Inject;
 import java.util.Date;

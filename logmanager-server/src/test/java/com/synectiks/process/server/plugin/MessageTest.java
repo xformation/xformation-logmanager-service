@@ -4,7 +4,7 @@ package com.synectiks.process.server.plugin;
 
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.MetricRegistry;
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;

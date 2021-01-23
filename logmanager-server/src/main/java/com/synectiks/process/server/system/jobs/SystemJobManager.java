@@ -4,7 +4,7 @@ package com.synectiks.process.server.system.jobs;
 
 import com.codahale.metrics.InstrumentedScheduledExecutorService;
 import com.codahale.metrics.MetricRegistry;
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.google.common.base.Stopwatch;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.synectiks.process.server.shared.system.activities.Activity;

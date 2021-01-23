@@ -318,11 +318,11 @@
                 <version>${disruptor.version}</version>
             </dependency>
 
-            <dependency>
+            <!-- <dependency>
                 <groupId>org.graylog2.repackaged</groupId>
                 <artifactId>uuid</artifactId>
                 <version>${uuid.version}</version>
-            </dependency>
+            </dependency> -->
             <dependency>
                 <groupId>de.huxhorn.sulky</groupId>
                 <artifactId>de.huxhorn.sulky.ulid</artifactId>

@@ -2,7 +2,7 @@
  * */
 package com.synectiks.process.server.shared.buffers;
 
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.google.common.base.MoreObjects;
 import com.lmax.disruptor.EventFactory;
 import com.lmax.disruptor.EventTranslatorOneArg;

@@ -3,7 +3,7 @@
 package com.synectiks.process.server.rest.resources.system;
 
 import com.codahale.metrics.annotation.Timed;
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.synectiks.process.server.cluster.Node;
 import com.synectiks.process.server.cluster.NodeNotFoundException;
 import com.synectiks.process.server.cluster.NodeService;

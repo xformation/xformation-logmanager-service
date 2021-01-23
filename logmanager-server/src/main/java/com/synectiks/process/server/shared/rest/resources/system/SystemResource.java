@@ -4,7 +4,7 @@ package com.synectiks.process.server.shared.rest.resources.system;
 
 import com.codahale.metrics.annotation.Timed;
 import com.codahale.metrics.jvm.ThreadDump;
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.github.joschi.jadconfig.util.Size;
 import com.google.common.collect.ImmutableMap;
 import com.synectiks.process.server.plugin.ServerStatus;

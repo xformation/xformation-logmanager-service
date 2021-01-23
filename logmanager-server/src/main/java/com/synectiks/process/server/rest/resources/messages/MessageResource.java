@@ -3,7 +3,7 @@
 package com.synectiks.process.server.rest.resources.messages;
 
 import com.codahale.metrics.annotation.Timed;
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.google.common.net.InetAddresses;
 import com.synectiks.process.server.audit.jersey.NoAuditEvent;
 import com.synectiks.process.server.indexer.IndexSetRegistry;

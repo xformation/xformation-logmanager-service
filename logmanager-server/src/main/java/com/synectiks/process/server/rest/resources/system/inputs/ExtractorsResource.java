@@ -107,7 +107,7 @@ public class ExtractorsResource extends RestResource {
         checkPermission(RestPermissions.INPUTS_EDIT, inputId);
 
         final Input mongoInput = inputService.find(inputId);
-        final String id = new com.eaio.uuid.UUID().toString();
+        final String id = new com.synectiks.process.server.uuid.UUID().toString();
         final Extractor extractor = buildExtractorFromRequest(cer, id);
 
         try {

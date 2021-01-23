@@ -3,7 +3,7 @@
 package com.synectiks.process.server.plugin;
 
 import com.codahale.metrics.Meter;
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;

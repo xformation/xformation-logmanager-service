@@ -2,7 +2,7 @@
  * */
 package com.synectiks.process.server.plugin.journal;
 
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.Lists;
 import com.google.protobuf.ByteString;

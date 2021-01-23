@@ -2,7 +2,7 @@
  * */
 package com.synectiks.process.server.inputs.codecs;
 
-import com.eaio.uuid.UUID;
+import com.synectiks.process.server.uuid.UUID;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
