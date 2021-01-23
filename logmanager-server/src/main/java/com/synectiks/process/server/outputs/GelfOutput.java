@@ -18,12 +18,12 @@ import com.synectiks.process.server.plugin.outputs.MessageOutput;
 import com.synectiks.process.server.plugin.outputs.MessageOutputConfigurationException;
 import com.synectiks.process.server.plugin.streams.Stream;
 
-import org.graylog2.gelfclient.GelfConfiguration;
-import org.graylog2.gelfclient.GelfMessage;
-import org.graylog2.gelfclient.GelfMessageBuilder;
-import org.graylog2.gelfclient.GelfMessageLevel;
-import org.graylog2.gelfclient.GelfTransports;
-import org.graylog2.gelfclient.transport.GelfTransport;
+import com.synectiks.process.server.gelfclient.GelfConfiguration;
+import com.synectiks.process.server.gelfclient.GelfMessage;
+import com.synectiks.process.server.gelfclient.GelfMessageBuilder;
+import com.synectiks.process.server.gelfclient.GelfMessageLevel;
+import com.synectiks.process.server.gelfclient.GelfTransports;
+import com.synectiks.process.server.gelfclient.transport.GelfTransport;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

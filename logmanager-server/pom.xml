@@ -314,10 +314,10 @@
             <artifactId>grok</artifactId>
         </dependency>
 
-        <dependency>
+        <!-- <dependency>
             <groupId>org.graylog2</groupId>
             <artifactId>gelfclient</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>

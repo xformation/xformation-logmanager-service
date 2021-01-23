@@ -2,9 +2,9 @@
  * */
 package com.synectiks.process.server.outputs;
 
-import org.graylog2.gelfclient.GelfMessage;
-import org.graylog2.gelfclient.GelfMessageLevel;
-import org.graylog2.gelfclient.transport.GelfTransport;
+import com.synectiks.process.server.gelfclient.GelfMessage;
+import com.synectiks.process.server.gelfclient.GelfMessageLevel;
+import com.synectiks.process.server.gelfclient.transport.GelfTransport;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.junit.Test;

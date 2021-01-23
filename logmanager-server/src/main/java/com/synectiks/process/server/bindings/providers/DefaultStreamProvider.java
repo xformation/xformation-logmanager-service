@@ -2,7 +2,7 @@
  * */
 package com.synectiks.process.server.bindings.providers;
 
-import org.graylog2.gelfclient.util.Uninterruptibles;
+import com.synectiks.process.server.gelfclient.util.Uninterruptibles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

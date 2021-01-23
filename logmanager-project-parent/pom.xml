@@ -397,11 +397,11 @@
                 <scope>provided</scope>
             </dependency>
 
-            <dependency>
+            <!-- <dependency>
                 <groupId>org.graylog2</groupId>
                 <artifactId>gelfclient</artifactId>
                 <version>${gelfclient.version}</version>
-            </dependency>
+            </dependency> -->
 
             <dependency>
                 <groupId>com.github.rvesse</groupId>
