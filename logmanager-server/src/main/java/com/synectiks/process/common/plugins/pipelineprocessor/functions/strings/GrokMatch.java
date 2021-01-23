@@ -10,8 +10,8 @@ import com.synectiks.process.common.plugins.pipelineprocessor.ast.functions.Func
 import com.synectiks.process.common.plugins.pipelineprocessor.ast.functions.ParameterDescriptor;
 import com.synectiks.process.server.grok.GrokPatternRegistry;
 
-import io.krakens.grok.api.Grok;
-import io.krakens.grok.api.Match;
+import com.synectiks.process.server.grok.krakens.Grok;
+import com.synectiks.process.server.grok.krakens.Match;
 
 import javax.inject.Inject;
 import java.util.Map;

@@ -11,10 +11,10 @@ import com.synectiks.process.server.rest.models.tools.requests.GrokTestRequest;
 import com.synectiks.process.server.rest.resources.tools.responses.GrokTesterResponse;
 import com.synectiks.process.server.shared.rest.resources.RestResource;
 
-import io.krakens.grok.api.Grok;
-import io.krakens.grok.api.GrokCompiler;
-import io.krakens.grok.api.Match;
-import io.krakens.grok.api.exception.GrokException;
+import com.synectiks.process.server.grok.krakens.Grok;
+import com.synectiks.process.server.grok.krakens.GrokCompiler;
+import com.synectiks.process.server.grok.krakens.Match;
+import com.synectiks.process.server.grok.krakens.exception.GrokException;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 
 import javax.inject.Inject;

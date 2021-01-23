@@ -22,7 +22,7 @@ import com.synectiks.process.server.search.SearchQueryParser;
 import com.synectiks.process.server.shared.rest.resources.RestResource;
 import com.synectiks.process.server.shared.security.RestPermissions;
 
-import io.krakens.grok.api.exception.GrokException;
+import com.synectiks.process.server.grok.krakens.exception.GrokException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

@@ -2,8 +2,8 @@
  * */
 package com.synectiks.process.server.grok;
 
-import io.krakens.grok.api.GrokUtils;
-import io.krakens.grok.api.exception.GrokException;
+import com.synectiks.process.server.grok.krakens.GrokUtils;
+import com.synectiks.process.server.grok.krakens.exception.GrokException;
 
 import com.synectiks.process.server.database.NotFoundException;
 import com.synectiks.process.server.plugin.database.ValidationException;

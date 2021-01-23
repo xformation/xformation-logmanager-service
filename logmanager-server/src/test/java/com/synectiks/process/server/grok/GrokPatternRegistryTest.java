@@ -9,7 +9,7 @@ import com.synectiks.process.server.grok.GrokPatternRegistry;
 import com.synectiks.process.server.grok.GrokPatternService;
 import com.synectiks.process.server.grok.GrokPatternsUpdatedEvent;
 
-import io.krakens.grok.api.Grok;
+import com.synectiks.process.server.grok.krakens.Grok;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Rule;

@@ -9,8 +9,8 @@ import com.google.common.cache.LoadingCache;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import com.google.common.util.concurrent.UncheckedExecutionException;
-import io.krakens.grok.api.Grok;
-import io.krakens.grok.api.GrokCompiler;
+import com.synectiks.process.server.grok.krakens.Grok;
+import com.synectiks.process.server.grok.krakens.GrokCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

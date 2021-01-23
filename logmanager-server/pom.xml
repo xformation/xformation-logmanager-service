@@ -45,6 +45,7 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <!-- to work around filtering bug, which makes maven.build.timestamp inaccessible -->
         <build.timestamp>${maven.build.timestamp}</build.timestamp>
+        <named.regex.version>0.2.3</named.regex.version>
     </properties>
 
 	<!-- <dependencyManagement>
@@ -309,10 +310,10 @@
             <artifactId>commons-codec</artifactId>
         </dependency>
 
-        <dependency>
+        <!-- <dependency>
             <groupId>org.graylog2.repackaged</groupId>
             <artifactId>grok</artifactId>
-        </dependency>
+        </dependency> -->
 
         <!-- <dependency>
             <groupId>org.graylog2</groupId>
@@ -669,6 +670,12 @@
             <version>1.5.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+			<groupId>com.github.tony19</groupId>
+			<artifactId>named-regexp</artifactId>
+			<version>${named.regex.version}</version>
+			<scope>compile</scope>
+		</dependency>
     </dependencies>
 
     <build>

@@ -13,9 +13,9 @@ import com.synectiks.process.server.database.NotFoundException;
 import com.synectiks.process.server.events.ClusterEventBus;
 import com.synectiks.process.server.plugin.database.ValidationException;
 
-import io.krakens.grok.api.Grok;
-import io.krakens.grok.api.GrokCompiler;
-import io.krakens.grok.api.exception.GrokException;
+import com.synectiks.process.server.grok.krakens.Grok;
+import com.synectiks.process.server.grok.krakens.GrokCompiler;
+import com.synectiks.process.server.grok.krakens.exception.GrokException;
 import org.bson.types.ObjectId;
 import org.mongojack.DBCursor;
 import org.mongojack.DBQuery;

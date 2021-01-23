@@ -9,8 +9,8 @@ import com.synectiks.process.server.grok.GrokPatternRegistry;
 import com.synectiks.process.server.plugin.inputs.Converter;
 import com.synectiks.process.server.plugin.inputs.Extractor;
 
-import io.krakens.grok.api.Grok;
-import io.krakens.grok.api.Match;
+import com.synectiks.process.server.grok.krakens.Grok;
+import com.synectiks.process.server.grok.krakens.Match;
 
 import java.util.ArrayList;
 import java.util.List;
