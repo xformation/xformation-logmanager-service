@@ -27,7 +27,7 @@ import com.synectiks.process.server.shared.system.activities.Activity;
 import com.synectiks.process.server.shared.system.activities.ActivityWriter;
 import com.synectiks.process.server.shared.system.stats.SystemStatsModule;
 
-import org.jsoftbiz.utils.OS;
+import com.synectiks.process.server.osfinder.utils.OS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

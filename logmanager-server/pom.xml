@@ -427,10 +427,10 @@
             <artifactId>converter-jackson</artifactId>
         </dependency>
 
-        <dependency>
+        <!-- <dependency>
             <groupId>org.graylog.repackaged</groupId>
             <artifactId>os-platform-finder</artifactId>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>javax.el</groupId>

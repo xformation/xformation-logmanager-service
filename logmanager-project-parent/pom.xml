@@ -408,11 +408,11 @@
                 <artifactId>airline</artifactId>
                 <version>${airline.version}</version>
             </dependency>
-            <dependency>
+            <!-- <dependency>
                 <groupId>org.graylog.repackaged</groupId>
                 <artifactId>os-platform-finder</artifactId>
                 <version>${os-platform-finder.version}</version>
-            </dependency>
+            </dependency> -->
             <dependency>
                 <groupId>org.hdrhistogram</groupId>
                 <artifactId>HdrHistogram</artifactId>
