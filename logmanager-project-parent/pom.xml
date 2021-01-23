@@ -486,11 +486,11 @@
                 <artifactId>geoip2</artifactId>
                 <version>${geoip2.version}</version>
             </dependency>
-            <dependency>
+            <!-- <dependency>
                 <groupId>org.graylog.cef</groupId>
                 <artifactId>cef-parser</artifactId>
                 <version>${cef-parser.version}</version>
-            </dependency>
+            </dependency> -->
             <dependency>
                 <groupId>org.antlr</groupId>
                 <artifactId>antlr4-runtime</artifactId>

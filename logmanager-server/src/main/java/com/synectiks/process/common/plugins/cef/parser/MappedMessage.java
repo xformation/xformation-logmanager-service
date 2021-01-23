@@ -2,7 +2,7 @@
  * */
 package com.synectiks.process.common.plugins.cef.parser;
 
-import com.github.jcustenborder.cef.Message;
+import com.synectiks.process.server.cef.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

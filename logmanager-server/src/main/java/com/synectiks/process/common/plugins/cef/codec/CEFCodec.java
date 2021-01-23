@@ -2,8 +2,8 @@
  * */
 package com.synectiks.process.common.plugins.cef.codec;
 
-import com.github.jcustenborder.cef.CEFParser;
-import com.github.jcustenborder.cef.CEFParserFactory;
+import com.synectiks.process.server.cef.CEFParser;
+import com.synectiks.process.server.cef.CEFParserFactory;
 import com.google.common.primitives.Ints;
 import com.google.inject.assistedinject.Assisted;
 import com.google.inject.assistedinject.AssistedInject;
@@ -134,7 +134,7 @@ public class CEFCodec implements Codec {
         }
     }
 
-    protected String buildMessageSummary(com.github.jcustenborder.cef.Message cef) {
+    protected String buildMessageSummary(com.synectiks.process.server.cef.Message cef) {
         return cef.deviceProduct() + ": [" + cef.deviceEventClassId() + ", " + cef.severity() + "] " + cef.name();
     }
 

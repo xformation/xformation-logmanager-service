@@ -4,8 +4,8 @@ package com.synectiks.process.common.plugins.cef.pipelines.rules;
 
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
-import com.github.jcustenborder.cef.CEFParser;
-import com.github.jcustenborder.cef.CEFParserFactory;
+import com.synectiks.process.server.cef.CEFParser;
+import com.synectiks.process.server.cef.CEFParserFactory;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.inject.Inject;
 import com.synectiks.process.common.plugins.cef.parser.MappedMessage;

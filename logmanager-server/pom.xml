@@ -547,10 +547,10 @@
             <groupId>com.maxmind.geoip2</groupId>
             <artifactId>geoip2</artifactId>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.graylog.cef</groupId>
             <artifactId>cef-parser</artifactId>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4-runtime</artifactId>

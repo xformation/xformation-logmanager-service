@@ -28,7 +28,7 @@ public class CEFCodecTest {
 
     @Test
     public void buildMessageSummary() throws Exception {
-        final com.github.jcustenborder.cef.Message cefMessage = mock(com.github.jcustenborder.cef.Message.class);
+        final com.synectiks.process.server.cef.Message cefMessage = mock(com.synectiks.process.server.cef.Message.class);
         when(cefMessage.deviceProduct()).thenReturn("product");
         when(cefMessage.deviceEventClassId()).thenReturn("event-class-id");
         when(cefMessage.name()).thenReturn("name");
