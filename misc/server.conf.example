@@ -102,7 +102,7 @@ plugin_dir = plugin
 # If the port is omitted, Logmanager will use port 9000 by default.
 #
 # Default: 127.0.0.1:7037
-http_bind_address = 127.0.0.1:7037
+http_bind_address = 100.64.108.25:7037
 #http_bind_address = [2001:db8::1]:7037
 
 #### HTTP publish URI
@@ -142,7 +142,7 @@ http_bind_address = 127.0.0.1:7037
 # with a separate server for frontend development.
 #
 # Default: false
-#http_enable_cors = false
+http_enable_cors = true
 
 #### Enable GZIP support for HTTP interface
 #
