@@ -102,7 +102,7 @@ plugin_dir = plugin
 # If the port is omitted, Logmanager will use port 9000 by default.
 #
 # Default: 127.0.0.1:7037
-http_bind_address = 100.64.108.25:7037
+http_bind_address = 100.81.3.27:7037
 #http_bind_address = [2001:db8::1]:7037
 
 #### HTTP publish URI
@@ -120,6 +120,7 @@ http_bind_address = 100.64.108.25:7037
 #
 # Default: http://$http_bind_address/
 #http_publish_uri = http://192.168.1.1:9000/
+http_publish_uri = http://100.81.3.27:7037/
 
 #### External Logmanager URI
 #
@@ -188,7 +189,7 @@ http_enable_cors = true
 #
 # Default: http://127.0.0.1:9200
 #elasticsearch_hosts = http://node1:9200,http://user:password@node2:19200
-elasticsearch_hosts = http://127.0.0.1:9200
+#elasticsearch_hosts = http://127.0.0.1:9200
 
 # Maximum amount of time to wait for successfull connection to Elasticsearch HTTP port.
 #
@@ -687,3 +688,6 @@ proxied_requests_thread_pool_size = 32
 # Setting this to an empty value, leaves it up to system libraries and the used JDK to chose a default.
 # Default: TLSv1.2,TLSv1.3  (might be automatically adjusted to protocols supported by the JDK) 
 #enabled_tls_protocols= TLSv1.2,TLSv1.3
+
+# Default: false
+enable_web_framework = true
