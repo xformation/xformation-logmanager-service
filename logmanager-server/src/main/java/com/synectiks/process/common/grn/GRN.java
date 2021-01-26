@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.util.StringJoiner;
 
 /**
- * This is a helper class for GRNs - Graylog Resource Names
+ * This is a helper class for GRNs - Logmanager Resource Names
  * GRNs are like URNs that we use for internal purposes only
  * <p>
  * <pre>

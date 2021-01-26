@@ -44,17 +44,17 @@ public abstract class LookupCache extends AbstractIdleService {
         this.name = name;
         this.config = config;
 
-        this.totalCount = metricRegistry.meter(MetricRegistry.name("org.graylog2.lookup.caches", id, "requests"));
-        this.hitCount = metricRegistry.meter(MetricRegistry.name("org.graylog2.lookup.caches", id, "hits"));
-        this.missCount = metricRegistry.meter(MetricRegistry.name("org.graylog2.lookup.caches", id, "misses"));
-        this.lookupTimer = metricRegistry.timer(MetricRegistry.name("org.graylog2.lookup.caches", id, "lookupTime"));
+        this.totalCount = metricRegistry.meter(MetricRegistry.name("com.synectiks.process.server.lookup.caches", id, "requests"));
+        this.hitCount = metricRegistry.meter(MetricRegistry.name("com.synectiks.process.server.lookup.caches", id, "hits"));
+        this.missCount = metricRegistry.meter(MetricRegistry.name("com.synectiks.process.server.lookup.caches", id, "misses"));
+        this.lookupTimer = metricRegistry.timer(MetricRegistry.name("com.synectiks.process.server.lookup.caches", id, "lookupTime"));
         final Gauge<Long> entriesGauge = new Gauge<Long>() {
             @Override
             public Long getValue() {
                 return entryCount();
             }
         };
-        MetricUtils.safelyRegister(metricRegistry, MetricRegistry.name("org.graylog2.lookup.caches", id, "entries"), entriesGauge);
+        MetricUtils.safelyRegister(metricRegistry, MetricRegistry.name("com.synectiks.process.server.lookup.caches", id, "entries"), entriesGauge);
     }
 
     @Deprecated

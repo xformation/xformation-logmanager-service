@@ -82,7 +82,6 @@ public class DBProcessingStatusService {
 
         // Use a custom index name to avoid the automatically generated index name which will be pretty long and
         // might cause errors due to the 127 character index name limit. (e.g. when using a long database name)
-        // See: https://github.com/Graylog2/graylog2-server/issues/6322
         db.createIndex(new BasicDBObject(FIELD_UPDATED_AT, 1)
                 .append(FIELD_UNCOMMITTED_ENTRIES, 1)
                 .append(FIELD_WRITTEN_MESSAGES_1M, 1), new BasicDBObject("name", "compound_0"));
@@ -107,7 +106,7 @@ public class DBProcessingStatusService {
     }
 
     /**
-     * Returns the earliest post-indexing receive timestamp of all active Graylog nodes in the cluster.
+     * Returns the earliest post-indexing receive timestamp of all active logmanager nodes in the cluster.
      * This can be used to find out if a certain timerange is already searchable in Elasticsearch.
      * <p>
      * Beware: This only takes the message receive time into account. It doesn't help when log sources send their

@@ -38,7 +38,7 @@ public class GRNRegistry {
     }
 
     /**
-     * Returns a registry that has been initialized with the builtin Graylog GRN types.
+     * Returns a registry that has been initialized with the builtin Logmanager GRN types.
      *
      * @return the registry
      */

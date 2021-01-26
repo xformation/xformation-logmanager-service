@@ -30,7 +30,7 @@ public interface QueryBackend<T extends GeneratedQueryContext> {
      * Generate a backend-specific query out of the logical query structure.
      *
      * @param job                currently executing job
-     * @param query              the graylog query structure
+     * @param query              the logmanager query structure
      * @param predecessorResults the query result of the preceding queries
      * @return a backend specific generated query
      */

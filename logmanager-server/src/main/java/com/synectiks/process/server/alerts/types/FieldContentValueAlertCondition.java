@@ -76,7 +76,7 @@ public class FieldContentValueAlertCondition extends AbstractAlertCondition {
         public Descriptor() {
             super(
                 "Field Content Alert Condition",
-                "https://www.graylog.org/",
+                "Synectiks/",
                 "This condition is triggered when the content of messages is equal to a defined value."
             );
         }

@@ -32,8 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A Netty channel handler encoding {@link GelfMessage} into valid JSON according to the
- * <a href="http://graylog2.org/gelf#specs">GELF specification</a>.
+ * A Netty channel handler encoding {@link GelfMessage} into valid JSON
  */
 @ChannelHandler.Sharable
 public class GelfMessageJsonEncoder extends MessageToMessageEncoder<GelfMessage> {

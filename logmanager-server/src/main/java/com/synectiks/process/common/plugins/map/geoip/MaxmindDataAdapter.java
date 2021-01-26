@@ -273,7 +273,7 @@ public class MaxmindDataAdapter extends LookupDataAdapter {
                     .type(NAME)
                     .checkInterval(1)
                     .checkIntervalUnit(TimeUnit.MINUTES)
-                    .path("/etc/graylog/server/GeoLite2-City.mmdb")
+                    .path("/opt/logmanager/GeoLite2-City.mmdb")
                     .dbType(DatabaseType.MAXMIND_CITY)
                     .build();
         }

@@ -136,7 +136,6 @@ public class MoreSearch {
 
     public Set<Stream> loadStreams(Set<String> streamIds) {
         // TODO: Use method from `StreamService` which loads a collection of ids (when implemented) to prevent n+1.
-        // Track https://github.com/Graylog2/graylog2-server/issues/4897 for progress.
         Set<Stream> streams = new HashSet<>();
         for (String streamId : streamIds) {
             try {

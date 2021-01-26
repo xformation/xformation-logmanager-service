@@ -273,7 +273,7 @@ public class HTTPJSONPathDataAdapter extends LookupDataAdapter {
                     .type(NAME)
                     .url("")
                     .singleValueJSONPath("$.value")
-                    .userAgent("Graylog Lookup - https://www.graylog.org/")
+                    .userAgent("Logmanager Lookup - https://www.logmanager.org/")
                     .headers(Collections.emptyMap())
                     .build();
         }

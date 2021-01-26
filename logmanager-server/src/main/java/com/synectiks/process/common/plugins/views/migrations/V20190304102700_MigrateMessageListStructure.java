@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 
 public class V20190304102700_MigrateMessageListStructure extends Migration {
     private static final Logger LOG = LoggerFactory.getLogger(V20190304102700_MigrateMessageListStructure.class);
-    private static final String LEGACY_MIGRATION_NAME = "org.graylog.plugins.enterprise.migrations.V20190304102700_MigrateMessageListStructure.MigrationCompleted";
+    private static final String LEGACY_MIGRATION_NAME = "com.synectiks.process.common.plugins.enterprise.migrations.V20190304102700_MigrateMessageListStructure.MigrationCompleted";
 
     private final ClusterConfigService clusterConfigService;
     private final MongoCollection<Document> viewsCollections;

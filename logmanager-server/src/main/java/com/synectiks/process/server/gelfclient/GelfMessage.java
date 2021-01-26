@@ -20,9 +20,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * A GELF message according to the <a href="http://graylog2.org/gelf#specs">GELF specification</a>
- */
 public class GelfMessage {
     private final GelfMessageVersion version;
     private final String host;

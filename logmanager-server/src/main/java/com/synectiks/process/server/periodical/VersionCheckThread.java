@@ -33,7 +33,7 @@ import static java.util.concurrent.TimeUnit.MINUTES;
 
 public class VersionCheckThread extends Periodical {
     private static final Logger LOG = LoggerFactory.getLogger(VersionCheckThread.class);
-    private static final String USER_AGENT = String.format(Locale.ENGLISH, "graylog2-server (%s, %s, %s, %s)",
+    private static final String USER_AGENT = String.format(Locale.ENGLISH, "logmanager2-server (%s, %s, %s, %s)",
             System.getProperty("java.vendor"), System.getProperty("java.version"),
             System.getProperty("os.name"), System.getProperty("os.version"));
 

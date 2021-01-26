@@ -79,7 +79,7 @@ public class Message implements Messages, Indexable {
     public static final String FIELD_STREAMS = "streams";
 
     /**
-     * Graylog is writing internal metadata to messages using this field prefix. Users must not use this prefix for
+     * Logmanager is writing internal metadata to messages using this field prefix. Users must not use this prefix for
      * custom message fields.
      */
     public static final String INTERNAL_FIELD_PREFIX = "gl2_";
@@ -101,7 +101,6 @@ public class Message implements Messages, Indexable {
      *     <li>They are guaranteed to be lexicographically sortable (UUIDs are only lexicographically sortable when time-based ones are used)</li>
      * </ul>
      *
-     * See: https://github.com/Graylog2/graylog2-server/issues/5994
      */
     public static final String FIELD_GL2_MESSAGE_ID = "gl2_message_id";
 
@@ -117,13 +116,11 @@ public class Message implements Messages, Indexable {
 
     /**
      * Will be set to the message processing time after all message processors have been run.
-     * TODO: To be done in Graylog 3.2
      */
     public static final String FIELD_GL2_PROCESSING_TIMESTAMP = "gl2_processing_timestamp";
 
     /**
      * Will be set to the message receive time at the input.
-     * TODO: To be done in Graylog 3.2
      */
     public static final String FIELD_GL2_RECEIVE_TIMESTAMP = "gl2_receive_timestamp";
 
@@ -165,14 +162,12 @@ public class Message implements Messages, Indexable {
 
     /**
      * @deprecated This was used with the now removed radio system and contained the ID of a radio node.
-     * TODO: Due to be removed in Graylog 3.x
      */
     @Deprecated
     public static final String FIELD_GL2_SOURCE_RADIO = "gl2_source_radio";
 
     /**
      * @deprecated This was used with the now removed radio system and contained the input ID of a radio node.
-     * TODO: Due to be removed in Graylog 3.x
      */
     @Deprecated
     public static final String FIELD_GL2_SOURCE_RADIO_INPUT = "gl2_source_radio_input";
@@ -197,7 +192,6 @@ public class Message implements Messages, Indexable {
         FIELD_GL2_SOURCE_RADIO_INPUT
     );
 
-    // Graylog Illuminate Fields
     private static final Set<String> ILLUMINATE_FIELDS = ImmutableSet.of(
             FIELD_ILLUMINATE_EVENT_CATEGORY,
             FIELD_ILLUMINATE_EVENT_SUBCATEGORY,
@@ -806,7 +800,6 @@ public class Message implements Messages, Indexable {
     }
 
     public void setReceiveTime(DateTime receiveTime) {
-        // TODO: In Graylog 3.2 we can set this as field in the message because at that point we have a mapping entry
         if (receiveTime != null) {
             this.receiveTime = receiveTime;
         }
@@ -818,7 +811,6 @@ public class Message implements Messages, Indexable {
     }
 
     public void setProcessingTime(DateTime processingTime) {
-        // TODO: In Graylog 3.2 we can set this as field in the message because at that point we have a mapping entry
         if (processingTime != null) {
             this.processingTime = processingTime;
         }

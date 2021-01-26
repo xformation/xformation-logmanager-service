@@ -59,7 +59,7 @@ public class ProductionIndexHtmlGenerator implements IndexHtmlGenerator {
     @Override
     public String get(MultivaluedMap<String, String> headers) {
         final Map<String, Object> model = ImmutableMap.<String, Object>builder()
-                .put("title", "Graylog Web Interface")
+                .put("title", "Logmanager Web Interface")
                 .put("cssFiles", cssFiles)
                 .put("jsFiles", sortedJsFiles)
                 .put("appPrefix", RestTools.buildExternalUri(headers, httpConfiguration.getHttpExternalUri()))

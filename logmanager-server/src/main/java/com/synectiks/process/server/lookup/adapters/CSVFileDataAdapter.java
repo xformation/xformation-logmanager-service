@@ -196,7 +196,7 @@ public class CSVFileDataAdapter extends LookupDataAdapter {
         public Config defaultConfiguration() {
             return Config.builder()
                     .type(NAME)
-                    .path("/etc/graylog/lookup-table.csv")
+                    .path("/opt/logmanager/lookup-table.csv")
                     .separator(",")
                     .quotechar("\"")
                     .keyColumn("key")

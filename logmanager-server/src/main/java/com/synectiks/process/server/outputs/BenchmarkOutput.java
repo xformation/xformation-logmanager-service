@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import static com.codahale.metrics.MetricRegistry.name;
 
 public class BenchmarkOutput implements MessageOutput {
-    private static final List<String> SKIPPED_METRIC_PREFIXES = ImmutableList.of("org.graylog2.rest.resources");
+    private static final List<String> SKIPPED_METRIC_PREFIXES = ImmutableList.of("com.synectiks.process.server.rest.resources");
 
     private final AtomicBoolean isRunning = new AtomicBoolean(false);
     private final Meter messagesWritten;

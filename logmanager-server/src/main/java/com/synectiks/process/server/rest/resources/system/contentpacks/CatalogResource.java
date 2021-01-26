@@ -44,7 +44,7 @@ public class CatalogResource {
 
     @GET
     @Timed
-    @ApiOperation(value = "List available entities in this Graylog cluster")
+    @ApiOperation(value = "List available entities in this Logmanager cluster")
     @RequiresPermissions(RestPermissions.CATALOG_LIST)
     public CatalogIndexResponse showEntityIndex() {
         final Set<EntityExcerpt> entities = contentPackService.listAllEntityExcerpts();

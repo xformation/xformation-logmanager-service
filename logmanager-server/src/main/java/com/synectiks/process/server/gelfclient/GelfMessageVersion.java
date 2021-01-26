@@ -17,8 +17,7 @@
 package com.synectiks.process.server.gelfclient;
 
 /**
- * The version of the <a href="http://graylog2.org/gelf#specs">GELF specification</a>
- * used for a {@link GelfMessage}.
+ * The version of the GELF specification used for a {@link GelfMessage}.
  */
 public enum GelfMessageVersion {
     V1_1("1.1");

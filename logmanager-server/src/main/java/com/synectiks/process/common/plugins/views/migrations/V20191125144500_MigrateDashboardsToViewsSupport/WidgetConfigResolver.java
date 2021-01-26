@@ -38,7 +38,7 @@ public class WidgetConfigResolver implements TypeIdResolver {
             case "STATS_COUNT": return StatsCountConfig.class;
             case "QUICKVALUES": return QuickValuesConfig.class;
             case "QUICKVALUES_HISTOGRAM": return QuickValuesHistogramConfig.class;
-            case "ORG.GRAYLOG.PLUGINS.MAP.WIDGET.STRATEGY.MAPWIDGETSTRATEGY": return WorldMapConfig.class;
+            case "COM.SYNECTIKS.PROCESS.COMMON.PLUGINS.MAP.WIDGET.STRATEGY.MAPWIDGETSTRATEGY": return WorldMapConfig.class;
 
             default: return UnknownWidget.class;
         }

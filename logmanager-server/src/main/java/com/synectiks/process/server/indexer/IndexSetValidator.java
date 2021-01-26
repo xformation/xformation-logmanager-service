@@ -27,9 +27,9 @@ public class IndexSetValidator {
         }
 
         // Check if an existing index set has a more generic index prefix.
-        // Example: new=graylog_foo existing=graylog => graylog is more generic so this is an error
-        // Example: new=gray        existing=graylog => gray    is more generic so this is an error
-        // This avoids problems with wildcard matching like "graylog_*".
+        // Example: new=logmanager_foo existing=logmanager => logmanager is more generic so this is an error
+        // Example: new=logmanager        existing=logmanager => gray    is more generic so this is an error
+        // This avoids problems with wildcard matching like "logmanager_*".
         for (final IndexSet indexSet : indexSetRegistry) {
             if (newConfig.indexPrefix().startsWith(indexSet.getIndexPrefix()) || indexSet.getIndexPrefix().startsWith(newConfig.indexPrefix())) {
                 return Optional.of(Violation.create("Index prefix \"" + newConfig.indexPrefix() + "\" would conflict with existing index set prefix \"" + indexSet.getIndexPrefix() + "\""));

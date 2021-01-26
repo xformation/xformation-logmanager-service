@@ -153,7 +153,7 @@ public class LegacyAlertConditionMigratorTest {
         assertThat(httpNotification.description()).isEqualTo("Migrated legacy alarm callback");
         assertThat(httpNotification.config()).isInstanceOf(LegacyAlarmCallbackEventNotificationConfig.class);
         assertThat((LegacyAlarmCallbackEventNotificationConfig) httpNotification.config()).satisfies(config -> {
-            assertThat(config.callbackType()).isEqualTo("org.graylog2.alarmcallbacks.HTTPAlarmCallback");
+            assertThat(config.callbackType()).isEqualTo("com.synectiks.process.server.alarmcallbacks.HTTPAlarmCallback");
             assertThat(config.configuration().get("url")).isEqualTo("http://localhost:11000/");
         });
 
@@ -167,7 +167,7 @@ public class LegacyAlertConditionMigratorTest {
         assertThat(httpNotificationWithoutTitle.description()).isEqualTo("Migrated legacy alarm callback");
         assertThat(httpNotificationWithoutTitle.config()).isInstanceOf(LegacyAlarmCallbackEventNotificationConfig.class);
         assertThat((LegacyAlarmCallbackEventNotificationConfig) httpNotificationWithoutTitle.config()).satisfies(config -> {
-            assertThat(config.callbackType()).isEqualTo("org.graylog2.alarmcallbacks.HTTPAlarmCallback");
+            assertThat(config.callbackType()).isEqualTo("com.synectiks.process.server.alarmcallbacks.HTTPAlarmCallback");
             assertThat(config.configuration().get("url")).isEqualTo("http://localhost:11000/");
         });
 
@@ -181,9 +181,9 @@ public class LegacyAlertConditionMigratorTest {
         assertThat(emailNotification.description()).isEqualTo("Migrated legacy alarm callback");
         assertThat(emailNotification.config()).isInstanceOf(LegacyAlarmCallbackEventNotificationConfig.class);
         assertThat((LegacyAlarmCallbackEventNotificationConfig) emailNotification.config()).satisfies(config -> {
-            assertThat(config.callbackType()).isEqualTo("org.graylog2.alarmcallbacks.EmailAlarmCallback");
-            assertThat(config.configuration().get("sender")).isEqualTo("graylog@example.org");
-            assertThat(config.configuration().get("subject")).isEqualTo("Graylog alert for stream: ${stream.title}: ${check_result.resultDescription}");
+            assertThat(config.callbackType()).isEqualTo("com.synectiks.process.server.alarmcallbacks.EmailAlarmCallback");
+            assertThat(config.configuration().get("sender")).isEqualTo("logmanager@example.org");
+            assertThat(config.configuration().get("subject")).isEqualTo("Logmanager alert for stream: ${stream.title}: ${check_result.resultDescription}");
             assertThat((String) config.configuration().get("body")).contains("Alert Description: ${check_result.resultDescription}\nDate: ");
             assertThat(config.configuration().get("user_receivers")).isEqualTo(Collections.emptyList());
             assertThat(config.configuration().get("email_receivers")).isEqualTo(Collections.singletonList("jane@example.org"));
@@ -199,14 +199,14 @@ public class LegacyAlertConditionMigratorTest {
         assertThat(slackNotification.description()).isEqualTo("Migrated legacy alarm callback");
         assertThat(slackNotification.config()).isInstanceOf(LegacyAlarmCallbackEventNotificationConfig.class);
         assertThat((LegacyAlarmCallbackEventNotificationConfig) slackNotification.config()).satisfies(config -> {
-            assertThat(config.callbackType()).isEqualTo("org.graylog2.plugins.slack.callback.SlackAlarmCallback");
+            assertThat(config.callbackType()).isEqualTo("com.synectiks.process.server.plugins.slack.callback.SlackAlarmCallback");
             assertThat(config.configuration().get("icon_url")).isEqualTo("");
-            assertThat(config.configuration().get("graylog2_url")).isEqualTo("");
+            assertThat(config.configuration().get("logmanager2_url")).isEqualTo("");
             assertThat(config.configuration().get("link_names")).isEqualTo(true);
             assertThat(config.configuration().get("webhook_url")).isEqualTo("http://example.com/slack-hook");
             assertThat(config.configuration().get("color")).isEqualTo("#FF0000");
             assertThat(config.configuration().get("icon_emoji")).isEqualTo("");
-            assertThat(config.configuration().get("user_name")).isEqualTo("Graylog");
+            assertThat(config.configuration().get("user_name")).isEqualTo("Logmanager");
             assertThat(config.configuration().get("backlog_items")).isEqualTo(5);
             assertThat(config.configuration().get("custom_fields")).isEqualTo("");
             assertThat(config.configuration().get("proxy_address")).isEqualTo("");

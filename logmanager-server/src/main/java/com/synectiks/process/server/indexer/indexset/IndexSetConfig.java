@@ -29,8 +29,6 @@ import static com.google.common.base.Strings.isNullOrEmpty;
 @AutoValue
 @WithBeanGetter
 @JsonAutoDetect
-// Ignore deprecated "default" message field. Only relevant for Graylog 2.2.0-beta.[12] users.
-// TODO: Remove in Graylog 3.0.0
 @JsonIgnoreProperties({"default"})
 public abstract class IndexSetConfig implements Comparable<IndexSetConfig> {
     public static final String FIELD_INDEX_PREFIX = "index_prefix";

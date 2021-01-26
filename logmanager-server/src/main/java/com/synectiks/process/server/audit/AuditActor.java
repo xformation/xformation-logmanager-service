@@ -15,8 +15,8 @@ import static java.util.Objects.requireNonNull;
 @AutoValue
 @WithBeanGetter
 public abstract class AuditActor {
-    private static final String URN_GRAYLOG_NODE = "urn:graylog:node:";
-    private static final String URN_GRAYLOG_USER = "urn:graylog:user:";
+    private static final String URN_LOGMANAGER_NODE = "urn:logmanager:node:";
+    private static final String URN_LOGMANAGER_USER = "urn:logmanager:user:";
 
     public abstract String urn();
 
@@ -24,10 +24,10 @@ public abstract class AuditActor {
         if (isNullOrEmpty(username)) {
             throw new IllegalArgumentException("username must not be null or empty");
         }
-        return new AutoValue_AuditActor(URN_GRAYLOG_USER + username);
+        return new AutoValue_AuditActor(URN_LOGMANAGER_USER + username);
     }
 
     public static AuditActor system(@Nonnull NodeId nodeId) {
-        return new AutoValue_AuditActor(URN_GRAYLOG_NODE + requireNonNull(nodeId, "nodeId must not be null").toString());
+        return new AutoValue_AuditActor(URN_LOGMANAGER_NODE + requireNonNull(nodeId, "nodeId must not be null").toString());
     }
 }

@@ -42,7 +42,7 @@ public class EvaluationContext {
     private List<EvalError> evalErrors;
 
     private EvaluationContext() {
-        this(new Message("__dummy", "__dummy", DateTime.parse("2010-07-30T16:03:25Z"))); // first Graylog release
+        this(new Message("__dummy", "__dummy", DateTime.parse("2010-07-30T16:03:25Z"))); 
     }
 
     public EvaluationContext(@Nonnull Message message) {

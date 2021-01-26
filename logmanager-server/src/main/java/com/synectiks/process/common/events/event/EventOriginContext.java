@@ -10,7 +10,7 @@ import java.util.Optional;
 import static com.google.common.base.Strings.isNullOrEmpty;
 
 public class EventOriginContext {
-    private static final String URN = "urn:graylog";
+    private static final String URN = "urn:logmanager";
     private static final String ES_MESSAGE = String.join(":", URN, "message:es");
     private static final String ES_EVENT = String.join(":", URN, "event:es");
 

@@ -98,7 +98,7 @@ public class MessageCountAlertCondition extends AbstractAlertCondition {
         public Descriptor() {
             super(
                 "Message Count Alert Condition",
-                "https://www.graylog.org/",
+                "Synectiks/",
                 "This condition is triggered when the number of messages is higher/lower than a defined threshold in a given time range."
             );
         }
@@ -159,7 +159,6 @@ public class MessageCountAlertCondition extends AbstractAlertCondition {
             // search requests. (count and find messages)
             // This is needed because the RelativeRange computes the range from NOW on every invocation of getFrom() and
             // getTo().
-            // See: https://github.com/Graylog2/graylog2-server/issues/2382
             final RelativeRange relativeRange = RelativeRange.create(time * 60);
             final AbsoluteRange range = AbsoluteRange.create(relativeRange.getFrom(), relativeRange.getTo());
 

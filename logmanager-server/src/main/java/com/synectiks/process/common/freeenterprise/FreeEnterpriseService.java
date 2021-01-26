@@ -93,7 +93,7 @@ public class FreeEnterpriseService {
             final Response<FreeLicenseAPIResponse> response = apiClient.requestFreeLicense(apiRequest).execute();
 
             if (response.isSuccessful() && response.body() != null) {
-                LOG.debug("Received free Graylog Enterprise license: {}", response.body());
+                LOG.debug("Received free Logmanager Enterprise license: {}", response.body());
                 final StagedFreeEnterpriseLicense dto = StagedFreeEnterpriseLicense.builder()
                         .clusterId(clusterId)
                         .license(response.body().licenseString())
@@ -105,21 +105,21 @@ public class FreeEnterpriseService {
                 eventBus.post(dto);
             } else {
                 if (response.errorBody() != null) {
-                    LOG.error("Couldn't request free Graylog Enterprise license: {} (code={})", response.errorBody().string(), response.code());
+                    LOG.error("Couldn't request free Logmanager Enterprise license: {} (code={})", response.errorBody().string(), response.code());
                 } else {
-                    LOG.error("Couldn't request free Graylog Enterprise license: {} (code={}, message=\"{}\")", response.message(), response.code(), response.message());
+                    LOG.error("Couldn't request free Logmanager Enterprise license: {} (code={}, message=\"{}\")", response.message(), response.code(), response.message());
                 }
-                throw new FreeLicenseRequestException("Couldn't request free Graylog Enterprise license", request);
+                throw new FreeLicenseRequestException("Couldn't request free Logmanager Enterprise license", request);
             }
         } catch (FreeLicenseRequestException e) {
             // no need to log this again
             throw e;
         } catch (IOException e) {
-            LOG.error("Couldn't request free Graylog Enterprise license from remote service", e);
-            throw new FreeLicenseRequestException("Couldn't request free Graylog Enterprise license from remote service", request, e);
+            LOG.error("Couldn't request free Logmanager Enterprise license from remote service", e);
+            throw new FreeLicenseRequestException("Couldn't request free Logmanager Enterprise license from remote service", request, e);
         } catch (Exception e) {
-            LOG.error("Couldn't request free Graylog Enterprise license", e);
-            throw new FreeLicenseRequestException("Couldn't request free Graylog Enterprise license", request, e);
+            LOG.error("Couldn't request free Logmanager Enterprise license", e);
+            throw new FreeLicenseRequestException("Couldn't request free Logmanager Enterprise license", request, e);
         }
     }
 }

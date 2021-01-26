@@ -150,8 +150,8 @@ public class ServerBindings extends Graylog2Module {
         bind(Engine.class).toInstance(Engine.createEngine());
         bind(ErrorPageGenerator.class).to(GraylogErrorPageGenerator.class).asEagerSingleton();
 
-        registerRestControllerPackage("org.graylog2.rest.resources");
-        registerRestControllerPackage("org.graylog2.shared.rest.resources");
+        registerRestControllerPackage("com.synectiks.process.server.rest.resources");
+        registerRestControllerPackage("com.synectiks.process.server.shared.rest.resources");
     }
 
     private void bindInterfaces() {

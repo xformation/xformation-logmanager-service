@@ -30,7 +30,7 @@ public class ThroughputCalculator extends Periodical {
 
     private final MetricRegistry metricRegistry;
 
-    protected static final Pattern incomingMessagesPattern = Pattern.compile("org\\.graylog2\\.plugin\\.streams\\.Stream\\..*?\\.incomingMessages");
+    protected static final Pattern incomingMessagesPattern = Pattern.compile("com\\.synectiks\\.process\\.server\\.plugin\\.streams\\.Stream\\..*?\\.incomingMessages");
     protected static final MetricFilter streamMetricFilter = new MetricFilter() {
         @Override
         public boolean matches(String name, Metric metric) {

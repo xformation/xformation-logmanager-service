@@ -43,7 +43,7 @@ public class FreeEnterpriseResource extends RestResource {
 
     @GET
     @Timed
-    @ApiOperation(value = "Get Graylog Enterprise license info")
+    @ApiOperation(value = "Get Logmanager Enterprise license info")
     @Path("/license/info")
     @RequiresPermissions(RestPermissions.LICENSEINFOS_READ)
     public Response licenseInfo() {
@@ -52,7 +52,7 @@ public class FreeEnterpriseResource extends RestResource {
 
     @POST
     @Timed
-    @ApiOperation(value = "Request free Graylog Enterprise license")
+    @ApiOperation(value = "Request free Logmanager Enterprise license")
     @Path("/license")
     @RequiresPermissions(RestPermissions.FREELICENSES_CREATE)
     @NoAuditEvent("This will be used to get a license. Without license triggering an audit event doesn't make sense.")
@@ -65,6 +65,6 @@ public class FreeEnterpriseResource extends RestResource {
             }
             return Response.accepted().build();
         }
-        throw new BadRequestException("Free Graylog Enterprise license already requested or license already installed");
+        throw new BadRequestException("Free Logmanger Enterprise license already requested or license already installed");
     }
 }

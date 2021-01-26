@@ -38,7 +38,7 @@ public abstract class GeoIpResolverConfig {
        return builder()
                .enabled(false)
                .dbType(DatabaseType.MAXMIND_CITY)
-               .dbPath("/etc/graylog/server/GeoLite2-City.mmdb")
+               .dbPath("/opt/logmanager/GeoLite2-City.mmdb")
                .build();
     }
 

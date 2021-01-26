@@ -30,7 +30,7 @@ import java.util.Random;
 
 /**
  * A Netty channel handler which splits large GELF messages into
- * <a href="http://graylog2.org/gelf#specs">chunked GELF</a> messages.
+ * chunked GELF messages.
  */
 @ChannelHandler.Sharable
 public class GelfMessageChunkEncoder extends MessageToMessageEncoder<ByteBuf> {

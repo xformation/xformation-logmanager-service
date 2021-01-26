@@ -17,7 +17,6 @@ public class GRNTypes {
     public static final GRNType TEAM = GRNType.create("team", "teams:");
     public static final GRNType USER = GRNType.create("user", "users:");
 
-    // TODO This is essentially the same as org.graylog2.contentpacks.model.ModelTypes
     // TODO find a way to unify these
     private static final ImmutableSet<GRNType> BUILTIN_TYPES = ImmutableSet.<GRNType>builder()
             .add(BUILTIN_TEAM)

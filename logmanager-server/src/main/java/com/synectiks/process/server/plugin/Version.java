@@ -138,7 +138,7 @@ public class Version implements Comparable<Version> {
     }
 
     /**
-     * Try to read the version from the {@literal graylog-plugin.properties} file included in a plugin.
+     * Try to read the version from the {@literal logmanager-plugin.properties} file included in a plugin.
      *
      * @param pluginClass     Class where the class loader should be obtained from.
      * @param path            Path of the properties file on the classpath which contains the version information.
@@ -269,7 +269,6 @@ public class Version implements Comparable<Version> {
         } else {
             // If this is a pre-release version, use the major.minor.patch version for comparison with the other.
             // This allows plugins to require a server version of 2.1.0 and it still gets loaded on a 2.1.0-beta.2 server.
-            // See: https://github.com/Graylog2/graylog2-server/issues/2462
             return com.github.zafarkhaja.semver.Version.valueOf(version.getNormalVersion()).greaterThanOrEqualTo(other.getVersion());
         }
     }

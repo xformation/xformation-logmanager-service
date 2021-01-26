@@ -40,7 +40,7 @@ public abstract class ElasticsearchBaseTest {
     private static Map<String, Map<String, Object>> getGraylogDefaultMessageTemplates(Version version) {
         final Map<String, Object> template =
                 indexMappingFor(version).messageTemplate("*", "standard", -1);
-        return Collections.singletonMap("graylog-test-internal", template);
+        return Collections.singletonMap("logmanager-test-internal", template);
     }
 
     private void addIndexTemplates(Map<String, Map<String, Object>> templates) {
@@ -64,7 +64,7 @@ public abstract class ElasticsearchBaseTest {
 
     /**
      * Import the given fixture resource path. The given path can be either a single file name or a full
-     * resource path to a JSON fixture file. (e.g. "TheTest.json" or "org/graylog/test/TheTest.json")
+     * resource path to a JSON fixture file. (e.g. "TheTest.json" or "com/synectiks/process/common/test/TheTest.json")
      * If the resource path is a single filename, the method tries to find the resource in the resource path of
      * the test class.
      *

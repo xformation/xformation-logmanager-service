@@ -51,8 +51,7 @@ public abstract class StackedChartConfig extends WidgetConfigBase implements Wid
 
         if (seriesByQuery.size() > 1) {
             LOG.warn("Migrating dashboards to views: Encountered a stacked chart widget containing multiple distinct " +
-                    "queries, splitting up into separate widgets. Read more about it here: " +
-                    "https://github.com/Graylog2/graylog2-server/blob/master/UPGRADING.rst#upgrading-to-graylog-32x");
+                    "queries, splitting up into separate widgets");
         }
 
         return seriesByQuery.entrySet().stream()

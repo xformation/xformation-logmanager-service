@@ -14,20 +14,20 @@ import java.util.Collection;
 import java.util.Set;
 
 public class GraylogVersionConstraintChecker implements ConstraintChecker {
-    private final Semver graylogVersion;
+    private final Semver logmanagerVersion;
 
     public GraylogVersionConstraintChecker() {
         this(com.synectiks.process.server.plugin.Version.CURRENT_CLASSPATH.toString());
     }
 
     @VisibleForTesting
-    GraylogVersionConstraintChecker(String graylogVersion) {
-        this(new Semver(graylogVersion));
+    GraylogVersionConstraintChecker(String logmanagerVersion) {
+        this(new Semver(logmanagerVersion));
     }
 
     @VisibleForTesting
-    GraylogVersionConstraintChecker(Semver graylogVersion) {
-        this.graylogVersion = graylogVersion;
+    GraylogVersionConstraintChecker(Semver logmanagerVersion) {
+        this.logmanagerVersion = logmanagerVersion;
     }
 
 
@@ -38,7 +38,7 @@ public class GraylogVersionConstraintChecker implements ConstraintChecker {
             if (constraint instanceof GraylogVersionConstraint) {
                 final GraylogVersionConstraint versionConstraint = (GraylogVersionConstraint) constraint;
                 final Requirement requiredVersion = versionConstraint.version();
-                if (requiredVersion.isSatisfiedBy(graylogVersion.withClearedSuffixAndBuild())) {
+                if (requiredVersion.isSatisfiedBy(logmanagerVersion.withClearedSuffixAndBuild())) {
                     fulfilledConstraints.add(constraint);
                 }
             }
@@ -54,7 +54,7 @@ public class GraylogVersionConstraintChecker implements ConstraintChecker {
                 final GraylogVersionConstraint versionConstraint = (GraylogVersionConstraint) constraint;
                 final Requirement requiredVersion = versionConstraint.version();
                 final ConstraintCheckResult constraintCheckResult = ConstraintCheckResult.create(versionConstraint,
-                        requiredVersion.isSatisfiedBy(graylogVersion.withClearedSuffixAndBuild()));
+                        requiredVersion.isSatisfiedBy(logmanagerVersion.withClearedSuffixAndBuild()));
                 fulfilledConstraints.add(constraintCheckResult);
             }
         }

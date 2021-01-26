@@ -135,7 +135,7 @@ public class Generator {
         }
         Collections.sort(apis, (o1, o2) -> ComparisonChain.start().compare(o1.get("name").toString(), o2.get("name").toString()).result());
         Map<String, String> info = Maps.newHashMap();
-        info.put("title", "Graylog REST API");
+        info.put("title", "Logmanager REST API");
 
         overviewResult.put("apiVersion", ServerVersion.VERSION.toString());
         overviewResult.put("swaggerVersion", EMULATED_SWAGGER_VERSION);

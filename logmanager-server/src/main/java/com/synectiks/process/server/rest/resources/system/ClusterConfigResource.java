@@ -46,7 +46,7 @@ import java.util.Set;
 
 import static java.util.Objects.requireNonNull;
 
-@Api(value = "System/ClusterConfig", description = "Graylog Cluster Configuration")
+@Api(value = "System/ClusterConfig", description = "Logmanager Cluster Configuration")
 @RequiresAuthentication
 @Path("/system/cluster_config")
 @Produces(MediaType.APPLICATION_JSON)

@@ -183,7 +183,7 @@ public class SidecarResource extends RestResource implements PluginRestResource 
                              @PathParam("sidecarId") @NotEmpty String sidecarId,
                              @ApiParam(name = "JSON body", required = true)
                              @Valid @NotNull RegistrationRequest request,
-                             @HeaderParam(value = "X-Graylog-Sidecar-Version") @NotEmpty String sidecarVersion) {
+                             @HeaderParam(value = "X-Logmanager-Sidecar-Version") @NotEmpty String sidecarVersion) {
         final Sidecar newSidecar;
         final Sidecar oldSidecar = sidecarService.findByNodeId(sidecarId);
         List<ConfigurationAssignment> assignments = null;

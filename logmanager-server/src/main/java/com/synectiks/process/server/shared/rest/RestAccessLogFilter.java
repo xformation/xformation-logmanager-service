@@ -23,7 +23,7 @@ import java.util.Set;
 import static java.util.Objects.requireNonNull;
 
 public class RestAccessLogFilter implements ContainerResponseFilter {
-    private static final Logger LOG = LoggerFactory.getLogger("org.graylog2.rest.accesslog");
+    private static final Logger LOG = LoggerFactory.getLogger("com.synectiks.process.server.rest.accesslog");
 
     private final Response response;
     private final Set<IpSubnet> trustedProxies;

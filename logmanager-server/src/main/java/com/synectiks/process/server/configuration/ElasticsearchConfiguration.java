@@ -21,7 +21,7 @@ public class ElasticsearchConfiguration {
 
     @Deprecated // Should be removed in Graylog 3.0
     @Parameter(value = "elasticsearch_index_prefix", required = true)
-    private String indexPrefix = "graylog";
+    private String indexPrefix = "logmanager";
 
     @Deprecated // Should be removed in Graylog 3.0
     @Parameter(value = "elasticsearch_max_number_of_indices", required = true, validator = PositiveIntegerValidator.class)
@@ -53,7 +53,7 @@ public class ElasticsearchConfiguration {
 
     @Deprecated // Should be removed in Graylog 3.0
     @Parameter(value = "elasticsearch_template_name")
-    private String templateName = "graylog-internal";
+    private String templateName = "logmanager-internal";
 
     @Parameter(value = "no_retention")
     private boolean noRetention = false;

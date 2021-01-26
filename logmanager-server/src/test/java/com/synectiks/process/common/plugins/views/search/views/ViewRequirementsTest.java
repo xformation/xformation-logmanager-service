@@ -27,12 +27,12 @@ public class ViewRequirementsTest {
             .build();
 
     private final PluginMetadataSummary plugin = PluginMetadataSummary.create(
-            "org.graylog.plugins.aioverlord",
-            "Graylog AI Overlord",
-            "garybot@graylog.org",
-            new URI("https://www.graylog.org/ai"),
+            "com.synectiks.process.common.plugins.aioverlord",
+            "Logmanager AI Overlord",
+            "garybot@logmanager.org",
+            new URI("https://www.logmanager.org/ai"),
             "3.0.0",
-            "Graylog becomes self-aware at 2:14AM."
+            "Logmanager becomes self-aware at 2:14AM."
     );
 
     public ViewRequirementsTest() throws URISyntaxException {

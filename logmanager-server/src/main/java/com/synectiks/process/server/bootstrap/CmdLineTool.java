@@ -85,17 +85,17 @@ public abstract class CmdLineTool implements CliCommand {
     protected final BaseConfiguration configuration;
     protected final ChainingClassLoader chainingClassLoader;
 
-    @Option(name = "--dump-config", description = "Show the effective Graylog configuration and exit")
+    @Option(name = "--dump-config", description = "Show the effective Logmanager configuration and exit")
     protected boolean dumpConfig = false;
 
     @Option(name = "--dump-default-config", description = "Show the default configuration and exit")
     protected boolean dumpDefaultConfig = false;
 
-    @Option(name = {"-d", "--debug"}, description = "Run Graylog in debug mode")
+    @Option(name = {"-d", "--debug"}, description = "Run Logmanager in debug mode")
     private boolean debug = false;
 
-    @Option(name = {"-f", "--configfile"}, description = "Configuration file for Graylog")
-    private String configFile = "/etc/graylog/server/server.conf";
+    @Option(name = {"-f", "--configfile"}, description = "Configuration file for Logmanager")
+    private String configFile = "/opt/logmanager/server.conf";
 
     protected String commandName = "command";
 
@@ -301,18 +301,18 @@ public abstract class CmdLineTool implements CliCommand {
 
     protected Collection<Repository> getConfigRepositories(String configFile) {
         return Arrays.asList(
-                new EnvironmentRepository("GRAYLOG_"),
-                new SystemPropertiesRepository("graylog."),
+                new EnvironmentRepository("LOGMANAGER_"),
+                new SystemPropertiesRepository("logmanager."),
                 // Legacy prefixes
-                new EnvironmentRepository("GRAYLOG2_"),
-                new SystemPropertiesRepository("graylog2."),
+                new EnvironmentRepository("logmanager2_"),
+                new SystemPropertiesRepository("logmanager2."),
                 new PropertiesRepository(configFile)
         );
     }
 
     private String dumpConfiguration(final Map<String, String> configMap) {
         final StringBuilder sb = new StringBuilder();
-        sb.append("# Configuration of graylog2-").append(commandName).append(" ").append(version).append(System.lineSeparator());
+        sb.append("# Configuration of logmanager2-").append(commandName).append(" ").append(version).append(System.lineSeparator());
         sb.append("# Generated on ").append(Tools.nowUTC()).append(System.lineSeparator());
 
         for (Map.Entry<String, String> entry : configMap.entrySet()) {

@@ -49,7 +49,7 @@ public class Cluster {
     }
 
     /**
-     * Requests the cluster health for all indices managed by Graylog. (default: graylog_*)
+     * Requests the cluster health for all indices managed by Logmanager. (default: logmanager_*)
      *
      * @return the cluster health response
      */

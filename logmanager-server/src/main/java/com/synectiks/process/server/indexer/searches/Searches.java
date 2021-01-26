@@ -243,8 +243,6 @@ public class Searches {
             if (indexSet == null && filter == null) {
                 // Don't include the index range if it's for an event index set to avoid sorting issues.
                 // See the following issues for details:
-                // - https://github.com/Graylog2/graylog2-server/issues/6384
-                // - https://github.com/Graylog2/graylog2-server/issues/6490
                 if (eventIndexSets.stream().anyMatch(set -> set.isManagedIndex(indexRange.indexName()))) {
                     continue;
                 }

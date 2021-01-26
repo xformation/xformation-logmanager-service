@@ -71,14 +71,14 @@ public class MongoFieldTypeLookup implements FieldTypeLookup {
         //
         // [
         //   {
-        //     "index_name": "graylog_0",
+        //     "index_name": "logmanager_0",
         //     "fields": [
         //       {"field_name": "message", "physical_type": "text"},
         //       {"field_name": "source", "physical_type": "keyword"}
         //     ]
         //   },
         //   {
-        //     "index_name": "graylog_1",
+        //     "index_name": "logmanager_1",
         //     "fields": [
         //       {"field_name": "message", "physical_type": "text"},
         //     ]
@@ -94,7 +94,7 @@ public class MongoFieldTypeLookup implements FieldTypeLookup {
         //       {
         //         "type": "string",
         //         "properties": ["full-text-search"],
-        //         "index_names": ["graylog_0", "graylog_1"]
+        //         "index_names": ["logmanager_0", "logmanager_1"]
         //     ]
         //   },
         //   "source": {
@@ -103,7 +103,7 @@ public class MongoFieldTypeLookup implements FieldTypeLookup {
         //       {
         //         "type": "string",
         //         "properties": ["enumerable"],
-        //         "index_names": ["graylog_0"]
+        //         "index_names": ["logmanager_0"]
         //     ]
         //   }
         // }

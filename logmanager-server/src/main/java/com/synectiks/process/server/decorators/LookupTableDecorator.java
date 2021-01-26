@@ -88,7 +88,7 @@ public class LookupTableDecorator implements SearchResponseDecorator {
 
     public static class Descriptor extends SearchResponseDecorator.Descriptor {
         public Descriptor() {
-            super("Lookup Table", "http://docs.graylog.org/", "Lookup Table Decorator");
+            super("Lookup Table", "http://docs.logmanager.org/", "Lookup Table Decorator");
         }
     }
 

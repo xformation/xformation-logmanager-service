@@ -408,7 +408,7 @@ public class PivotAggregationSearch implements AggregationSearch {
             // Then we add the configured groups
             groupBy.addAll(config.groupBy().stream()
                     .map(field -> Values.builder()
-                            // The pivot search type (as of Graylog 3.1.0) is using the "terms" aggregation under
+                            // The pivot search type is using the "terms" aggregation under
                             // the hood. The "terms" aggregation is meant to return the "top" terms and does not allow
                             // and efficient retrieval and pagination over all terms.
                             // Using Integer.MAX_VALUE as a limit can be very expensive with high cardinality grouping.

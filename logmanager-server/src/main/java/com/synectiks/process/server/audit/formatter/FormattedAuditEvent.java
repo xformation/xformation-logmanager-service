@@ -14,8 +14,8 @@ public interface FormattedAuditEvent {
      *
      * Examples:
      *
-     *    {@code urn:graylog:user:jane}
-     *    {@code urn:graylog:node:28164cbe-4ad9-4c9c-a76e-088655aa7889}
+     *    {@code urn:logmanager:user:jane}
+     *    {@code urn:logmanager:node:28164cbe-4ad9-4c9c-a76e-088655aa7889}
      *
      * @return the actor URN
      */
@@ -24,7 +24,7 @@ public interface FormattedAuditEvent {
     /**
      * The audit event namespace.
      *
-     * Each plugin should have its own, unique namespace. The Graylog server namespace is {@code server}.
+     * Each plugin should have its own, unique namespace. The Logmanager server namespace is {@code server}.
      *
      * @return namespace string
      */
@@ -35,9 +35,9 @@ public interface FormattedAuditEvent {
      *
      * Examples:
      *
-     *   {@code urn:graylog:dashboard:56f2fdefa0275b357744230c:widget:57ab37cc67d0cb54582d43a0}
-     *   {@code urn:graylog:message_input:56f2fdefa0275b357744230c}
-     *   {@code urn:graylog:pipeline-rule:57ab37cc67d0cb54582d43a0}
+     *   {@code urn:logmanager:dashboard:56f2fdefa0275b357744230c:widget:57ab37cc67d0cb54582d43a0}
+     *   {@code urn:logmanager:message_input:56f2fdefa0275b357744230c}
+     *   {@code urn:logmanager:pipeline-rule:57ab37cc67d0cb54582d43a0}
      *
      * @return the object URN
      */

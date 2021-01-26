@@ -120,7 +120,7 @@ public class SyslogCodec extends AbstractCodec {
         }
 
         // If the message is a structured one, we do not want the message ID and the structured data in the
-        // message string. See: https://github.com/Graylog2/graylog2-server/issues/845#issuecomment-69499719
+        // message string
         final String syslogMessage;
         if (e instanceof StructuredSyslogServerEvent) {
             final String structMessage = ((StructuredSyslogServerEvent) e).getStructuredMessage().getMessage();
@@ -140,7 +140,7 @@ public class SyslogCodec extends AbstractCodec {
         }
         if (e instanceof FortiGateSyslogEvent) {
             final HashMap<String, Object> fields = new HashMap<>(((FortiGateSyslogEvent) e).getFields());
-            // The FortiGate "level" field is a string, Graylog requires a numeric value.
+            // The FortiGate "level" field is a string, logmanager requires a numeric value.
             fields.remove("level");
             m.addFields(fields);
         }

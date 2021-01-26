@@ -14,7 +14,6 @@ public class BeatsInputPluginModule extends PluginModule {
         addMessageInput(BeatsInput.class);
 
         // Beats input with improved field handling
-        // see https://github.com/Graylog2/graylog-plugin-beats/pull/29
         addCodec("beats", Beats2Codec.class);
         addMessageInput(Beats2Input.class);
     }

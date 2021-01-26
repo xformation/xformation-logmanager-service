@@ -42,13 +42,13 @@ public class NodeContainerFactory {
 
     private static ImageFromDockerfile createImage(NodeContainerConfig config) {
         // testcontainers only allows passing permissions if you pass a `File`
-        File entrypointScript = resourceToTmpFile("org/graylog/testing/graylognode/docker-entrypoint.sh");
+        File entrypointScript = resourceToTmpFile("com/synectiks/process/common/testing/graylognode/docker-entrypoint.sh");
 
         ImageFromDockerfile image = new ImageFromDockerfile()
-                .withFileFromClasspath("Dockerfile", "org/graylog/testing/graylognode/Dockerfile")
+                .withFileFromClasspath("Dockerfile", "com/synectiks/process/common/testing/graylognode/Dockerfile")
                 // set mode here explicitly, because file system permissions can get lost when executing from maven
                 .withFileFromFile("docker-entrypoint.sh", entrypointScript, EXECUTABLE_MODE)
-                .withFileFromPath("graylog.conf", pathTo("graylog_config"))
+                .withFileFromPath("server.conf", pathTo("logmanager_config"))
                 .withFileFromClasspath("log4j2.xml", "log4j2.xml")
                 .withFileFromPath("sigar", pathTo("sigar_dir"));
         if (config.enableDebugging) {
@@ -58,7 +58,7 @@ public class NodeContainerFactory {
     }
 
     private static GenericContainer<?> createRunningContainer(NodeContainerConfig config, ImageFromDockerfile image) {
-        String graylogHome = "/usr/share/graylog";
+        String graylogHome = "/opt/logmanager";
 
         GenericContainer<?> container = new GenericContainer<>(image)
                 .withFileSystemBind(property("server_jar"), graylogHome + "/graylog.jar", BindMode.READ_ONLY)

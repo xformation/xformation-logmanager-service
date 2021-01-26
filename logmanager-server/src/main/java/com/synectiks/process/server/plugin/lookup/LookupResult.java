@@ -22,7 +22,7 @@ import java.util.Map;
  * {@link com.fasterxml.jackson.databind.ObjectMapper}, but we strongly recommend implementing your own
  * serialization and deserialization logic if you're implementing a lookup cache.
  * <p>
- * There are <em>no guarantees</em> about binary compatibility of this class across Graylog releases!
+ * There are <em>no guarantees</em> about binary compatibility of this class across Logmanager releases!
  *
  * @see LookupDataAdapter#get(Object)
  * @see LookupCache#get(LookupCacheKey, java.util.concurrent.Callable)

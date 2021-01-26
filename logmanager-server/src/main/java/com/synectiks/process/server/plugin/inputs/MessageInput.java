@@ -125,7 +125,7 @@ public abstract class MessageInput implements Stoppable {
             }
             metricRegistry.register(getUniqueReadableId(), localRegistry);
         } catch (IllegalArgumentException ignored) {
-            // This happens for certain types of inputs, see https://github.com/Graylog2/graylog2-server/issues/1049#issuecomment-88857134
+            // This happens for certain types of inputs
         }
     }
 
@@ -319,7 +319,7 @@ public abstract class MessageInput implements Stoppable {
     public void processRawMessage(RawMessage rawMessage) {
         final int payloadLength = rawMessage.getPayload().length;
         if (payloadLength == 0) {
-            LOG.debug("Discarding empty message {} from input [{}/{}] (remote address {}). Turn logger org.graylog2.plugin.journal.RawMessage to TRACE to see originating stack trace.",
+            LOG.debug("Discarding empty message {} from input [{}/{}] (remote address {}). Turn logger com.synectiks.process.server.plugin.journal.RawMessage to TRACE to see originating stack trace.",
                       rawMessage.getId(),
                       getTitle(),
                       getId(),

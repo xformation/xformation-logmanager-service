@@ -85,7 +85,6 @@ public class SyslogServerEvent implements SyslogServerEventIF {
 
         if (this.message.length() > datelength) {
 
-            // http://jira.graylog2.org/browse/SERVER-287
             if (this.message.charAt(5) == ' ') {
                 datelength = 15;
                 dateFormatS = DATE_FORMAT_S;

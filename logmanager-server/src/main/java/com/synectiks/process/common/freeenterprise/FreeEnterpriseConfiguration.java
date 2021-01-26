@@ -14,7 +14,7 @@ public class FreeEnterpriseConfiguration implements PluginConfigBean {
     public static final String SERVICE_URL = PREFIX + "service_url";
 
     @Parameter(value = SERVICE_URL, validators = URIAbsoluteValidator.class)
-    private URI serviceUrl = URI.create("https://api.graylog.com/");
+    private URI serviceUrl = URI.create("https://api.logmanager.com/");
 
     public URI getServiceUrl() {
         return serviceUrl;

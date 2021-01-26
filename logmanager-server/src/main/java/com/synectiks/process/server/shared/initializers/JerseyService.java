@@ -86,10 +86,10 @@ import static java.util.Objects.requireNonNull;
 public class JerseyService extends AbstractIdleService {
     public static final String PLUGIN_PREFIX = "/plugins";
     private static final Logger LOG = LoggerFactory.getLogger(JerseyService.class);
-    private static final String RESOURCE_PACKAGE_WEB = "org.graylog2.web.resources";
+    private static final String RESOURCE_PACKAGE_WEB = "com.synectiks.process.server.web.resources";
 
-    private final HttpConfiguration configuration;
-    private final Configuration graylogConfiguration;
+    private final HttpConfiguration httpConfiguration;
+    private final Configuration configuration;
     private final Map<String, Set<Class<? extends PluginRestResource>>> pluginRestResources;
     private final Set<RestControllerPackage> restControllerPackages;
 
@@ -105,8 +105,8 @@ public class JerseyService extends AbstractIdleService {
     private HttpServer apiHttpServer = null;
 
     @Inject
-    public JerseyService(final HttpConfiguration configuration,
-                         Configuration graylogConfiguration, Set<Class<? extends DynamicFeature>> dynamicFeatures,
+    public JerseyService(final HttpConfiguration httpConfiguration,
+                         Configuration configuration, Set<Class<? extends DynamicFeature>> dynamicFeatures,
                          Set<Class<? extends ContainerResponseFilter>> containerResponseFilters,
                          Set<Class<? extends ExceptionMapper>> exceptionMappers,
                          @Named("additionalJerseyComponents") final Set<Class> additionalComponents,
@@ -116,8 +116,8 @@ public class JerseyService extends AbstractIdleService {
                          ObjectMapper objectMapper,
                          MetricRegistry metricRegistry,
                          ErrorPageGenerator errorPageGenerator) {
-        this.configuration = requireNonNull(configuration, "configuration");
-        this.graylogConfiguration = graylogConfiguration;
+        this.httpConfiguration = requireNonNull(httpConfiguration, "httpConfiguration");
+        this.configuration = configuration;
         this.dynamicFeatures = requireNonNull(dynamicFeatures, "dynamicFeatures");
         this.containerResponseFilters = requireNonNull(containerResponseFilters, "containerResponseFilters");
         this.exceptionMappers = requireNonNull(exceptionMappers, "exceptionMappers");
@@ -140,7 +140,7 @@ public class JerseyService extends AbstractIdleService {
 
     @Override
     protected void shutDown() throws Exception {
-        shutdownHttpServer(apiHttpServer, configuration.getHttpBindAddress());
+        shutdownHttpServer(apiHttpServer, httpConfiguration.getHttpBindAddress());
     }
 
     private void shutdownHttpServer(HttpServer httpServer, HostAndPort bindAddress) {
@@ -160,16 +160,16 @@ public class JerseyService extends AbstractIdleService {
 
         final Set<Resource> pluginResources = prefixPluginResources(PLUGIN_PREFIX, pluginRestResources);
 
-        final SSLEngineConfigurator sslEngineConfigurator = configuration.isHttpEnableTls() ?
+        final SSLEngineConfigurator sslEngineConfigurator = httpConfiguration.isHttpEnableTls() ?
                 buildSslEngineConfigurator(
-                        configuration.getHttpTlsCertFile(),
-                        configuration.getHttpTlsKeyFile(),
-                        configuration.getHttpTlsKeyPassword()) : null;
+                        httpConfiguration.getHttpTlsCertFile(),
+                        httpConfiguration.getHttpTlsKeyFile(),
+                        httpConfiguration.getHttpTlsKeyPassword()) : null;
 
-        final HostAndPort bindAddress = configuration.getHttpBindAddress();
-        final String contextPath = configuration.getHttpPublishUri().getPath();
+        final HostAndPort bindAddress = httpConfiguration.getHttpBindAddress();
+        final String contextPath = httpConfiguration.getHttpPublishUri().getPath();
         final URI listenUri = new URI(
-                configuration.getUriScheme(),
+                httpConfiguration.getUriScheme(),
                 null,
                 bindAddress.getHost(),
                 bindAddress.getPort(),
@@ -181,17 +181,17 @@ public class JerseyService extends AbstractIdleService {
         apiHttpServer = setUp(
                 listenUri,
                 sslEngineConfigurator,
-                configuration.getHttpThreadPoolSize(),
-                configuration.getHttpSelectorRunnersCount(),
-                configuration.getHttpMaxHeaderSize(),
-                configuration.isHttpEnableGzip(),
-                configuration.isHttpEnableCors(),
+                httpConfiguration.getHttpThreadPoolSize(),
+                httpConfiguration.getHttpSelectorRunnersCount(),
+                httpConfiguration.getHttpMaxHeaderSize(),
+                httpConfiguration.isHttpEnableGzip(),
+                httpConfiguration.isHttpEnableCors(),
                 pluginResources,
                 resourcePackages.toArray(new String[0]));
 
         apiHttpServer.start();
 
-        LOG.info("Started REST API at <{}>", configuration.getHttpBindAddress());
+        LOG.info("Started REST API at <{}>", httpConfiguration.getHttpBindAddress());
     }
 
     private Set<Resource> prefixPluginResources(String pluginPrefix, Map<String, Set<Class<? extends PluginRestResource>>> pluginResourceMap) {
@@ -314,7 +314,7 @@ public class JerseyService extends AbstractIdleService {
         listener.getTransport().setWorkerThreadPool(workerThreadPoolExecutor);
 
         // The Grizzly default value is equal to `Runtime.getRuntime().availableProcessors()` which doesn't make
-        // sense for Graylog because we are not mainly a web server.
+        // sense for Logmanager because we are not mainly a web server.
         // See "Selector runners count" at https://grizzly.java.net/bestpractices.html for details.
         listener.getTransport().setSelectorRunnersCount(selectorRunnersCount);
 
@@ -347,8 +347,8 @@ public class JerseyService extends AbstractIdleService {
 
         final SSLContext sslContext = sslContextConfigurator.createSSLContext(true);
         final SSLEngineConfigurator sslEngineConfigurator = new SSLEngineConfigurator(sslContext, false, false, false);
-        if (!graylogConfiguration.getEnabledTlsProtocols().isEmpty()) {
-            sslEngineConfigurator.setEnabledProtocols(graylogConfiguration.getEnabledTlsProtocols().toArray(new String[0]));
+        if (!configuration.getEnabledTlsProtocols().isEmpty()) {
+            sslEngineConfigurator.setEnabledProtocols(configuration.getEnabledTlsProtocols().toArray(new String[0]));
         }
         return sslEngineConfigurator;
     }

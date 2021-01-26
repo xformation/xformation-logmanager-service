@@ -250,7 +250,6 @@ public class GelfChunkAggregator implements CodecAggregator {
             }
             // If two chunk entries have the same timestamp, we have to compare the IDs. Otherwise the removal from
             // the eviction set might not work and leak memory.
-            // See: https://github.com/Graylog2/graylog2-server/issues/1462
             if (firstTimestamp == o.firstTimestamp) {
                 return id.compareTo(o.id);
             }

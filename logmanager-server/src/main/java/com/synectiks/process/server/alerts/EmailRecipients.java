@@ -50,7 +50,6 @@ public class EmailRecipients {
 
             if (user != null && !isNullOrEmpty(user.getEmail())) {
                 // LDAP users might have multiple email addresses defined.
-                // See: https://github.com/Graylog2/graylog2-server/issues/1439
                 final Iterable<String> addresses = Splitter.on(",").omitEmptyStrings().trimResults().split(user.getEmail());
                 emails.addAll(addresses);
             }

@@ -70,9 +70,9 @@ public class RoleServiceImpl implements RoleService {
 
         // make sure the two built-in roles actually exist
         adminRoleObjectId = checkNotNull(ensureBuiltinRole(ADMIN_ROLENAME, Sets.newHashSet("*"), "Admin",
-                                                           "Grants all permissions for Graylog administrators (built-in)"));
+                                                           "Grants all permissions for Logmanager administrators (built-in)"));
         readerRoleObjectId = checkNotNull(ensureBuiltinRole(READER_ROLENAME, permissions.readerBasePermissions(), "Reader",
-                          "Grants basic permissions for every Graylog user (built-in)"));
+                          "Grants basic permissions for every Logmanager user (built-in)"));
 
     }
 
@@ -104,12 +104,12 @@ public class RoleServiceImpl implements RoleService {
                 final RoleImpl savedRole = save(fixedAdmin);
                 return savedRole.getId();
             } catch (DuplicateKeyException | ValidationException e) {
-                log.error("Unable to save fixed " + roleName + " role, please restart Graylog to fix this.", e);
+                log.error("Unable to save fixed " + roleName + " role, please restart Logmanager to fix this.", e);
             }
         }
 
         if (previousRole == null) {
-            log.error("Unable to access fixed " + roleName + " role, please restart Graylog to fix this.");
+            log.error("Unable to access fixed " + roleName + " role, please restart Logmanager to fix this.");
             return null;
         }
 
@@ -182,7 +182,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public RoleImpl save(Role role1) throws ValidationException {
-        // sucky but necessary because of graylog2-shared not knowing about mongodb :(
+        // sucky but necessary because of logmanager2-shared not knowing about mongodb :(
         if (!(role1 instanceof RoleImpl)) {
             throw new IllegalArgumentException("invalid Role implementation class");
         }

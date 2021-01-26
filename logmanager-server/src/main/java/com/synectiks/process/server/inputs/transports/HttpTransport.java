@@ -53,14 +53,14 @@ public class HttpTransport extends AbstractTcpTransport {
                          NettyTransportConfiguration nettyTransportConfiguration,
                          ThroughputCounter throughputCounter,
                          LocalMetricRegistry localRegistry,
-                         com.synectiks.process.server.Configuration graylogConfiguration) {
+                         com.synectiks.process.server.Configuration logmanagerConfiguration) {
         super(configuration,
               throughputCounter,
               localRegistry,
               eventLoopGroup,
               eventLoopGroupFactory,
               nettyTransportConfiguration,
-              graylogConfiguration);
+              logmanagerConfiguration);
 
         enableCors = configuration.getBoolean(CK_ENABLE_CORS);
 
@@ -76,7 +76,6 @@ public class HttpTransport extends AbstractTcpTransport {
         if (idleWriterTimeout > 0) {
             // Install read timeout handler to close idle connections after a timeout.
             // This avoids dangling HTTP connections when the HTTP client does not close the connection properly.
-            // For details see: https://github.com/Graylog2/graylog2-server/issues/3223#issuecomment-270350500
             handlers.put("read-timeout-handler", () -> new ReadTimeoutHandler(idleWriterTimeout, TimeUnit.SECONDS));
         }
 

@@ -109,13 +109,11 @@ public class TimeBasedRotationStrategy extends AbstractRotationStrategy {
         final DateTime anchorTime = anchorTimeFrom(lastAnchor);
 
         final DateTimeField field = largestStrideType.getField(anchorTime.getChronology());
-        // use normalized here to make sure we actually have the largestStride type available! see https://github.com/Graylog2/graylog2-server/issues/836
         int periodValue = normalized.get(largestStrideType.getDurationType());
         final long fieldValue = field.roundFloor(anchorTime.getMillis());
 
         final int fieldValueInUnit = field.get(fieldValue);
         if (periodValue == 0) {
-            // https://github.com/Graylog2/graylog2-server/issues/836
             log.warn("Determining stride length failed because of a 0 period. Defaulting back to 1 period to avoid crashing, but this is a bug!");
             periodValue = 1;
         }

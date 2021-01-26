@@ -107,7 +107,7 @@ public class FieldValueAlertCondition extends AbstractAlertCondition {
         public Descriptor() {
             super(
                 "Field Aggregation Alert Condition",
-                "https://www.graylog.org/",
+                "Synectiks/",
                 "This condition is triggered when the aggregated value of a field is higher/lower than a defined "
                         + "threshold for a given time range."
             );

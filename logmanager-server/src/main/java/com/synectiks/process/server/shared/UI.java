@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 
 public class UI {
 
-    private static final String HELP_DOCS = "http://docs.graylog.org/";
-    private static final String HELP_COMMUNITY = "https://www.graylog.org/community-support/";
-    private static final String HELP_COMMERCIAL = "https://www.graylog.com/technical-support/";
+    private static final String HELP_DOCS = "http://docs.logmanager.org/";
+    private static final String HELP_COMMUNITY = "https://www.logmanager.org/community-support/";
+    private static final String HELP_COMMERCIAL = "https://www.logmanager.com/technical-support/";
 
     private static final Logger LOG = LoggerFactory.getLogger(UI.class);
 

@@ -63,7 +63,7 @@ public class QueryTest {
                 .registerModule(new Jdk8Module())
                 .registerModule(new JavaTimeModule())
                 .registerModule(new MetricsModule(TimeUnit.SECONDS, TimeUnit.SECONDS, false))
-                .registerModule(new SimpleModule("Graylog")
+                .registerModule(new SimpleModule("Logmanager")
                         .addKeyDeserializer(Period.class, new JodaTimePeriodKeyDeserializer())
                         .addSerializer(new RangeJsonSerializer())
                         .addSerializer(new SizeSerializer())

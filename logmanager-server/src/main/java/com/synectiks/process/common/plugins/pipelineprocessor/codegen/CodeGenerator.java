@@ -106,7 +106,7 @@ public class CodeGenerator {
             if (log.isTraceEnabled()) {
                 log.trace("Sourcecode:\n{}", sourceCode);
             }
-            return (Class<GeneratedRule>) compilerProvider.get().loadFromString(ruleClassloader, "org.graylog.plugins.pipelineprocessor.$dynamic.rules.rule$" + rule.id() , sourceCode);
+            return (Class<GeneratedRule>) compilerProvider.get().loadFromString(ruleClassloader, "com.synectiks.process.common.plugins.pipelineprocessor.$dynamic.rules.rule$" + rule.id() , sourceCode);
         } catch (ClassNotFoundException e) {
             log.error("Unable to compile code\n{}", sourceCode);
             return null;
@@ -188,7 +188,7 @@ public class CodeGenerator {
 
             classFile.addMethod(constructorBuilder.build());
 
-            generatedFile = JavaFile.builder("org.graylog.plugins.pipelineprocessor.$dynamic.rules", classFile.build())
+            generatedFile = JavaFile.builder("com.synectiks.process.common.plugins.pipelineprocessor.$dynamic.rules", classFile.build())
                     .build();
         }
 

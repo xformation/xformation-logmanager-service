@@ -282,11 +282,11 @@ public class KafkaJournal extends AbstractIdleService implements Journal {
         }
 
         // TODO add check for directory, etc
-        committedReadOffsetFile = new File(journalDirectory.toFile(), "graylog2-committed-read-offset");
+        committedReadOffsetFile = new File(journalDirectory.toFile(), "logmanager2-committed-read-offset");
         try {
             if (!committedReadOffsetFile.createNewFile()) {
                 final String line = Files.asCharSource(committedReadOffsetFile, StandardCharsets.UTF_8).readFirstLine();
-                // the file contains the last offset graylog2 has successfully processed.
+                // the file contains the last offset Logmanager2 has successfully processed.
                 // thus the nextReadOffset is one beyond that number
                 if (line != null) {
                     committedOffset.set(Long.parseLong(line.trim()));
@@ -777,10 +777,10 @@ public class KafkaJournal extends AbstractIdleService implements Journal {
     }
 
     /**
-     * Returns the highest journal offset that has been writting to persistent storage by Graylog.
+     * Returns the highest journal offset that has been writting to persistent storage by Logmanager.
      * <p>
      * Every message at an offset prior to this one can be considered as processed and does not need to be held in
-     * the journal any longer. By default Graylog will try to aggressively flush the journal to consume a smaller
+     * the journal any longer. By default Logmanager will try to aggressively flush the journal to consume a smaller
      * amount of disk space.
      * </p>
      *

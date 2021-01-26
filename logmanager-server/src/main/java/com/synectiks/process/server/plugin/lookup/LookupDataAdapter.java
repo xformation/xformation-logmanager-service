@@ -46,8 +46,8 @@ public abstract class LookupDataAdapter extends AbstractIdleService {
         this.name = name;
         this.config = config;
 
-        this.requestTimer = metricRegistry.timer(MetricRegistry.name("org.graylog2.lookup.adapters", id, "requests"));
-        this.refreshTimer = metricRegistry.timer(MetricRegistry.name("org.graylog2.lookup.adapters", id, "refresh"));
+        this.requestTimer = metricRegistry.timer(MetricRegistry.name("com.synectiks.process.server.lookup.adapters", id, "requests"));
+        this.refreshTimer = metricRegistry.timer(MetricRegistry.name("com.synectiks.process.server.lookup.adapters", id, "refresh"));
         this.resultWithError = LookupResult.withError();
     }
 
@@ -193,8 +193,8 @@ public abstract class LookupDataAdapter extends AbstractIdleService {
         return config;
     }
 
-    // This factory is implemented by LookupDataAdapter plugins that have been built before Graylog 3.2.
-    // We have to keep it around to make sure older plugins still load with Graylog >=3.2.
+    // This factory is implemented by LookupDataAdapter plugins that have been built before Logmanager 3.2.
+    // We have to keep it around to make sure older plugins still load with Logmanager >=3.2.
     // It can be removed once we decide to stop supporting old plugins.
     public interface Factory<T extends LookupDataAdapter> {
         T create(@Assisted("id") String id, @Assisted("name") String name, LookupDataAdapterConfiguration configuration);
@@ -202,7 +202,7 @@ public abstract class LookupDataAdapter extends AbstractIdleService {
         Descriptor getDescriptor();
     }
 
-    // This is the factory that should be implemented by LookupDataAdapter plugins which target Graylog 3.2 and later.
+    // This is the factory that should be implemented by LookupDataAdapter plugins which target Logmanager 3.2 and later.
     public interface Factory2<T extends LookupDataAdapter> {
         T create(@Assisted("dto") DataAdapterDto dto);
 

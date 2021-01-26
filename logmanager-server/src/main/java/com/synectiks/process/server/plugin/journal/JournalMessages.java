@@ -14,7 +14,7 @@ public final class JournalMessages {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   public interface JournalMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.graylog2.plugin.journal.JournalMessage)
+      // @@protoc_insertion_point(interface_extends:com.synectiks.process.server.plugin.journal.JournalMessage)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -70,11 +70,11 @@ public final class JournalMessages {
     long getTimestamp();
 
     /**
-     * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
      */
     boolean hasCodec();
     /**
-     * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
      */
     com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo getCodec();
     /**
@@ -83,59 +83,59 @@ public final class JournalMessages {
     com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfoOrBuilder getCodecOrBuilder();
 
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     java.util.List<com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode> 
         getSourceNodesList();
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode getSourceNodes(int index);
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     int getSourceNodesCount();
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     java.util.List<? extends com.synectiks.process.server.plugin.journal.JournalMessages.SourceNodeOrBuilder> 
         getSourceNodesOrBuilderList();
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     com.synectiks.process.server.plugin.journal.JournalMessages.SourceNodeOrBuilder getSourceNodesOrBuilder(
         int index);
 
     /**
-     * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
      */
     boolean hasRemote();
     /**
-     * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
      */
     com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress getRemote();
     /**
-     * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
      */
     com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddressOrBuilder getRemoteOrBuilder();
 
@@ -149,11 +149,11 @@ public final class JournalMessages {
     com.google.protobuf.ByteString getPayload();
   }
   /**
-   * Protobuf type {@code org.graylog2.plugin.journal.JournalMessage}
+   * Protobuf type {@code com.synectiks.process.server.plugin.journal.JournalMessage}
    */
   public static final class JournalMessage extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:org.graylog2.plugin.journal.JournalMessage)
+      // @@protoc_insertion_point(message_implements:com.synectiks.process.server.plugin.journal.JournalMessage)
       JournalMessageOrBuilder {
     // Use JournalMessage.newBuilder() to construct.
     private JournalMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -392,21 +392,21 @@ public final class JournalMessages {
     public static final int CODEC_FIELD_NUMBER = 5;
     private com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo codec_;
     /**
-     * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
      */
     @java.lang.Override
     public boolean hasCodec() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
      */
     @java.lang.Override
     public com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo getCodec() {
       return codec_;
     }
     /**
-     * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
      */
     @java.lang.Override
     public com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfoOrBuilder getCodecOrBuilder() {
@@ -416,10 +416,10 @@ public final class JournalMessages {
     public static final int SOURCE_NODES_FIELD_NUMBER = 6;
     private java.util.List<com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode> sourceNodes_;
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     @java.lang.Override
@@ -427,10 +427,10 @@ public final class JournalMessages {
       return sourceNodes_;
     }
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     @java.lang.Override
@@ -439,10 +439,10 @@ public final class JournalMessages {
       return sourceNodes_;
     }
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     @java.lang.Override
@@ -450,10 +450,10 @@ public final class JournalMessages {
       return sourceNodes_.size();
     }
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     @java.lang.Override
@@ -461,10 +461,10 @@ public final class JournalMessages {
       return sourceNodes_.get(index);
     }
     /**
-     * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+     * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
      *
      * <pre>
-     * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+     * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
      * </pre>
      */
     @java.lang.Override
@@ -476,21 +476,21 @@ public final class JournalMessages {
     public static final int REMOTE_FIELD_NUMBER = 7;
     private com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress remote_;
     /**
-     * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
      */
     @java.lang.Override
     public boolean hasRemote() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
      */
     @java.lang.Override
     public com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress getRemote() {
       return remote_;
     }
     /**
-     * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
      */
     @java.lang.Override
     public com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddressOrBuilder getRemoteOrBuilder() {
@@ -686,11 +686,11 @@ public final class JournalMessages {
       return builder;
     }
     /**
-     * Protobuf type {@code org.graylog2.plugin.journal.JournalMessage}
+     * Protobuf type {@code com.synectiks.process.server.plugin.journal.JournalMessage}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.graylog2.plugin.journal.JournalMessage)
+        // @@protoc_insertion_point(builder_implements:com.synectiks.process.server.plugin.journal.JournalMessage)
         com.synectiks.process.server.plugin.journal.JournalMessages.JournalMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -705,7 +705,7 @@ public final class JournalMessages {
                 com.synectiks.process.server.plugin.journal.JournalMessages.JournalMessage.class, com.synectiks.process.server.plugin.journal.JournalMessages.JournalMessage.Builder.class);
       }
 
-      // Construct using org.graylog2.plugin.journal.JournalMessages.JournalMessage.newBuilder()
+      // Construct using com.synectiks.process.server.plugin.journal.JournalMessages.JournalMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1100,14 +1100,14 @@ public final class JournalMessages {
       private com.google.protobuf.SingleFieldBuilder<
           com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo, com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo.Builder, com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfoOrBuilder> codecBuilder_;
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       @java.lang.Override
       public boolean hasCodec() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       @java.lang.Override
       public com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo getCodec() {
@@ -1118,7 +1118,7 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       public Builder setCodec(com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo value) {
         if (codecBuilder_ == null) {
@@ -1134,7 +1134,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       public Builder setCodec(
           com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo.Builder builderForValue) {
@@ -1148,7 +1148,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       public Builder mergeCodec(com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo value) {
         if (codecBuilder_ == null) {
@@ -1167,7 +1167,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       public Builder clearCodec() {
         if (codecBuilder_ == null) {
@@ -1180,7 +1180,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       public com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo.Builder getCodecBuilder() {
         bitField0_ |= 0x00000010;
@@ -1188,7 +1188,7 @@ public final class JournalMessages {
         return getCodecFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       @java.lang.Override
       public com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfoOrBuilder getCodecOrBuilder() {
@@ -1199,7 +1199,7 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.CodecInfo codec = 5;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.CodecInfo codec = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo, com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo.Builder, com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfoOrBuilder> 
@@ -1228,10 +1228,10 @@ public final class JournalMessages {
           com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode, com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Builder, com.synectiks.process.server.plugin.journal.JournalMessages.SourceNodeOrBuilder> sourceNodesBuilder_;
 
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       @java.lang.Override
@@ -1243,10 +1243,10 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       @java.lang.Override
@@ -1258,10 +1258,10 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       @java.lang.Override
@@ -1273,10 +1273,10 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder setSourceNodes(
@@ -1294,10 +1294,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder setSourceNodes(
@@ -1312,10 +1312,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder addSourceNodes(com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode value) {
@@ -1332,10 +1332,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder addSourceNodes(
@@ -1353,10 +1353,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder addSourceNodes(
@@ -1371,10 +1371,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder addSourceNodes(
@@ -1389,10 +1389,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder addAllSourceNodes(
@@ -1408,10 +1408,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder clearSourceNodes() {
@@ -1425,10 +1425,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public Builder removeSourceNodes(int index) {
@@ -1442,10 +1442,10 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Builder getSourceNodesBuilder(
@@ -1453,10 +1453,10 @@ public final class JournalMessages {
         return getSourceNodesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       @java.lang.Override
@@ -1468,10 +1468,10 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       @java.lang.Override
@@ -1484,10 +1484,10 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Builder addSourceNodesBuilder() {
@@ -1495,10 +1495,10 @@ public final class JournalMessages {
             com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.getDefaultInstance());
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Builder addSourceNodesBuilder(
@@ -1507,10 +1507,10 @@ public final class JournalMessages {
             index, com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.getDefaultInstance());
       }
       /**
-       * <code>repeated .org.graylog2.plugin.journal.SourceNode source_nodes = 6;</code>
+       * <code>repeated .com.synectiks.process.server.plugin.journal.SourceNode source_nodes = 6;</code>
        *
        * <pre>
-       * the list of graylog2 nodes which have handled the message (radios, servers) in receive order
+       * the list of logmanager2 nodes which have handled the message (radios, servers) in receive order
        * </pre>
        */
       public java.util.List<com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Builder> 
@@ -1536,14 +1536,14 @@ public final class JournalMessages {
       private com.google.protobuf.SingleFieldBuilder<
           com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress, com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress.Builder, com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddressOrBuilder> remoteBuilder_;
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       @java.lang.Override
       public boolean hasRemote() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       @java.lang.Override
       public com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress getRemote() {
@@ -1554,7 +1554,7 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       public Builder setRemote(com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress value) {
         if (remoteBuilder_ == null) {
@@ -1570,7 +1570,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       public Builder setRemote(
           com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress.Builder builderForValue) {
@@ -1584,7 +1584,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       public Builder mergeRemote(com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress value) {
         if (remoteBuilder_ == null) {
@@ -1603,7 +1603,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       public Builder clearRemote() {
         if (remoteBuilder_ == null) {
@@ -1616,7 +1616,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       public com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress.Builder getRemoteBuilder() {
         bitField0_ |= 0x00000040;
@@ -1624,7 +1624,7 @@ public final class JournalMessages {
         return getRemoteFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       @java.lang.Override
       public com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddressOrBuilder getRemoteOrBuilder() {
@@ -1635,7 +1635,7 @@ public final class JournalMessages {
         }
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.RemoteAddress remote = 7;</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.RemoteAddress remote = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress, com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress.Builder, com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddressOrBuilder> 
@@ -1688,7 +1688,7 @@ public final class JournalMessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:org.graylog2.plugin.journal.JournalMessage)
+      // @@protoc_insertion_point(builder_scope:com.synectiks.process.server.plugin.journal.JournalMessage)
     }
 
     static {
@@ -1696,11 +1696,11 @@ public final class JournalMessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:org.graylog2.plugin.journal.JournalMessage)
+    // @@protoc_insertion_point(class_scope:com.synectiks.process.server.plugin.journal.JournalMessage)
   }
 
   public interface RemoteAddressOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.graylog2.plugin.journal.RemoteAddress)
+      // @@protoc_insertion_point(interface_extends:com.synectiks.process.server.plugin.journal.RemoteAddress)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1764,11 +1764,11 @@ public final class JournalMessages {
         getResolvedBytes();
   }
   /**
-   * Protobuf type {@code org.graylog2.plugin.journal.RemoteAddress}
+   * Protobuf type {@code com.synectiks.process.server.plugin.journal.RemoteAddress}
    */
   public static final class RemoteAddress extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:org.graylog2.plugin.journal.RemoteAddress)
+      // @@protoc_insertion_point(message_implements:com.synectiks.process.server.plugin.journal.RemoteAddress)
       RemoteAddressOrBuilder {
     // Use RemoteAddress.newBuilder() to construct.
     private RemoteAddress(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -2113,11 +2113,11 @@ public final class JournalMessages {
       return builder;
     }
     /**
-     * Protobuf type {@code org.graylog2.plugin.journal.RemoteAddress}
+     * Protobuf type {@code com.synectiks.process.server.plugin.journal.RemoteAddress}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.graylog2.plugin.journal.RemoteAddress)
+        // @@protoc_insertion_point(builder_implements:com.synectiks.process.server.plugin.journal.RemoteAddress)
         com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddressOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -2132,7 +2132,7 @@ public final class JournalMessages {
                 com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress.class, com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress.Builder.class);
       }
 
-      // Construct using org.graylog2.plugin.journal.JournalMessages.RemoteAddress.newBuilder()
+      // Construct using com.synectiks.process.server.plugin.journal.JournalMessages.RemoteAddress.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2467,7 +2467,7 @@ public final class JournalMessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:org.graylog2.plugin.journal.RemoteAddress)
+      // @@protoc_insertion_point(builder_scope:com.synectiks.process.server.plugin.journal.RemoteAddress)
     }
 
     static {
@@ -2475,11 +2475,11 @@ public final class JournalMessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:org.graylog2.plugin.journal.RemoteAddress)
+    // @@protoc_insertion_point(class_scope:com.synectiks.process.server.plugin.journal.RemoteAddress)
   }
 
   public interface CodecInfoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.graylog2.plugin.journal.CodecInfo)
+      // @@protoc_insertion_point(interface_extends:com.synectiks.process.server.plugin.journal.CodecInfo)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2526,11 +2526,11 @@ public final class JournalMessages {
         getConfigBytes();
   }
   /**
-   * Protobuf type {@code org.graylog2.plugin.journal.CodecInfo}
+   * Protobuf type {@code com.synectiks.process.server.plugin.journal.CodecInfo}
    */
   public static final class CodecInfo extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:org.graylog2.plugin.journal.CodecInfo)
+      // @@protoc_insertion_point(message_implements:com.synectiks.process.server.plugin.journal.CodecInfo)
       CodecInfoOrBuilder {
     // Use CodecInfo.newBuilder() to construct.
     private CodecInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -2861,11 +2861,11 @@ public final class JournalMessages {
       return builder;
     }
     /**
-     * Protobuf type {@code org.graylog2.plugin.journal.CodecInfo}
+     * Protobuf type {@code com.synectiks.process.server.plugin.journal.CodecInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.graylog2.plugin.journal.CodecInfo)
+        // @@protoc_insertion_point(builder_implements:com.synectiks.process.server.plugin.journal.CodecInfo)
         com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -2880,7 +2880,7 @@ public final class JournalMessages {
                 com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo.class, com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo.Builder.class);
       }
 
-      // Construct using org.graylog2.plugin.journal.JournalMessages.CodecInfo.newBuilder()
+      // Construct using com.synectiks.process.server.plugin.journal.JournalMessages.CodecInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3190,7 +3190,7 @@ public final class JournalMessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:org.graylog2.plugin.journal.CodecInfo)
+      // @@protoc_insertion_point(builder_scope:com.synectiks.process.server.plugin.journal.CodecInfo)
     }
 
     static {
@@ -3198,11 +3198,11 @@ public final class JournalMessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:org.graylog2.plugin.journal.CodecInfo)
+    // @@protoc_insertion_point(class_scope:com.synectiks.process.server.plugin.journal.CodecInfo)
   }
 
   public interface SourceNodeOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:org.graylog2.plugin.journal.SourceNode)
+      // @@protoc_insertion_point(interface_extends:com.synectiks.process.server.plugin.journal.SourceNode)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -3220,11 +3220,11 @@ public final class JournalMessages {
         getIdBytes();
 
     /**
-     * <code>optional .org.graylog2.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
      */
     boolean hasType();
     /**
-     * <code>optional .org.graylog2.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
      */
     com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Type getType();
 
@@ -3243,11 +3243,11 @@ public final class JournalMessages {
         getInputIdBytes();
   }
   /**
-   * Protobuf type {@code org.graylog2.plugin.journal.SourceNode}
+   * Protobuf type {@code com.synectiks.process.server.plugin.journal.SourceNode}
    */
   public static final class SourceNode extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:org.graylog2.plugin.journal.SourceNode)
+      // @@protoc_insertion_point(message_implements:com.synectiks.process.server.plugin.journal.SourceNode)
       SourceNodeOrBuilder {
     // Use SourceNode.newBuilder() to construct.
     private SourceNode(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -3360,7 +3360,7 @@ public final class JournalMessages {
     }
 
     /**
-     * Protobuf enum {@code org.graylog2.plugin.journal.SourceNode.Type}
+     * Protobuf enum {@code com.synectiks.process.server.plugin.journal.SourceNode.Type}
      */
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -3442,7 +3442,7 @@ public final class JournalMessages {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:org.graylog2.plugin.journal.SourceNode.Type)
+      // @@protoc_insertion_point(enum_scope:com.synectiks.process.server.plugin.journal.SourceNode.Type)
     }
 
     private int bitField0_;
@@ -3494,14 +3494,14 @@ public final class JournalMessages {
     public static final int TYPE_FIELD_NUMBER = 2;
     private com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Type type_;
     /**
-     * <code>optional .org.graylog2.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
      */
     @java.lang.Override
     public boolean hasType() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .org.graylog2.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
+     * <code>optional .com.synectiks.process.server.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
      */
     @java.lang.Override
     public com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Type getType() {
@@ -3685,11 +3685,11 @@ public final class JournalMessages {
       return builder;
     }
     /**
-     * Protobuf type {@code org.graylog2.plugin.journal.SourceNode}
+     * Protobuf type {@code com.synectiks.process.server.plugin.journal.SourceNode}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.graylog2.plugin.journal.SourceNode)
+        // @@protoc_insertion_point(builder_implements:com.synectiks.process.server.plugin.journal.SourceNode)
         com.synectiks.process.server.plugin.journal.JournalMessages.SourceNodeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -3704,7 +3704,7 @@ public final class JournalMessages {
                 com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.class, com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Builder.class);
       }
 
-      // Construct using org.graylog2.plugin.journal.JournalMessages.SourceNode.newBuilder()
+      // Construct using com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3916,21 +3916,21 @@ public final class JournalMessages {
 
       private com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Type type_ = com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Type.SERVER;
       /**
-       * <code>optional .org.graylog2.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
        */
       @java.lang.Override
       public boolean hasType() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
        */
       @java.lang.Override
       public com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Type getType() {
         return type_;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
        */
       public Builder setType(com.synectiks.process.server.plugin.journal.JournalMessages.SourceNode.Type value) {
         if (value == null) {
@@ -3942,7 +3942,7 @@ public final class JournalMessages {
         return this;
       }
       /**
-       * <code>optional .org.graylog2.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
+       * <code>optional .com.synectiks.process.server.plugin.journal.SourceNode.Type type = 2 [default = SERVER];</code>
        */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -4030,7 +4030,7 @@ public final class JournalMessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:org.graylog2.plugin.journal.SourceNode)
+      // @@protoc_insertion_point(builder_scope:com.synectiks.process.server.plugin.journal.SourceNode)
     }
 
     static {
@@ -4038,7 +4038,7 @@ public final class JournalMessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:org.graylog2.plugin.journal.SourceNode)
+    // @@protoc_insertion_point(class_scope:com.synectiks.process.server.plugin.journal.SourceNode)
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
@@ -4070,22 +4070,22 @@ public final class JournalMessages {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021raw_message.proto\022\033org.graylog2.plugin" +
+      "\n\021raw_message.proto\022\033com.synectiks.process.server.plugin" +
       ".journal\"\241\002\n\016JournalMessage\022\017\n\007version\030\001" +
       " \001(\r\022\021\n\tuuid_time\030\002 \001(\006\022\025\n\ruuid_clockseq" +
       "\030\003 \001(\006\022\021\n\ttimestamp\030\004 \001(\006\0225\n\005codec\030\005 \001(\013" +
-      "2&.org.graylog2.plugin.journal.CodecInfo" +
-      "\022=\n\014source_nodes\030\006 \003(\0132\'.org.graylog2.pl" +
+      "2&.com.synectiks.process.server.plugin.journal.CodecInfo" +
+      "\022=\n\014source_nodes\030\006 \003(\0132\'.com.synectiks.process.server.pl" +
       "ugin.journal.SourceNode\022:\n\006remote\030\007 \001(\0132" +
-      "*.org.graylog2.plugin.journal.RemoteAddr" +
+      "*.com.synectiks.process.server.plugin.journal.RemoteAddr" +
       "ess\022\017\n\007payload\030\010 \001(\014\"@\n\rRemoteAddress\022\017\n" +
       "\007address\030\001 \001(\014\022\014\n\004port\030\002 \001(\r\022\020\n\010resolved",
       "\030\003 \001(\t\")\n\tCodecInfo\022\014\n\004name\030\001 \001(\t\022\016\n\006con" +
       "fig\030\002 \001(\t\"\215\001\n\nSourceNode\022\n\n\002id\030\001 \001(\t\022B\n\004" +
-      "type\030\002 \001(\0162,.org.graylog2.plugin.journal" +
+      "type\030\002 \001(\0162,.com.synectiks.process.server.plugin.journal" +
       ".SourceNode.Type:\006SERVER\022\020\n\010input_id\030\003 \001" +
-      "(\t\"\035\n\004Type\022\n\n\006SERVER\020\000\022\t\n\005RADIO\020\001B.\n\033org" +
-      ".graylog2.plugin.journalB\017JournalMessage" +
+      "(\t\"\035\n\004Type\022\n\n\006SERVER\020\000\022\t\n\005RADIO\020\001B.\n\033com.synectiks.process.server" +
+      ".plugin.journalB\017JournalMessage" +
       "s"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =

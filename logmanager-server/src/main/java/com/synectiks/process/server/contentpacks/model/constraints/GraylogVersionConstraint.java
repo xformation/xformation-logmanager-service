@@ -12,11 +12,10 @@ import com.synectiks.process.server.semver4j.Requirement;
 @AutoValue
 @JsonDeserialize(builder = AutoValue_GraylogVersionConstraint.Builder.class)
 public abstract class GraylogVersionConstraint implements Constraint {
-    // TODO: Rename to graylog-version
     public static final String TYPE_NAME = "server-version";
-    private static final String FIELD_GRAYLOG_VERSION = "version";
+    private static final String FIELD_LOGMANAGER_VERSION = "version";
 
-    @JsonProperty(FIELD_GRAYLOG_VERSION)
+    @JsonProperty(FIELD_LOGMANAGER_VERSION)
     public abstract Requirement version();
 
     public abstract Builder toBuilder();
@@ -39,7 +38,7 @@ public abstract class GraylogVersionConstraint implements Constraint {
 
     @AutoValue.Builder
     public abstract static class Builder implements Constraint.ConstraintBuilder<Builder> {
-        @JsonProperty(FIELD_GRAYLOG_VERSION)
+        @JsonProperty(FIELD_LOGMANAGER_VERSION)
         public abstract Builder version(Requirement version);
 
         @JsonIgnore

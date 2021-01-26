@@ -74,7 +74,7 @@ public class MongoInputStatusService implements InputStatusService {
     /**
      * Clean up MongoDB records when Inputs are deleted
      *
-     * At the moment, Graylog uses the InputDeleted event both when an Input is stopped
+     * At the moment, logmanager uses the InputDeleted event both when an Input is stopped
      * and when it is deleted.
      *
      * @param event ID of the input being deleted
@@ -85,7 +85,6 @@ public class MongoInputStatusService implements InputStatusService {
 
         // The input system is currently sending an "InputDeleted" event when an input gets deleted AND when an
         // input gets stopped. Check the database if the input was only stopped or actually deleted.
-        // TODO: Remove this workaround once https://github.com/Graylog2/graylog2-server/issues/7812 is fixed
         try {
             inputService.find(event.id());
             // The input still exists so it only has been stopped. Don't do anything.

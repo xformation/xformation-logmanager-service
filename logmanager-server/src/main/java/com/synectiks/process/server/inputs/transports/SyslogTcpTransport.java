@@ -28,14 +28,14 @@ public class SyslogTcpTransport extends TcpTransport {
                               NettyTransportConfiguration nettyTransportConfiguration,
                               ThroughputCounter throughputCounter,
                               LocalMetricRegistry localRegistry,
-                              com.synectiks.process.server.Configuration graylogConfiguration) {
+                              com.synectiks.process.server.Configuration logmanagerConfiguration) {
         super(configuration,
                 eventLoopGroup,
                 eventLoopGroupFactory,
                 nettyTransportConfiguration,
                 throughputCounter,
                 localRegistry,
-                graylogConfiguration);
+                logmanagerConfiguration);
     }
 
     @Override

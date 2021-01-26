@@ -89,7 +89,6 @@ public class StructuredSyslogMessage extends AbstractSyslogMessage implements St
 
         // Check if the RFC5424 MSGID and STRUCTURED-DATA fields are empty.
         // This avoids throwing an exception and also strips the "- - " from the message.
-        // See: https://github.com/Graylog2/graylog2-server/issues/1161
         if (stringMessage.startsWith(EMPTY_STRUCTURED_DATA_PREFIX)) {
             this.message = stringMessage.substring(EMPTY_STRUCTURED_DATA_PREFIX_LENGTH);
             return;

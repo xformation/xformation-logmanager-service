@@ -86,7 +86,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-@Command(name = "server", description = "Start the Graylog server")
+@Command(name = "server", description = "Start the Logmanager server")
 public class Server extends ServerBootstrap {
     private static final Logger LOG = LoggerFactory.getLogger(Server.class);
 
@@ -109,7 +109,7 @@ public class Server extends ServerBootstrap {
         super("server", configuration);
     }
 
-    @Option(name = {"-l", "--local"}, description = "Run Graylog in local mode. Only interesting for Graylog developers.")
+    @Option(name = {"-l", "--local"}, description = "Run Logmanager in local mode. Only interesting for Logmanager developers.")
     private boolean local = false;
 
     public boolean isLocal() {

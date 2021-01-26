@@ -7,7 +7,7 @@ import org.joda.time.DateTime;
 import com.synectiks.process.server.plugin.lifecycles.Lifecycle;
 
 /**
- * This is used to track processing status on a single Graylog node.
+ * This is used to track processing status on a single Logmanager node.
  */
 public interface ProcessingStatusRecorder {
     /**

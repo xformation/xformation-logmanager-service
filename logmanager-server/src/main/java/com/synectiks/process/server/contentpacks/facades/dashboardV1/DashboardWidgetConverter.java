@@ -67,7 +67,7 @@ public class DashboardWidgetConverter {
                 return createSearchResultCount();
             case "QUICKVALUES_HISTOGRAM":
                 return createQuickValueHistogramWidgets();
-            case "ORG.GRAYLOG.PLUGINS.MAP.WIDGET.STRATEGY.MAPWIDGETSTRATEGY":
+            case "COM.SYNECTIKS.PROCESS.COMMON.PLUGINS.MAP.WIDGET.STRATEGY.MAPWIDGETSTRATEGY":
                 return createMapWidget();
             default: {
                 throw new RuntimeException("The provided entity does not have a valid Widget type: " + type);

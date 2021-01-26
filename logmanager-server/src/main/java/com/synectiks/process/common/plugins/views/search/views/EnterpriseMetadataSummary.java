@@ -11,22 +11,22 @@ import java.net.URI;
 public class EnterpriseMetadataSummary extends PluginMetadataSummary {
     @Override
     public String uniqueId() {
-        return "org.graylog.plugins.enterprise.EnterprisePlugin";
+        return "com.synectiks.process.common.plugins.enterprise.EnterprisePlugin";
     }
 
     @Override
     public String name() {
-        return "Graylog Enterprise";
+        return "Logmanager Enterprise";
     }
 
     @Override
     public String author() {
-        return "Graylog, Inc.";
+        return "Logmanager, Inc.";
     }
 
     @Override
     public URI url() {
-        return URI.create("https://www.graylog.org/enterprise");
+        return URI.create("https://www.logmanager.org/enterprise");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class EnterpriseMetadataSummary extends PluginMetadataSummary {
 
     @Override
     public String description() {
-        return "Graylog Enterprise";
+        return "Logmanager Enterprise";
     }
 
     @Override

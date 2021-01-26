@@ -36,7 +36,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * A {@link Periodical} to check if index ranges need to be recalculated and notify the administrators about it.
  *
- * @see <a href="https://github.com/Graylog2/graylog2-server/pull/1274">Refactor index ranges handling (#1274)</a>
  * @since 1.2.0
  */
 public class IndexRangesMigrationPeriodical extends Periodical {
@@ -68,7 +67,7 @@ public class IndexRangesMigrationPeriodical extends Periodical {
     public void doRun() {
         final MongoIndexRangesMigrationComplete migrationComplete = clusterConfigService.get(MongoIndexRangesMigrationComplete.class);
         if (migrationComplete != null && migrationComplete.complete) {
-            LOG.debug("Migration of index ranges (pre Graylog 1.2.2) already complete. Skipping migration process.");
+            LOG.debug("Migration of index ranges (pre Logmanager 1.2.2) already complete. Skipping migration process.");
             return;
         }
 

@@ -30,7 +30,7 @@ public class EventBusProvider implements Provider<EventBus> {
 
     @Override
     public EventBus get() {
-        final EventBus eventBus = new AsyncEventBus("graylog-eventbus", executorService(configuration.getAsyncEventbusProcessors()));
+        final EventBus eventBus = new AsyncEventBus("logmanager-eventbus", executorService(configuration.getAsyncEventbusProcessors()));
         eventBus.register(new DeadEventLoggingListener());
 
         return eventBus;

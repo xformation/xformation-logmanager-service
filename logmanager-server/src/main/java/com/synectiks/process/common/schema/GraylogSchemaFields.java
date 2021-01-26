@@ -3,7 +3,7 @@
 package com.synectiks.process.common.schema;
 
 /**
- * Field names used in the standard Graylog Schema.
+ * Field names used in the standard Logmanager Schema.
  *
  * @deprecated Please use the appropriate enums in this package rather than this collection of strings
  */

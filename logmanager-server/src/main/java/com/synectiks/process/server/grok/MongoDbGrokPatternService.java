@@ -57,8 +57,7 @@ public class MongoDbGrokPatternService implements GrokPatternService {
                 mapper.get());
         this.clusterBus = clusterBus;
 
-        // TODO: Uncomment once there are no Graylog clusters with duplicate Grok patterns out there,
-        //       probably around Graylog 4.0.0.
+        // TODO: Uncomment once there are no Logmanager clusters with duplicate Grok patterns out there,
         // createIndex(mongoConnection);
     }
 

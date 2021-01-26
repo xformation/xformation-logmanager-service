@@ -72,7 +72,7 @@ public abstract class AbstractJournalCommand extends CmdLineTool {
             runCommand();
         } catch (Exception e) {
             System.err.println(
-                    "Unable to read the message journal. Please make sure no other Graylog process is using the journal.");
+                    "Unable to read the message journal. Please make sure no other Logmanager process is using the journal.");
         } finally {
             if (journal != null) journal.stopAsync().awaitTerminated();
         }

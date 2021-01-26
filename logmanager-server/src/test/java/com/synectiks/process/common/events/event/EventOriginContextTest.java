@@ -12,8 +12,8 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 public class EventOriginContextTest {
     @Test
     public void elasticsearchMessage() {
-        assertThat(EventOriginContext.elasticsearchMessage("graylog_0", "b5e53442-12bb-4374-90ed-c325c0d979ce"))
-                .isEqualTo("urn:graylog:message:es:graylog_0:b5e53442-12bb-4374-90ed-c325c0d979ce");
+        assertThat(EventOriginContext.elasticsearchMessage("logmanager_0", "b5e53442-12bb-4374-90ed-c325c0d979ce"))
+                .isEqualTo("urn:logmanager:message:es:logmanager_0:b5e53442-12bb-4374-90ed-c325c0d979ce");
 
         assertThatCode(() -> EventOriginContext.elasticsearchMessage("", "b5e53442-12bb-4374-90ed-c325c0d979ce"))
                 .hasMessageContaining("indexName")
@@ -22,10 +22,10 @@ public class EventOriginContextTest {
                 .hasMessageContaining("indexName")
                 .isInstanceOf(IllegalArgumentException.class);
 
-        assertThatCode(() -> EventOriginContext.elasticsearchMessage("graylog_0", ""))
+        assertThatCode(() -> EventOriginContext.elasticsearchMessage("logmanager_0", ""))
                 .hasMessageContaining("messageId")
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatCode(() -> EventOriginContext.elasticsearchMessage("graylog_0", null))
+        assertThatCode(() -> EventOriginContext.elasticsearchMessage("logmanager_0", null))
                 .hasMessageContaining("messageId")
                 .isInstanceOf(IllegalArgumentException.class);
     }
@@ -33,7 +33,7 @@ public class EventOriginContextTest {
     @Test
     public void elasticsearchEvent() {
         assertThat(EventOriginContext.elasticsearchEvent("gl-events_0", "01DF13GB094MT6390TYQB2Q73Q"))
-                .isEqualTo("urn:graylog:event:es:gl-events_0:01DF13GB094MT6390TYQB2Q73Q");
+                .isEqualTo("urn:logmanager:event:es:gl-events_0:01DF13GB094MT6390TYQB2Q73Q");
 
         assertThatCode(() -> EventOriginContext.elasticsearchEvent("", "01DF13GB094MT6390TYQB2Q73Q"))
                 .hasMessageContaining("indexName")
@@ -57,12 +57,12 @@ public class EventOriginContextTest {
 
     @Test
     public void parseShortESContext() {
-        assertThat(EventOriginContext.parseESContext("urn:graylog:message:es:ind")).isEmpty();
+        assertThat(EventOriginContext.parseESContext("urn:logmanager:message:es:ind")).isEmpty();
     }
 
     @Test
     public void parseMessageESContext() {
-        assertThat(EventOriginContext.parseESContext("urn:graylog:message:es:index-42:01DF13GB094MT6390TYQB2Q73Q"))
+        assertThat(EventOriginContext.parseESContext("urn:logmanager:message:es:index-42:01DF13GB094MT6390TYQB2Q73Q"))
                 .isPresent()
                 .get()
                 .satisfies(context -> {
@@ -73,7 +73,7 @@ public class EventOriginContextTest {
 
     @Test
     public void parseEventESContext() {
-        assertThat(EventOriginContext.parseESContext("urn:graylog:event:es:index-42:01DF13GB094MT6390TYQB2Q73Q"))
+        assertThat(EventOriginContext.parseESContext("urn:logmanager:event:es:index-42:01DF13GB094MT6390TYQB2Q73Q"))
                 .isPresent()
                 .get()
                 .satisfies(context -> {

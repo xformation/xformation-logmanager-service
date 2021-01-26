@@ -65,7 +65,7 @@ public class GelfMessageBuilder {
      *
      * @param message The message of the {@link GelfMessage}
      * @param host    The contents of the {@code host} field of the {@link GelfMessage}
-     * @param version The version of the <a href="http://graylog2.org/gelf#specs">GELF specification</a> to use
+     * @param version The version of the GELF specification to use
      */
     public GelfMessageBuilder(final String message, final String host, final GelfMessageVersion version) {
         this.message = message;
