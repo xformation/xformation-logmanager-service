@@ -75,12 +75,12 @@ class LUTTableEntry extends React.Component {
     const { cache } = this.props;
 
     const countMap = {
-      requests: `org.graylog2.lookup.caches.${cache.id}.requests`,
-      hits: `org.graylog2.lookup.caches.${cache.id}.hits`,
-      misses: `org.graylog2.lookup.caches.${cache.id}.misses`,
+      requests: `com.synectiks.process.server.lookup.caches.${cache.id}.requests`,
+      hits: `com.synectiks.process.server.lookup.caches.${cache.id}.hits`,
+      misses: `com.synectiks.process.server.lookup.caches.${cache.id}.misses`,
     };
     const entriesMap = {
-      count: `org.graylog2.lookup.caches.${cache.id}.entries`,
+      count: `com.synectiks.process.server.lookup.caches.${cache.id}.entries`,
     };
 
     return (
@@ -99,7 +99,7 @@ class LUTTableEntry extends React.Component {
             <MetricsMapper map={countMap} computeValue={this._onCountMetrics} />
           </td>
           <td>
-            <MetricContainer name={`org.graylog2.lookup.caches.${cache.id}.requests`}>
+            <MetricContainer name={`com.synectiks.process.server.lookup.caches.${cache.id}.requests`}>
               <CounterRate suffix="lookups/s" />
             </MetricContainer>
           </td>

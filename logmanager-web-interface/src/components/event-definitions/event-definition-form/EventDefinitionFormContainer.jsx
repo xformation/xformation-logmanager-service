@@ -125,9 +125,9 @@ class EventDefinitionFormContainer extends React.Component {
       }
 
       if (body.type && body.type === 'ApiError') {
-        if (body.message.includes('org.graylog.events.conditions.Expression')
-          || body.message.includes('org.graylog.events.conditions.Expr')
-          || body.message.includes('org.graylog.events.processor.aggregation.AggregationSeries')) {
+        if (body.message.includes('com.synectiks.process.common.events.conditions.Expression')
+          || body.message.includes('com.synectiks.process.common.events.conditions.Expr')
+          || body.message.includes('com.synectiks.process.common.events.processor.aggregation.AggregationSeries')) {
           this.setState({
             validation: {
               errors: { conditions: ['Aggregation condition is not valid'] },

@@ -81,12 +81,12 @@ class RuleList extends React.Component {
         <td className="limited"><Timestamp dateTime={rule.created_at} relative /></td>
         <td className="limited"><Timestamp dateTime={rule.modified_at} relative /></td>
         <td>
-          <MetricContainer name={`org.graylog.plugins.pipelineprocessor.ast.Rule.${rule.id}.executed`} zeroOnMissing>
+          <MetricContainer name={`com.synectiks.process.common.plugins.pipelineprocessor.ast.Rule.${rule.id}.executed`} zeroOnMissing>
             <CounterRate suffix="msg/s" />
           </MetricContainer>
         </td>
         <td>
-          <MetricContainer name={`org.graylog.plugins.pipelineprocessor.ast.Rule.${rule.id}.failed`}>
+          <MetricContainer name={`com.synectiks.process.common.plugins.pipelineprocessor.ast.Rule.${rule.id}.failed`}>
             <CounterRate showTotal suffix="errors/s" hideOnMissing />
           </MetricContainer>
         </td>

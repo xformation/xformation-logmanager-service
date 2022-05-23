@@ -32,8 +32,8 @@ jest.mock('components/throughput/GlobalThroughput', () => mockComponent('GlobalT
 jest.mock('components/navigation/NotificationBadge', () => mockComponent('NotificationBadge'));
 
 jest.mock('util/AppConfig', () => ({
-  gl2AppPathPrefix: jest.fn(() => ''),
-  gl2ServerUrl: jest.fn(() => undefined),
+  xflogAppPathPrefix: jest.fn(() => ''),
+  xflogServerUrl: jest.fn(() => undefined),
   gl2DevMode: jest.fn(() => false),
   isFeatureEnabled: jest.fn(() => false),
 }));
@@ -120,7 +120,7 @@ describe('Navigation', () => {
     };
 
     beforeEach(() => {
-      AppConfig.gl2AppPathPrefix = jest.fn(() => '');
+      AppConfig.xflogAppPathPrefix = jest.fn(() => '');
       PluginStore.register(plugin);
     });
 
@@ -135,7 +135,7 @@ describe('Navigation', () => {
     });
 
     it('prefix plugin navigation item paths with app prefix', () => {
-      AppConfig.gl2AppPathPrefix.mockReturnValue('/my/crazy/prefix');
+      AppConfig.xflogAppPathPrefix.mockReturnValue('/my/crazy/prefix');
       const wrapper = mount(<SimpleNavigation component={Navigation} />);
 
       expect(findLink(wrapper, 'Perpetuum Mobile')).toHaveProp('path', '/my/crazy/prefix/something');

@@ -74,7 +74,7 @@ describe('ShowMessagePage', () => {
     mockLoadMessage.mockImplementation(() => Promise.resolve(event));
     mockGetInput.mockImplementation(() => Promise.resolve());
     // @ts-ignore
-    const { container, queryByTestId } = render(<ShowMessagePage params={{ index: 'gl-events_0', messageId: '01DFZQ64CMGV30NT7DW2P7HQX2' }} />);
+    const { container, queryByTestId } = render(<ShowMessagePage params={{ index: 'xflog-events_0', messageId: '01DFZQ64CMGV30NT7DW2P7HQX2' }} />);
 
     await waitFor(() => expect(queryByTestId('spinner')).toBeNull());
 

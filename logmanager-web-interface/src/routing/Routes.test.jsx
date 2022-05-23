@@ -51,7 +51,7 @@ describe('Routes', () => {
       jest.resetModules();
 
       window.appConfig = {
-        gl2AppPathPrefix: prefix,
+        xflogAppPathPrefix: prefix,
       };
 
       Routes = require.requireActual('./Routes').default;

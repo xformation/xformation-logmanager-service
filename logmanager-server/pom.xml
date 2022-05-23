@@ -948,7 +948,7 @@
             <id>web-interface-build</id>
             <activation>
                 <property>
-                    <name>skip.web.build</name>
+                    <name>!skip.web.build</name>
                 </property>
             </activation>
             <build>

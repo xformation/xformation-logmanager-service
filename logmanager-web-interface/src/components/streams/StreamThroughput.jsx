@@ -44,7 +44,7 @@ const StreamThroughput = createReactClass({
   },
 
   _metricName() {
-    return `org.graylog2.plugin.streams.Stream.${this.props.streamId}.incomingMessages.1-sec-rate`;
+    return `com.synectiks.process.server.plugin.streams.Stream.${this.props.streamId}.incomingMessages.1-sec-rate`;
   },
 
   _calculateThroughput() {

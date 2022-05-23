@@ -66,13 +66,13 @@ const BufferUsage = createReactClass({
   _metricPrefix() {
     const { bufferType } = this.props;
 
-    return `org.graylog2.buffers.${bufferType}`;
+    return `com.synectiks.process.server.buffers.${bufferType}`;
   },
 
   _metricFilter() {
     const { bufferType } = this.props;
 
-    return `org\\.graylog2\\.buffers\\.${bufferType}\\.|${bufferType}buffer`;
+    return `com\\.synectiks\\.process\\.server\\.buffers\\.${bufferType}\\.|${bufferType}buffer`;
   },
 
   render() {

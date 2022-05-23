@@ -47,8 +47,8 @@ const NodeThroughput = createReactClass({
 
   UNSAFE_componentWillMount() {
     this.metricNames = {
-      totalIn: 'org.graylog2.throughput.input.1-sec-rate',
-      totalOut: 'org.graylog2.throughput.output.1-sec-rate',
+      totalIn: 'com.synectiks.process.server.throughput.input.1-sec-rate',
+      totalOut: 'com.synectiks.process.server.throughput.output.1-sec-rate',
     };
 
     Object.keys(this.metricNames).forEach((metricShortName) => MetricsActions.add(this.props.nodeId, this.metricNames[metricShortName]));

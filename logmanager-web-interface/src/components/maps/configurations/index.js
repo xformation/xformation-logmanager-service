@@ -22,7 +22,7 @@ PluginStore.register(new PluginManifest({}, {
   systemConfigurations: [
     {
       component: GeoIpResolverConfig,
-      configType: 'org.graylog.plugins.map.config.GeoIpResolverConfig',
+      configType: 'com.synectiks.process.common.plugins.map.config.GeoIpResolverConfig',
     },
   ],
 }));

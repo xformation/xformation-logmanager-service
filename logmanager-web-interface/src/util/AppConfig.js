@@ -15,18 +15,18 @@
  * <http://www.mongodb.com/licensing/server-side-public-license>.
  */
 const AppConfig = {
-  gl2ServerUrl() {
+  xflogServerUrl() {
     if (typeof (GRAYLOG_HTTP_PUBLISH_URI) !== 'undefined') {
       // The GRAYLOG_HTTP_PUBLISH_URI variable will be set by webpack via the DefinePlugin.
       // eslint-disable-next-line no-undef
       return GRAYLOG_HTTP_PUBLISH_URI;
     }
 
-    return this.appConfig().gl2ServerUrl;
+    return this.appConfig().xflogServerUrl;
   },
 
-  gl2AppPathPrefix() {
-    return this.appConfig().gl2AppPathPrefix;
+  xflogAppPathPrefix() {
+    return this.appConfig().xflogAppPathPrefix;
   },
 
   gl2DevMode() {

@@ -87,12 +87,12 @@ const JournalDetails = createReactClass({
     // only listen for updates if the journal is actually turned on
     if (journalInformation.enabled) {
       this.metricNames = {
-        append: 'org.graylog2.journal.append.1-sec-rate',
-        read: 'org.graylog2.journal.read.1-sec-rate',
-        segments: 'org.graylog2.journal.segments',
-        entriesUncommitted: 'org.graylog2.journal.entries-uncommitted',
-        utilizationRatio: 'org.graylog2.journal.utilization-ratio',
-        oldestSegment: 'org.graylog2.journal.oldest-segment',
+        append: 'com.synectiks.process.server.journal.append.1-sec-rate',
+        read: 'com.synectiks.process.server.journal.read.1-sec-rate',
+        segments: 'com.synectiks.process.server.journal.segments',
+        entriesUncommitted: 'com.synectiks.process.server.journal.entries-uncommitted',
+        utilizationRatio: 'com.synectiks.process.server.journal.utilization-ratio',
+        oldestSegment: 'com.synectiks.process.server.journal.oldest-segment',
       };
 
       Object.keys(this.metricNames).forEach((metricShortName) => MetricsActions.add(nodeId, this.metricNames[metricShortName]));

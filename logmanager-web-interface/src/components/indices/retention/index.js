@@ -26,19 +26,19 @@ import NoopRetentionStrategySummary from './NoopRetentionStrategySummary';
 PluginStore.register(new PluginManifest({}, {
   indexRetentionConfig: [
     {
-      type: 'org.graylog2.indexer.retention.strategies.DeletionRetentionStrategy',
+      type: 'com.synectiks.process.server.indexer.retention.strategies.DeletionRetentionStrategy',
       displayName: 'Delete Index',
       configComponent: DeletionRetentionStrategyConfiguration,
       summaryComponent: DeletionRetentionStrategySummary,
     },
     {
-      type: 'org.graylog2.indexer.retention.strategies.ClosingRetentionStrategy',
+      type: 'com.synectiks.process.server.indexer.retention.strategies.ClosingRetentionStrategy',
       displayName: 'Close Index',
       configComponent: ClosingRetentionStrategyConfiguration,
       summaryComponent: ClosingRetentionStrategySummary,
     },
     {
-      type: 'org.graylog2.indexer.retention.strategies.NoopRetentionStrategy',
+      type: 'com.synectiks.process.server.indexer.retention.strategies.NoopRetentionStrategy',
       displayName: 'Do nothing',
       configComponent: NoopRetentionStrategyConfiguration,
       summaryComponent: NoopRetentionStrategySummary,

@@ -60,7 +60,7 @@ class DataAdapterTableEntry extends React.Component {
           <td>{adapter.description}</td>
           <td>{adapter.name}</td>
           <td>
-            <MetricContainer name={`org.graylog2.lookup.adapters.${adapter.id}.requests`}>
+            <MetricContainer name={`com.synectiks.process.server.lookup.adapters.${adapter.id}.requests`}>
               <CounterRate suffix="lookups/s" />
             </MetricContainer>
           </td>

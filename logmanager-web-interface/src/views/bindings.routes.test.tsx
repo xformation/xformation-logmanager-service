@@ -19,8 +19,8 @@ import { StreamSearchPage } from 'views/pages';
 import bindings from './bindings';
 
 jest.mock('util/AppConfig', () => ({
-  gl2ServerUrl: () => 'localhost:9000/api/',
-  gl2AppPathPrefix: jest.fn(() => '/gl2/'),
+  xflogServerUrl: () => 'localhost:9000/api/',
+  xflogAppPathPrefix: jest.fn(() => '/xflog/'),
 }));
 
 describe('bindings.routes', () => {

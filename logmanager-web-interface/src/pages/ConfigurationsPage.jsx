@@ -38,11 +38,11 @@ import style from '!style/useable!css!components/configurations/ConfigurationSty
 const { CurrentUserStore } = CombinedProvider.get('CurrentUser');
 const { ConfigurationsActions, ConfigurationsStore } = CombinedProvider.get('Configurations');
 
-const SEARCHES_CLUSTER_CONFIG = 'org.graylog2.indexer.searches.SearchesClusterConfig';
-const MESSAGE_PROCESSORS_CONFIG = 'org.graylog2.messageprocessors.MessageProcessorsConfig';
-const SIDECAR_CONFIG = 'org.graylog.plugins.sidecar.system.SidecarConfiguration';
-const EVENTS_CONFIG = 'org.graylog.events.configuration.EventsConfiguration';
-const URL_WHITELIST_CONFIG = 'org.graylog2.system.urlwhitelist.UrlWhitelist';
+const SEARCHES_CLUSTER_CONFIG = 'com.synectiks.process.server.indexer.searches.SearchesClusterConfig';
+const MESSAGE_PROCESSORS_CONFIG = 'com.synectiks.process.server.messageprocessors.MessageProcessorsConfig';
+const SIDECAR_CONFIG = 'com.synectiks.process.common.plugins.sidecar.system.SidecarConfiguration';
+const EVENTS_CONFIG = 'com.synectiks.process.common.events.configuration.EventsConfiguration';
+const URL_WHITELIST_CONFIG = 'com.synectiks.process.server.system.urlwhitelist.UrlWhitelist';
 
 class ConfigurationsPage extends React.Component {
   checkLoadedTimer = undefined

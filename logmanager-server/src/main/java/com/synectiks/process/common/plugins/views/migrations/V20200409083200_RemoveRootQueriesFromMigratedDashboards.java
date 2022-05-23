@@ -74,22 +74,22 @@ public class V20200409083200_RemoveRootQueriesFromMigratedDashboards extends Mig
 
     @Override
     public void upgrade() {
-//        if (clusterConfigService.get(MigrationCompleted.class) != null) {
-//            LOG.debug("Migration already completed.");
+        if (clusterConfigService.get(MigrationCompleted.class) != null) {
+            LOG.debug("Migration already completed.");
             return;
-//        }
+        }
 
-//        final UpdateResult updateResult = searchesCollection
-//                .updateMany(
-//                        and(
-//                                isDashboard(),
-//                                atLeastOneQueryHasNonEmptyQueryString()
-//                        ),
-//                        makeQueryStringEmpty(),
-//                        forNonEmptyQueryStrings()
-//                );
-//
-//        writeMigrationCompleted(updateResult.getModifiedCount());
+        final UpdateResult updateResult = searchesCollection
+                .updateMany(
+                        and(
+                                isDashboard(),
+                                atLeastOneQueryHasNonEmptyQueryString()
+                        ),
+                        makeQueryStringEmpty(),
+                        forNonEmptyQueryStrings()
+                );
+
+        writeMigrationCompleted(updateResult.getModifiedCount());
     }
 
     private MongoIterable<ObjectId> searchIdsForDashboards() {

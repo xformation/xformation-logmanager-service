@@ -30,8 +30,8 @@ const GlobalThroughputStore = Reflux.createStore({
     loading: false,
   },
   metrics: {
-    input: 'org.graylog2.throughput.input.1-sec-rate',
-    output: 'org.graylog2.throughput.output.1-sec-rate',
+    input: 'com.synectiks.process.server.throughput.input.1-sec-rate',
+    output: 'com.synectiks.process.server.throughput.output.1-sec-rate',
     loading: true,
   },
 

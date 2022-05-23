@@ -26,7 +26,7 @@ describe('<ContentPackConstraints />', () => {
       type: 'server-version',
       version: '>=3.0.0-alpha.2+af8d8e0',
     }, {
-      plugin: 'org.graylog.plugins.threatintel.ThreatIntelPlugin',
+      plugin: 'com.synectiks.process.common.plugins.threatintel.ThreatIntelPlugin',
       type: 'plugin-version',
       version: '>=3.0.0-alpha.2',
     }];
@@ -40,7 +40,7 @@ describe('<ContentPackConstraints />', () => {
       type: 'server-version',
       version: '>=3.0.0-alpha.2+af8d8e0',
     }, {
-      plugin: 'org.graylog.plugins.threatintel.ThreatIntelPlugin',
+      plugin: 'com.synectiks.process.common.plugins.threatintel.ThreatIntelPlugin',
       type: 'plugin-version',
       version: '>=3.0.0-alpha.2',
     }];
@@ -59,7 +59,7 @@ describe('<ContentPackConstraints />', () => {
         fulfilled: true,
       }, {
         constraint: {
-          plugin: 'org.graylog.plugins.threatintel.ThreatIntelPlugin',
+          plugin: 'com.synectiks.process.common.plugins.threatintel.ThreatIntelPlugin',
           type: 'plugin-version',
           version: '>=3.0.0-alpha.2',
         },

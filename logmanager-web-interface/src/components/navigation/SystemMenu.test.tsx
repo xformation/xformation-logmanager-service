@@ -27,8 +27,8 @@ const containsLink = (wrapper, title, length = 1) => expect(findLink(wrapper, ti
 const containsAllLinks = (wrapper, titles) => titles.forEach((title) => containsLink(wrapper, title));
 
 jest.mock('util/AppConfig', () => ({
-  gl2AppPathPrefix: jest.fn(() => ''),
-  gl2ServerUrl: jest.fn(() => undefined),
+  xflogAppPathPrefix: jest.fn(() => ''),
+  xflogServerUrl: jest.fn(() => undefined),
   gl2DevMode: jest.fn(() => false),
 }));
 
@@ -43,7 +43,7 @@ describe('SystemMenu', () => {
     const PluginStore = { exports: jest.fn((key) => exports[key] || []) };
 
     jest.doMock('graylog-web-plugin/plugin', () => ({ PluginStore }));
-    AppConfig.gl2AppPathPrefix = jest.fn(() => '');
+    AppConfig.xflogAppPathPrefix = jest.fn(() => '');
   });
 
   const SimpleSystemMenu = ({ permissions, component: Component, location }: { permissions?: Array<string>, component: any, location?: { pathname: string }}) => (
@@ -131,7 +131,7 @@ describe('SystemMenu', () => {
     });
 
     it('prefixes plugin path with current application path prefix', () => {
-      AppConfig.gl2AppPathPrefix = jest.fn(() => '/my/fancy/prefix');
+      AppConfig.xflogAppPathPrefix = jest.fn(() => '/my/fancy/prefix');
       const wrapper = mount(<SimpleSystemMenu component={SystemMenu} />);
 
       expect(findLink(wrapper, 'Audit Log')).toHaveProp('path', '/my/fancy/prefix/system/auditlog');

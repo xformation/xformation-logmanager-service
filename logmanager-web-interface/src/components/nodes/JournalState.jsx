@@ -39,10 +39,10 @@ const JournalState = createReactClass({
 
   UNSAFE_componentWillMount() {
     this.metricNames = {
-      append: 'org.graylog2.journal.append.1-sec-rate',
-      read: 'org.graylog2.journal.read.1-sec-rate',
-      segments: 'org.graylog2.journal.segments',
-      entriesUncommitted: 'org.graylog2.journal.entries-uncommitted',
+      append: 'com.synectiks.process.server.journal.append.1-sec-rate',
+      read: 'com.synectiks.process.server.journal.read.1-sec-rate',
+      segments: 'com.synectiks.process.server.journal.segments',
+      entriesUncommitted: 'com.synectiks.process.server.journal.entries-uncommitted',
     };
 
     Object.keys(this.metricNames).forEach((metricShortName) => MetricsActions.add(this.props.nodeId, this.metricNames[metricShortName]));

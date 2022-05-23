@@ -117,9 +117,9 @@ export default class RuleMetricsConfig extends React.Component {
         </p>
         <p>
           Example metric name with rule ID placeholder:<br />
-          <code>org.graylog.plugins.pipelineprocessor.ast.Rule.[rule-id].trace.evaluate.duration</code><br />
+          <code>com.synectiks.process.common.plugins.pipelineprocessor.ast.Rule.[rule-id].trace.evaluate.duration</code><br />
           Example metric name with rule ID, pipeline ID and stage number placeholders:<br />
-          <code>org.graylog.plugins.pipelineprocessor.ast.Rule.[rule-id].[pipeline-id].[stage-num].trace.evaluate.duration</code>
+          <code>com.synectiks.process.common.plugins.pipelineprocessor.ast.Rule.[rule-id].[pipeline-id].[stage-num].trace.evaluate.duration</code>
         </p>
         <strong>Rule execution timer</strong>
         <p>
@@ -127,9 +127,9 @@ export default class RuleMetricsConfig extends React.Component {
         </p>
         <p>
           Example metric name with rule ID placeholder:<br />
-          <code>org.graylog.plugins.pipelineprocessor.ast.Rule.[rule-id].trace.execute.duration</code><br />
+          <code>com.synectiks.process.common.plugins.pipelineprocessor.ast.Rule.[rule-id].trace.execute.duration</code><br />
           Example metric name with rule ID, pipeline ID and stage number placeholders:<br />
-          <code>org.graylog.plugins.pipelineprocessor.ast.Rule.[rule-id].[pipeline-id].[stage-num].trace.execute.duration</code>
+          <code>com.synectiks.process.common.plugins.pipelineprocessor.ast.Rule.[rule-id].[pipeline-id].[stage-num].trace.execute.duration</code>
         </p>
       </BootstrapModalForm>
     );

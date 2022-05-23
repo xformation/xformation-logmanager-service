@@ -26,19 +26,19 @@ import TimeBasedRotationStrategySummary from './TimeBasedRotationStrategySummary
 PluginStore.register(new PluginManifest({}, {
   indexRotationConfig: [
     {
-      type: 'org.graylog2.indexer.rotation.strategies.MessageCountRotationStrategy',
+      type: 'com.synectiks.process.server.indexer.rotation.strategies.MessageCountRotationStrategy',
       displayName: 'Index Message Count',
       configComponent: MessageCountRotationStrategyConfiguration,
       summaryComponent: MessageCountRotationStrategySummary,
     },
     {
-      type: 'org.graylog2.indexer.rotation.strategies.SizeBasedRotationStrategy',
+      type: 'com.synectiks.process.server.indexer.rotation.strategies.SizeBasedRotationStrategy',
       displayName: 'Index Size',
       configComponent: SizeBasedRotationStrategyConfiguration,
       summaryComponent: SizeBasedRotationStrategySummary,
     },
     {
-      type: 'org.graylog2.indexer.rotation.strategies.TimeBasedRotationStrategy',
+      type: 'com.synectiks.process.server.indexer.rotation.strategies.TimeBasedRotationStrategy',
       displayName: 'Index Time',
       configComponent: TimeBasedRotationStrategyConfiguration,
       summaryComponent: TimeBasedRotationStrategySummary,

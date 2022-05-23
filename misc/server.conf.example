@@ -118,9 +118,9 @@ http_bind_address = 127.0.0.1:7037
 # If $http_bind_address contains a wildcard IPv4 address (0.0.0.0), the first non-loopback IPv4 address of this machine will be used.
 # This configuration setting *must not* contain a wildcard address!
 #
-# Default: http://$http_bind_address/
+Default: http://$http_bind_address/
 #http_publish_uri = http://192.168.1.1:9000/
-http_publish_uri = http://127.0.0.1:7037/
+#http_publish_uri = http://127.0.0.1:7037/
 
 #### External Logmanager URI
 #
