@@ -44,7 +44,7 @@ public class SearchResultTest {
             "source",
             "timestamp",
             "http_response",
-            "gl2_source_node",
+            "xflog_source_node",
             "_index"
         ));
         when(r1.getMessage()).thenReturn(m1);
@@ -56,7 +56,7 @@ public class SearchResultTest {
             "source",
             "timestamp",
             "took_ms",
-            "gl2_source_collector"
+            "xflog_source_collector"
         ));
         when(r2.getMessage()).thenReturn(m2);
 

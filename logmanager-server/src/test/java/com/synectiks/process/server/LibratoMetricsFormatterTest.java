@@ -45,29 +45,29 @@ public class LibratoMetricsFormatterTest {
         fakeStreamNames.put(id2.toString(), "lolano$therSTREAM");
         counter.incrementStream(id2);
 
-        LibratoMetricsFormatter f = new LibratoMetricsFormatter(counter, "gl2-", new ArrayList<String>(), "", fakeStreamNames);
+        LibratoMetricsFormatter f = new LibratoMetricsFormatter(counter, "xflog-", new ArrayList<String>(), "", fakeStreamNames);
 
         Map<String, Map<String,Object>> gauges = parseGauges(f.asJson());
 
         assertEquals(5, gauges.size());
 
-        assertEquals("gl2-graylog2-server", gauges.get("gl2-total").get("source"));
-        assertEquals((long) 2, gauges.get("gl2-total").get("value"));
-        assertEquals((long) 3, gauges.get("gl2-host-foo-example-org").get("value"));
-        assertEquals((long) 1, gauges.get("gl2-host-bar-example-org").get("value"));
-        assertEquals((long) 2, gauges.get("gl2-stream-lol-stream1").get("value"));
-        assertEquals((long) 1, gauges.get("gl2-stream-lolanotherstream").get("value"));*/
+        assertEquals("xflog-graylog2-server", gauges.get("xflog-total").get("source"));
+        assertEquals((long) 2, gauges.get("xflog-total").get("value"));
+        assertEquals((long) 3, gauges.get("xflog-host-foo-example-org").get("value"));
+        assertEquals((long) 1, gauges.get("xflog-host-bar-example-org").get("value"));
+        assertEquals((long) 2, gauges.get("xflog-stream-lol-stream1").get("value"));
+        assertEquals((long) 1, gauges.get("xflog-stream-lolanotherstream").get("value"));*/
     }
 
     @Test
     public void testAsJsonWithEmptyCounter() throws IOException {
         /*MessageCounterImpl counter = new MessageCounterImpl();
-        LibratoMetricsFormatter f = new LibratoMetricsFormatter(counter, "gl2-", new ArrayList<String>(), "", new HashMap<String, String>());
+        LibratoMetricsFormatter f = new LibratoMetricsFormatter(counter, "xflog-", new ArrayList<String>(), "", new HashMap<String, String>());
 
         Map<String, Map<String,Object>> gauges = parseGauges(f.asJson());
 
         assertEquals(1, gauges.size());
-        assertEquals((long) 0, gauges.get("gl2-total").get("value"));*/
+        assertEquals((long) 0, gauges.get("xflog-total").get("value"));*/
     }
 
     @Test
@@ -107,17 +107,17 @@ public class LibratoMetricsFormatterTest {
         streamFilter.add(id3.toString());
         streamFilter.add(new ObjectId().toString());
 
-        LibratoMetricsFormatter f = new LibratoMetricsFormatter(counter, "gl2-", streamFilter, "", fakeStreamNames);
+        LibratoMetricsFormatter f = new LibratoMetricsFormatter(counter, "xflog-", streamFilter, "", fakeStreamNames);
 
         Map<String, Map<String,Object>> gauges = parseGauges(f.asJson());
 
         assertEquals(4, gauges.size());
 
-        assertEquals("gl2-graylog2-server", gauges.get("gl2-total").get("source"));
-        assertEquals((long) 2, gauges.get("gl2-total").get("value"));
-        assertEquals((long) 3, gauges.get("gl2-host-foo-example-org").get("value"));
-        assertEquals((long) 1, gauges.get("gl2-host-bar-example-org").get("value"));
-        assertEquals((long) 1, gauges.get("gl2-stream-noname-" + id2.toString()).get("value"));*/
+        assertEquals("xflog-graylog2-server", gauges.get("xflog-total").get("source"));
+        assertEquals((long) 2, gauges.get("xflog-total").get("value"));
+        assertEquals((long) 3, gauges.get("xflog-host-foo-example-org").get("value"));
+        assertEquals((long) 1, gauges.get("xflog-host-bar-example-org").get("value"));
+        assertEquals((long) 1, gauges.get("xflog-stream-noname-" + id2.toString()).get("value"));*/
     }
 
     @Test
@@ -154,17 +154,17 @@ public class LibratoMetricsFormatterTest {
 
         String hostFilter = "^bar.*\\.example.org$";
 
-        LibratoMetricsFormatter f = new LibratoMetricsFormatter(counter, "gl2-", new ArrayList<String>(), hostFilter, fakeStreamNames);
+        LibratoMetricsFormatter f = new LibratoMetricsFormatter(counter, "xflog-", new ArrayList<String>(), hostFilter, fakeStreamNames);
 
         Map<String, Map<String,Object>> gauges = parseGauges(f.asJson());
 
         assertEquals(4, gauges.size());
 
-        assertEquals("gl2-graylog2-server", gauges.get("gl2-total").get("source"));
-        assertEquals(2L, gauges.get("gl2-total").get("value"));
-        assertEquals(3L, gauges.get("gl2-host-foo-example-org").get("value"));
-        assertEquals(2L, gauges.get("gl2-stream-somestream").get("value"));
-        assertEquals(1L, gauges.get("gl2-stream-somestream2").get("value"));*/
+        assertEquals("xflog-graylog2-server", gauges.get("xflog-total").get("source"));
+        assertEquals(2L, gauges.get("xflog-total").get("value"));
+        assertEquals(3L, gauges.get("xflog-host-foo-example-org").get("value"));
+        assertEquals(2L, gauges.get("xflog-stream-somestream").get("value"));
+        assertEquals(1L, gauges.get("xflog-stream-somestream2").get("value"));*/
     }
 
     private Map<String, Map<String,Object>> parseGauges(String json) throws IOException {

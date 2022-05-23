@@ -29,7 +29,7 @@ public abstract class EmailEventNotificationConfig implements EventNotificationC
     public static final String TYPE_NAME = "email-notification-v1";
 
     private static final String DEFAULT_SENDER = "logmanager@example.org";
-    static final String DEFAULT_SUBJECT = "Logmanager event notification: ${event_definition_title}";
+    static final String DEFAULT_SUBJECT = "logmanager event notification: ${event_definition_title}";
     static final String DEFAULT_BODY_TEMPLATE = "--- [Event Definition] ---------------------------\n" +
             "Title:       ${event_definition_title}\n" +
             "Description: ${event_definition_description}\n" +

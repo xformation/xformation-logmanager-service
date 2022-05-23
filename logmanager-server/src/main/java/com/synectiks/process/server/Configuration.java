@@ -28,7 +28,7 @@ import java.util.Collections;
 import java.util.Set;
 
 /**
- * Helper class to hold configuration of Logmanager
+ * Helper class to hold configuration of logmanager
  */
 @SuppressWarnings("FieldMayBeFinal")
 public class Configuration extends BaseConfiguration {

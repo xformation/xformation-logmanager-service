@@ -52,7 +52,7 @@ public class EmailAlarmCallback implements AlarmCallback {
     private final UserService userService;
     private final EmailConfiguration emailConfiguration;
     private Configuration configuration;
-    private com.synectiks.process.server.Configuration logmanagerConfig;
+    private com.synectiks.process.server.Configuration serverConfig;
 
     @Inject
     public EmailAlarmCallback(AlertSender alertSender,
@@ -61,14 +61,14 @@ public class EmailAlarmCallback implements AlarmCallback {
                               EmailRecipients.Factory emailRecipientsFactory,
                               UserService userService,
                               EmailConfiguration emailConfiguration,
-                              com.synectiks.process.server.Configuration logmanagerConfig) {
+                              com.synectiks.process.server.Configuration serverConfig) {
         this.alertSender = alertSender;
         this.notificationService = notificationService;
         this.nodeId = nodeId;
         this.emailRecipientsFactory = emailRecipientsFactory;
         this.userService = userService;
         this.emailConfiguration = emailConfiguration;
-        this.logmanagerConfig = logmanagerConfig;
+        this.serverConfig = serverConfig;
     }
 
     @Override
@@ -167,7 +167,7 @@ public class EmailAlarmCallback implements AlarmCallback {
 
         configurationRequest.addField(new TextField("subject",
                 "E-Mail Subject",
-                "Logmanager alert for stream: ${stream.title}: ${check_result.resultDescription}",
+                "logmanager alert for stream: ${stream.title}: ${check_result.resultDescription}",
                 "The subject of sent out mail alerts",
                 ConfigurationField.Optional.NOT_OPTIONAL));
 
@@ -182,7 +182,7 @@ public class EmailAlarmCallback implements AlarmCallback {
                 "User Receivers",
                 Collections.emptyList(),
                 userNames,
-                "Logmanager usernames that should receive this alert",
+                "logmanager usernames that should receive this alert",
                 ConfigurationField.Optional.OPTIONAL));
 
         configurationRequest.addField(new ListField(CK_EMAIL_RECEIVERS,
@@ -207,7 +207,7 @@ public class EmailAlarmCallback implements AlarmCallback {
                 .collect(Collectors.toMap(User::getName, User::getName));
 
         final Map<String, String> userNames = ImmutableMap.<String, String>builder()
-                .put(logmanagerConfig.getRootUsername(), logmanagerConfig.getRootUsername())
+                .put(serverConfig.getRootUsername(), serverConfig.getRootUsername())
                 .putAll(regularUsers)
                 .build();
 

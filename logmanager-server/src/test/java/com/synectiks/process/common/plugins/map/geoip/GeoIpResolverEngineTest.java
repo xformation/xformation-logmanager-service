@@ -120,7 +120,7 @@ public class GeoIpResolverEngineTest {
         messageFields.put("source", "192.168.0.1");
         messageFields.put("message", "Hello from 1.2.3.4");
         messageFields.put("extracted_ip", "1.2.3.4");
-        messageFields.put(Message.FIELD_GL2_REMOTE_IP, "1.2.3.4");
+        messageFields.put(Message.FIELD_XFLOG_REMOTE_IP, "1.2.3.4");
         messageFields.put("ipv6", "2001:4860:4860::8888");
 
         final Message message = new Message(messageFields);
@@ -130,7 +130,7 @@ public class GeoIpResolverEngineTest {
         assertEquals("Should have looked up three IPs", 3, metricRegistry.timer(name(GeoIpResolverEngine.class, "resolveTime")).getCount());
         assertFieldNotResolved(message, "source", "Should not have resolved private IP");
         assertFieldNotResolved(message, "message", "Should have resolved public IP");
-        assertFieldNotResolved(message, "gl2_remote_ip", "Should not have resolved text with an IP");
+        assertFieldNotResolved(message, "xflog_remote_ip", "Should not have resolved text with an IP");
         assertFieldResolved(message, "extracted_ip", "Should have resolved public IP");
         assertFieldResolved(message, "ipv6", "Should have resolved public IPv6");
     }

@@ -43,7 +43,7 @@ public class FreeEnterpriseResource extends RestResource {
 
     @GET
     @Timed
-    @ApiOperation(value = "Get Logmanager Enterprise license info")
+    @ApiOperation(value = "Get logmanager Enterprise license info")
     @Path("/license/info")
     @RequiresPermissions(RestPermissions.LICENSEINFOS_READ)
     public Response licenseInfo() {
@@ -52,7 +52,7 @@ public class FreeEnterpriseResource extends RestResource {
 
     @POST
     @Timed
-    @ApiOperation(value = "Request free Logmanager Enterprise license")
+    @ApiOperation(value = "Request free logmanager Enterprise license")
     @Path("/license")
     @RequiresPermissions(RestPermissions.FREELICENSES_CREATE)
     @NoAuditEvent("This will be used to get a license. Without license triggering an audit event doesn't make sense.")

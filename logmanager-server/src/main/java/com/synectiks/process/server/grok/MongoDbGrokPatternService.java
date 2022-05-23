@@ -57,7 +57,7 @@ public class MongoDbGrokPatternService implements GrokPatternService {
                 mapper.get());
         this.clusterBus = clusterBus;
 
-        // TODO: Uncomment once there are no Logmanager clusters with duplicate Grok patterns out there,
+        // TODO: Uncomment once there are no logmanager clusters with duplicate Grok patterns out there,
         // createIndex(mongoConnection);
     }
 

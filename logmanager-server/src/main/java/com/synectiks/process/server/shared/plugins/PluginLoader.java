@@ -67,19 +67,22 @@ public class PluginLoader {
             return Collections.emptySet();
         }
 
-        LOG.debug("Scanning directory <{}> for plugins...", pluginDir.getAbsolutePath());
+//        LOG.debug("Scanning directory <{}> for plugins...", pluginDir.getAbsolutePath());
+        LOG.info("Scanning directory <{}> for plugins...", pluginDir.getAbsolutePath());
         final File[] files = pluginDir.listFiles();
         if (files == null) {
             LOG.warn("Could not list files in {}, cannot load plugins.", pluginDir);
             return Collections.emptySet();
         }
 
-        LOG.debug("Loading [{}] plugins", files.length);
+//        LOG.debug("Loading [{}] plugins", files.length);
+        LOG.info("Loading [{}] plugins", files.length);
         final List<URL> urls = Arrays.stream(files)
                 .filter(File::isFile)
                 .map(jar -> {
                     try {
-                        LOG.debug("Loading <" + jar.getAbsolutePath() + ">");
+//                        LOG.debug("Loading <" + jar.getAbsolutePath() + ">");
+                    	LOG.info("Loading <" + jar.getAbsolutePath() + ">");
                         return jar.toURI().toURL();
                     } catch (MalformedURLException e) {
                         LOG.error("Cannot open JAR file for discovering plugins", e);
@@ -97,23 +100,33 @@ public class PluginLoader {
             // (the default), it gets its own class loader and cannot see other plugins. Plugins which are not
             // isolated share one class loader so they can see each other. (makes plugin inter-dependencies work)
             if (properties.isIsolated()) {
-                LOG.debug("Creating isolated class loader for <{}>", url);
+//                LOG.debug("Creating isolated class loader for <{}>", url);
+            	LOG.info("Creating isolated class loader for <{}>", url);
                 classLoader.addClassLoader(URLClassLoader.newInstance(new URL[]{url}));
             } else {
-                LOG.debug("Using shared class loader for <{}>", url);
+//                LOG.debug("Using shared class loader for <{}>", url);
+            	LOG.info("Using shared class loader for <{}>", url);
                 sharedClassLoaderUrls.add(url);
             }
         });
 
         // Only create the shared class loader if any plugin requests to be shared.
         if (!sharedClassLoaderUrls.isEmpty()) {
-            LOG.debug("Creating shared class loader for {} plugins: {}", sharedClassLoaderUrls.size(), sharedClassLoaderUrls);
+//            LOG.debug("Creating shared class loader for {} plugins: {}", sharedClassLoaderUrls.size(), sharedClassLoaderUrls);
+        	LOG.info("Creating shared class loader for {} plugins: {}", sharedClassLoaderUrls.size(), sharedClassLoaderUrls);
             classLoader.addClassLoader(URLClassLoader.newInstance(sharedClassLoaderUrls.toArray(new URL[sharedClassLoaderUrls.size()])));
         }
-
+        LOG.info("Classloader of plugins: {} ",classLoader);
+        for(Object o: classLoader.getClassLoaders()) {
+        	LOG.info("Classloader objects: {}", o);
+        }
         final ServiceLoader<Plugin> pluginServiceLoader = ServiceLoader.load(Plugin.class, classLoader);
-
-        return ImmutableSet.copyOf(pluginServiceLoader);
+        Iterable<Plugin> itr = ImmutableSet.copyOf(pluginServiceLoader);
+        for (Plugin plugin : itr) {
+        	LOG.info("Immutale set of plugin: {}", plugin);
+		}
+        
+        return itr;
     }
 
     public static class PluginComparator implements Comparator<Plugin> {

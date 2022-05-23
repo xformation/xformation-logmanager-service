@@ -17,7 +17,7 @@ import static java.util.Objects.requireNonNull;
 public class PluginProperties {
     private static final Logger LOG = LoggerFactory.getLogger(PluginProperties.class);
 
-    private static final String MANIFEST_ATTRIBUTE = "Logmanager-Plugin-Properties-Path";
+    private static final String MANIFEST_ATTRIBUTE = "logmanager-Plugin-Properties-Path";
     private static final String GRAYLOG_PLUGIN_PROPERTIES = "logmanager-plugin.properties";
 
     private static final String PROPERTY_ISOLATED = "isolated";
@@ -30,10 +30,10 @@ public class PluginProperties {
     }
 
     /**
-     * Loads the Logmanager plugin properties file from the given JAR file.
+     * Loads the logmanager plugin properties file from the given JAR file.
      *
-     * The path to the properties file resource inside the JAR file is stored in the "Logmanager-Plugin-Properties-Path"
-     * attribute of the JAR manifest. (Example: {@code org.Logmanager.plugins.logmanager-plugin-map-widget})
+     * The path to the properties file resource inside the JAR file is stored in the "logmanager-Plugin-Properties-Path"
+     * attribute of the JAR manifest. (Example: {@code org.logmanager.plugins.logmanager-plugin-map-widget})
      *
      * If the plugin properties file does not exist or cannot be found (like in older plugins) a default
      * {@link PluginProperties} object will be returned.

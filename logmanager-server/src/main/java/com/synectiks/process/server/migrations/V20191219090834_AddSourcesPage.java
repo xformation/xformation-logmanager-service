@@ -49,27 +49,28 @@ public class V20191219090834_AddSourcesPage extends Migration {
 
     @Override
     public void upgrade() {
-        if (configService.get(V20191219090834_AddSourcesPage.MigrationCompleted.class) != null) {
-            LOG.debug("Migration already completed.");
-            return;
-        }
-
-        try {
-            final URL contentPackURL = V20191219090834_AddSourcesPage.class
-                    .getResource("V20191219090834_AddSourcesPage_Content_Pack.json");
-            final ContentPack contentPack = this.objectMapper.readValue(contentPackURL, ContentPack.class);
-            final ContentPack pack = this.contentPackPersistenceService.insert(contentPack)
-                    .orElseThrow(() -> {
-                        configService.write(V20191219090834_AddSourcesPage.MigrationCompleted.create(contentPack.id().toString()));
-                        return new ContentPackException("Content pack " + contentPack.id() + " with this revision " + contentPack.revision() + " already found!");
-                    });
-
-            contentPackService.installContentPack(pack, Collections.emptyMap(), "Add Sources Page", "admin");
-
-            configService.write(V20191219090834_AddSourcesPage.MigrationCompleted.create(pack.id().toString()));
-        } catch (Exception e) {
-            throw new RuntimeException("Could not install Source Page Content Pack.", e);
-        }
+    	return;
+//        if (configService.get(V20191219090834_AddSourcesPage.MigrationCompleted.class) != null) {
+//            LOG.debug("Migration already completed.");
+//            return;
+//        }
+//
+//        try {
+//            final URL contentPackURL = V20191219090834_AddSourcesPage.class
+//                    .getResource("V20191219090834_AddSourcesPage_Content_Pack.json");
+//            final ContentPack contentPack = this.objectMapper.readValue(contentPackURL, ContentPack.class);
+//            final ContentPack pack = this.contentPackPersistenceService.insert(contentPack)
+//                    .orElseThrow(() -> {
+//                        configService.write(V20191219090834_AddSourcesPage.MigrationCompleted.create(contentPack.id().toString()));
+//                        return new ContentPackException("Content pack " + contentPack.id() + " with this revision " + contentPack.revision() + " already found!");
+//                    });
+//
+//            contentPackService.installContentPack(pack, Collections.emptyMap(), "Add Sources Page", "admin");
+//
+//            configService.write(V20191219090834_AddSourcesPage.MigrationCompleted.create(pack.id().toString()));
+//        } catch (Exception e) {
+//            throw new RuntimeException("Could not install Source Page Content Pack.", e);
+//        }
     }
 
     @JsonAutoDetect

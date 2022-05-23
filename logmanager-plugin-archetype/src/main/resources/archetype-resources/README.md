@@ -1,4 +1,4 @@
-# ${pluginClassName} Plugin for Graylog
+\# ${pluginClassName} Plugin for Graylog
 
 [![Build Status](https://travis-ci.org/${githubRepo}.svg?branch=master)](https://travis-ci.org/${githubRepo})
 

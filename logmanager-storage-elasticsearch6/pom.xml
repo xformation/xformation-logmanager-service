@@ -70,9 +70,7 @@
         </dependency>
 
         <dependency>
-            <!--<groupId>org.graylog2</groupId>
-            <artifactId>graylog2-server</artifactId>
-			-->
+            
 			<groupId>com.synectiks.logmanager2</groupId>
             <artifactId>logmanager2-server</artifactId>
 			

@@ -16,11 +16,11 @@ import java.util.stream.Collectors;
 
 public abstract class GIMMapping extends IndexMapping {
     private static final Set<String> KEYWORD_FIELDS = ImmutableSet.<String>builder()
-            .add("gl2_gims_version")
-            .add("gl2_tags")
-            .add("gl2_event_category")
-            .add("gl2_event_subcategory")
-            .add("gl2_event_type")
+            .add("xflog_gims_version")
+            .add("xflog_tags")
+            .add("xflog_event_category")
+            .add("xflog_event_subcategory")
+            .add("xflog_event_type")
             .add("user_command")
             .add("user_command_path")
             .add("user_domain")
@@ -244,7 +244,7 @@ public abstract class GIMMapping extends IndexMapping {
             .build();
 
     private static final Set<String> INTEGER_FIELDS = ImmutableSet.<String>builder()
-            .add("gl2_event_type_code")
+            .add("xflog_event_type_code")
             .add("http_response_code")
             .add("source_nat_port")
             .add("destination_nat_port")

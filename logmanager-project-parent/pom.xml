@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>../logmanager-server</module>
-        <!--<module>../full-backend-tests</module>-->
     </modules>
 
     <parent>
@@ -18,8 +17,7 @@
 
     <name>Logmanager Project Parent POM</name>
     <description>Logmanager Project Parent POM</description>
-    <!--<url>https://www.graylog.org/</url>-->
-
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -718,51 +716,7 @@
                 </executions>
             </plugin>
             
-            <!-- <plugin>
-                <groupId>de.thetaphi</groupId>
-                <artifactId>forbiddenapis</artifactId>
-                <configuration>
-                    <suppressAnnotations>
-                        <suppressAnnotation>com.synectiks.process.server.shared.SuppressForbidden</suppressAnnotation>
-                    </suppressAnnotations>
-                    disallow undocumented classes like sun.misc.Unsafe:
-                    <internalRuntimeForbidden>false</internalRuntimeForbidden>
-                    if the used Java version is too new, don't fail, just do nothing:
-                    <failOnUnsupportedJava>false</failOnUnsupportedJava>
-                    <failOnViolation>true</failOnViolation>
-                    <bundledSignatures>
-                        This will automatically choose the right signatures based on 'maven.compiler.target':
-                        <bundledSignature>jdk-unsafe</bundledSignature>
-                        <bundledSignature>jdk-deprecated</bundledSignature>
-                        <bundledSignature>jdk-reflection</bundledSignature>
-                        Required until https://github.com/policeman-tools/forbidden-apis/pull/133 has been merged
-                        <bundledSignature>commons-io-unsafe-2.5</bundledSignature>
-                        bundledSignature>commons-io-unsafe-${commons-io.version}</bundledSignature
-                    </bundledSignatures>
-                    <signaturesFiles>
-                        <signaturesFile>${project.basedir}/../config/forbidden-apis/netty3.txt</signaturesFile>
-                        <signaturesFile>${project.basedir}/../config/forbidden-apis/signatures.txt</signaturesFile>
-                    </signaturesFiles>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>forbidden-apis-src</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>forbidden-apis-test</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>testCheck</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-             -->
-            <plugin>
+			<plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
             </plugin>
@@ -781,10 +735,6 @@
             </properties>
         </profile>
         <profile>
-            <!--
-             Why the strange name? Glad you've asked! It's just so that yours truly
-             is able to run `mvn -Pedantic package` on the command line. :-)
-            -->
             <id>edantic</id>
             <build>
                 <plugins>

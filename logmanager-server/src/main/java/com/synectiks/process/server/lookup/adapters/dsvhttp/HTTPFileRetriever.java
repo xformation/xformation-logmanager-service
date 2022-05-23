@@ -50,7 +50,7 @@ public class HTTPFileRetriever {
         final Request.Builder requestBuilder = new Request.Builder()
                 .get()
                 .url(url)
-                .header("User-Agent", "Logmanager (server)");
+                .header("User-Agent", "logmanager (server)");
         if (addIfModifiedSinceHeader) {
             final String lastModified = this.lastLastModified.get().get(url);
             if (lastModified != null) {

@@ -30,7 +30,7 @@ public class BeatsTransportTest {
     private NioEventLoopGroup eventLoopGroup;
 
     @Mock
-    private com.synectiks.process.server.Configuration logmanagerConfiguration;
+    private com.synectiks.process.server.Configuration serverConfiguration;
 
     @Before
     public void setUp() {
@@ -53,7 +53,7 @@ public class BeatsTransportTest {
                 nettyTransportConfiguration,
                 new ThroughputCounter(eventLoopGroup),
                 new LocalMetricRegistry(),
-                logmanagerConfiguration
+                serverConfiguration
         );
 
         final MessageInput input = mock(MessageInput.class);

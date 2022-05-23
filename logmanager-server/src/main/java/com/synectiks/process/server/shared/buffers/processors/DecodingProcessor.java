@@ -183,21 +183,21 @@ public class DecodingProcessor implements EventHandler<MessageEvent> {
             switch (node.type) {
                 case SERVER:
                     // Always use the last source node.
-                    if (message.getField(Message.FIELD_GL2_SOURCE_INPUT) != null) {
+                    if (message.getField(Message.FIELD_XFLOG_SOURCE_INPUT) != null) {
                         LOG.debug("Multiple server nodes ({} {}) set for message id {}",
-                                message.getField(Message.FIELD_GL2_SOURCE_INPUT), node.nodeId, message.getId());
+                                message.getField(Message.FIELD_XFLOG_SOURCE_INPUT), node.nodeId, message.getId());
                     }
-                    message.addField(Message.FIELD_GL2_SOURCE_INPUT, node.inputId);
-                    message.addField(Message.FIELD_GL2_SOURCE_NODE, node.nodeId);
+                    message.addField(Message.FIELD_XFLOG_SOURCE_INPUT, node.inputId);
+                    message.addField(Message.FIELD_XFLOG_SOURCE_NODE, node.nodeId);
                     break;
                 case RADIO:
                     // Always use the last source node.
-                    if (message.getField(Message.FIELD_GL2_SOURCE_RADIO_INPUT) != null) {
+                    if (message.getField(Message.FIELD_XFLOG_SOURCE_RADIO_INPUT) != null) {
                         LOG.debug("Multiple radio nodes ({} {}) set for message id {}",
-                                message.getField(Message.FIELD_GL2_SOURCE_RADIO_INPUT), node.nodeId, message.getId());
+                                message.getField(Message.FIELD_XFLOG_SOURCE_RADIO_INPUT), node.nodeId, message.getId());
                     }
-                    message.addField(Message.FIELD_GL2_SOURCE_RADIO_INPUT, node.inputId);
-                    message.addField(Message.FIELD_GL2_SOURCE_RADIO, node.nodeId);
+                    message.addField(Message.FIELD_XFLOG_SOURCE_RADIO_INPUT, node.inputId);
+                    message.addField(Message.FIELD_XFLOG_SOURCE_RADIO, node.nodeId);
                     break;
             }
         }
@@ -213,12 +213,12 @@ public class DecodingProcessor implements EventHandler<MessageEvent> {
         final ResolvableInetSocketAddress remoteAddress = raw.getRemoteAddress();
         if (remoteAddress != null) {
             final String addrString = InetAddresses.toAddrString(remoteAddress.getAddress());
-            message.addField(Message.FIELD_GL2_REMOTE_IP, addrString);
+            message.addField(Message.FIELD_XFLOG_REMOTE_IP, addrString);
             if (remoteAddress.getPort() > 0) {
-                message.addField(Message.FIELD_GL2_REMOTE_PORT, remoteAddress.getPort());
+                message.addField(Message.FIELD_XFLOG_REMOTE_PORT, remoteAddress.getPort());
             }
             if (remoteAddress.isReverseLookedUp()) { // avoid reverse lookup if the hostname is available
-                message.addField(Message.FIELD_GL2_REMOTE_HOSTNAME, remoteAddress.getHostName());
+                message.addField(Message.FIELD_XFLOG_REMOTE_HOSTNAME, remoteAddress.getHostName());
             }
             if (Strings.isNullOrEmpty(message.getSource())) {
                 message.setSource(addrString);

@@ -53,14 +53,14 @@ public class HttpTransport extends AbstractTcpTransport {
                          NettyTransportConfiguration nettyTransportConfiguration,
                          ThroughputCounter throughputCounter,
                          LocalMetricRegistry localRegistry,
-                         com.synectiks.process.server.Configuration logmanagerConfiguration) {
+                         com.synectiks.process.server.Configuration serverConfiguration) {
         super(configuration,
               throughputCounter,
               localRegistry,
               eventLoopGroup,
               eventLoopGroupFactory,
               nettyTransportConfiguration,
-              logmanagerConfiguration);
+              serverConfiguration);
 
         enableCors = configuration.getBoolean(CK_ENABLE_CORS);
 

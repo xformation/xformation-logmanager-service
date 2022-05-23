@@ -45,10 +45,10 @@ public class V20180212165000_AddDefaultCollectors extends Migration {
         removeConfigPath();
 
         final String beatsPreambel =
-                "# Needed for Logmanager\n" +
+                "# Needed for logmanager\n" +
                 "fields_under_root: true\n" +
                 "fields.collector_node_id: ${sidecar.nodeName}\n" +
-                "fields.gl2_source_collector: ${sidecar.nodeId}\n\n";
+                "fields.xflog_source_collector: ${sidecar.nodeId}\n\n";
 
         ensureCollector(
                 "filebeat",
@@ -73,15 +73,15 @@ public class V20180212165000_AddDefaultCollectors extends Migration {
                 "winlogbeat",
                 "svc",
                 "windows",
-                "C:\\Program Files\\Logmanager\\sidecar\\winlogbeat.exe",
+                "C:\\Program Files\\logmanager\\sidecar\\winlogbeat.exe",
                 "-c \"%s\"",
                 "test config -c \"%s\"",
                 beatsPreambel +
                         "output.logstash:\n" +
                         "   hosts: [\"192.168.1.1:5044\"]\n" +
                         "path:\n" +
-                        "  data: C:\\Program Files\\Logmanager\\sidecar\\cache\\winlogbeat\\data\n" +
-                        "  logs: C:\\Program Files\\Logmanager\\sidecar\\logs\n" +
+                        "  data: C:\\Program Files\\logmanager\\sidecar\\cache\\winlogbeat\\data\n" +
+                        "  logs: C:\\Program Files\\logmanager\\sidecar\\logs\n" +
                         "tags:\n" +
                         " - windows\n" +
                         "winlogbeat:\n" +
@@ -143,8 +143,8 @@ public class V20180212165000_AddDefaultCollectors extends Migration {
                         "\tPort 12201\n" +
                         "\tOutputType  GELF_TCP\n" +
                         "\t<Exec>\n" +
-                        "\t  # These fields are needed for Logmanager\n" +
-                        "\t  $gl2_source_collector = '${sidecar.nodeId}';\n" +
+                        "\t  # These fields are needed for logmanager\n" +
+                        "\t  $xflog_source_collector = '${sidecar.nodeId}';\n" +
                         "\t  $collector_node_id = '${sidecar.nodeName}';\n" +
                         "\t</Exec>\n" +
                         "</Output>\n" +
@@ -225,8 +225,8 @@ public class V20180212165000_AddDefaultCollectors extends Migration {
                         "\tPort 12201\n" +
                         "\tOutputType  GELF_TCP\n" +
                         "\t<Exec>\n" +
-                        "\t  # These fields are needed for Logmanager\n" +
-                        "\t  $gl2_source_collector = '${sidecar.nodeId}';\n" +
+                        "\t  # These fields are needed for logmanager\n" +
+                        "\t  $xflog_source_collector = '${sidecar.nodeId}';\n" +
                         "\t  $collector_node_id = '${sidecar.nodeName}';\n" +
                         "\t</Exec>\n" +
                         "</Output>\n" +
@@ -244,15 +244,15 @@ public class V20180212165000_AddDefaultCollectors extends Migration {
                 "filebeat",
                 "svc",
                 "windows",
-                "C:\\Program Files\\Logmanager\\sidecar\\filebeat.exe",
+                "C:\\Program Files\\logmanager\\sidecar\\filebeat.exe",
                 "-c \"%s\"",
                 "test config -c \"%s\"",
                 beatsPreambel +
                         "output.logstash:\n" +
                         "   hosts: [\"192.168.1.1:5044\"]\n" +
                         "path:\n" +
-                        "  data: C:\\Program Files\\Logmanager\\sidecar\\cache\\filebeat\\data\n" +
-                        "  logs: C:\\Program Files\\Logmanager\\sidecar\\logs\n" +
+                        "  data: C:\\Program Files\\logmanager\\sidecar\\cache\\filebeat\\data\n" +
+                        "  logs: C:\\Program Files\\logmanager\\sidecar\\logs\n" +
                         "tags:\n" +
                         " - windows\n" +
                         "filebeat.inputs:\n" +
@@ -309,12 +309,12 @@ public class V20180212165000_AddDefaultCollectors extends Migration {
             try {
                 return collectorService.save(newCollector).id();
             } catch (Exception e) {
-                LOG.error("Can't save collector " + collectorName + ", please restart Logmanager to fix this.", e);
+                LOG.error("Can't save collector " + collectorName + ", please restart logmanager to fix this.", e);
             }
         }
 
         if (collector == null) {
-            LOG.error("Unable to access fixed " + collectorName + " collector, please restart Logmanager to fix this.");
+            LOG.error("Unable to access fixed " + collectorName + " collector, please restart logmanager to fix this.");
             return null;
         }
 

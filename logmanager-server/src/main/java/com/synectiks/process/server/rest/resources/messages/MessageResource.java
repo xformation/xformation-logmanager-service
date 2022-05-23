@@ -2,9 +2,36 @@
  * */
 package com.synectiks.process.server.rest.resources.messages;
 
+import static com.google.common.base.Strings.isNullOrEmpty;
+import static java.util.Objects.requireNonNull;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
+
+import javax.annotation.Nullable;
+import javax.inject.Inject;
+import javax.validation.constraints.NotEmpty;
+import javax.ws.rs.BadRequestException;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.codahale.metrics.annotation.Timed;
-import com.synectiks.process.server.uuid.UUID;
 import com.google.common.net.InetAddresses;
+import com.jayway.jsonpath.spi.json.JsonOrgJsonProvider;
 import com.synectiks.process.server.audit.jersey.NoAuditEvent;
 import com.synectiks.process.server.indexer.IndexSetRegistry;
 import com.synectiks.process.server.indexer.messages.DocumentNotFoundException;
@@ -21,37 +48,13 @@ import com.synectiks.process.server.rest.models.messages.requests.MessageParseRe
 import com.synectiks.process.server.rest.models.messages.responses.MessageTokens;
 import com.synectiks.process.server.shared.rest.resources.RestResource;
 import com.synectiks.process.server.shared.security.RestPermissions;
+import com.synectiks.process.server.uuid.UUID;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.annotation.Nullable;
-import javax.inject.Inject;
-import javax.validation.constraints.NotEmpty;
-import javax.ws.rs.BadRequestException;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.ForbiddenException;
-import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.nio.charset.StandardCharsets;
-
-import static com.google.common.base.Strings.isNullOrEmpty;
-import static java.util.Objects.requireNonNull;
 
 @RequiresAuthentication
 @Api(value = "Messages", description = "Single messages")
@@ -194,4 +197,33 @@ public class MessageResource extends RestResource {
 
         return MessageTokens.create(messages.analyze(string, index, messageAnalyzer));
     }
+    
+    @POST
+    @Path("/update/{index}/{messageId}/{status}")
+    @Timed
+    @ApiOperation(value = "Update a single message.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 404, message = "Specified index does not exist."),
+            @ApiResponse(code = 404, message = "Message does not exist.")
+    })
+    public ResultMessage update(@ApiParam(name = "index", value = "The index this message is stored in.", required = true)
+                                @PathParam("index") String index,
+                                @ApiParam(name = "messageId", required = true)
+                                @PathParam("messageId") String messageId,
+							    @ApiParam(name = "status", required = true)
+							    @PathParam("status") String status) throws IOException {
+        checkPermission(RestPermissions.MESSAGES_READ, messageId);
+        try {
+            final ResultMessage resultMessage = messages.get(messageId, index);
+            final Message message = resultMessage.getMessage();
+            checkMessageReadPermission(message);
+            final ResultMessage updatedMessage = messages.updateDocument(status, index, messageId);
+            return updatedMessage;
+        } catch (DocumentNotFoundException e) {
+            final String msg = "Message " + messageId + " does not exist in index " + index;
+            LOG.error(msg, e);
+            throw new NotFoundException(msg, e);
+        }
+    }
+    
 }

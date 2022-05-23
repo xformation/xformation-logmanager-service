@@ -92,6 +92,10 @@ public class Messages {
         return messagesAdapter.get(messageId, index);
     }
 
+    public ResultMessage updateDocument(String status, String indexName, String documentId) throws DocumentNotFoundException, IOException {
+        return messagesAdapter.updateDocument(status, indexName, documentId);
+    }
+    
     public List<String> analyze(String toAnalyze, String index, String analyzer) throws IOException {
         return messagesAdapter.analyze(toAnalyze, index, analyzer);
     }

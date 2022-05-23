@@ -2,6 +2,25 @@
  * */
 package com.synectiks.process.server.bootstrap;
 
+import static com.google.common.base.Strings.nullToEmpty;
+
+import java.lang.management.ManagementFactory;
+import java.nio.file.AccessDeniedException;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.LoggerContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.jmx.JmxReporter;
 import com.codahale.metrics.log4j2.InstrumentedAppender;
@@ -50,24 +69,6 @@ import com.synectiks.process.server.storage.versionprobe.ElasticsearchProbeExcep
 
 import io.netty.util.internal.logging.InternalLoggerFactory;
 import io.netty.util.internal.logging.Slf4JLoggerFactory;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.LoggerContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.lang.management.ManagementFactory;
-import java.nio.file.AccessDeniedException;
-import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import static com.google.common.base.Strings.nullToEmpty;
 
 public abstract class CmdLineTool implements CliCommand {
     static {
@@ -76,7 +77,7 @@ public abstract class CmdLineTool implements CliCommand {
     }
 
     private static final Logger LOG = LoggerFactory.getLogger(CmdLineTool.class);
-
+    
     protected static final Version version = Version.CURRENT_CLASSPATH;
     protected static final String FILE_SEPARATOR = System.getProperty("file.separator");
     protected static final String TMPDIR = System.getProperty("java.io.tmpdir", "/tmp");
@@ -85,22 +86,23 @@ public abstract class CmdLineTool implements CliCommand {
     protected final BaseConfiguration configuration;
     protected final ChainingClassLoader chainingClassLoader;
 
-    @Option(name = "--dump-config", description = "Show the effective Logmanager configuration and exit")
+    @Option(name = "--dump-config", description = "Show the effective logmanager configuration and exit")
     protected boolean dumpConfig = false;
 
     @Option(name = "--dump-default-config", description = "Show the default configuration and exit")
     protected boolean dumpDefaultConfig = false;
 
-    @Option(name = {"-d", "--debug"}, description = "Run Logmanager in debug mode")
+    @Option(name = {"-d", "--debug"}, description = "Run logmanager in debug mode")
     private boolean debug = false;
 
-    @Option(name = {"-f", "--configfile"}, description = "Configuration file for Logmanager")
+    @Option(name = {"-f", "--configfile"}, description = "Configuration file for logmanager")
     private String configFile = "/opt/logmanager/server.conf";
 
     protected String commandName = "command";
 
     protected Injector injector;
-
+//    protected Injector jpaInjector;
+    
     protected CmdLineTool(BaseConfiguration configuration) {
         this(null, configuration);
     }
@@ -181,12 +183,18 @@ public abstract class CmdLineTool implements CliCommand {
         LOG.info("Running with JVM arguments: {}", Joiner.on(' ').join(arguments));
 
         injector = setupInjector(configModule, pluginBindings, binder -> binder.bind(ChainingClassLoader.class).toInstance(chainingClassLoader));
-
+        
+        // This is for JPA persistance service.
+//        jpaInjector = GuiceInjectorHolder.createJpaInjector();
+        
         if (injector == null) {
             LOG.error("Injector could not be created, exiting! (Please include the previous error messages in bug reports.)");
             System.exit(1);
         }
-
+//        if (jpaInjector == null) {
+//            LOG.error("JPA injector could not be created, exiting! (Please include the previous error messages in bug reports.)");
+//            System.exit(1);
+//        }
         // This is holding all our metrics.
         final MetricRegistry metrics = injector.getInstance(MetricRegistry.class);
 
@@ -259,8 +267,11 @@ public abstract class CmdLineTool implements CliCommand {
         final Set<Plugin> plugins = loadPlugins(pluginPath, classLoader);
         final PluginBindings pluginBindings = new PluginBindings(plugins);
         for (final Plugin plugin : plugins) {
+        	System.out.println("PLUGIN :::: "+plugin.getClass().getName());
             for (final PluginModule pluginModule : plugin.modules()) {
+            	System.out.println("PLUGIN MODULES :::: "+pluginModule.getClass().getName());
                 for (final PluginConfigBean configBean : pluginModule.getConfigBeans()) {
+                	System.out.println("PLUGIN MODULES CONFIGBEAN:::: "+configBean.getClass().getName());
                     jadConfig.addConfigurationBean(configBean);
                 }
             }
@@ -281,8 +292,10 @@ public abstract class CmdLineTool implements CliCommand {
 
         final PluginLoader pluginLoader = new PluginLoader(pluginPath.toFile(), chainingClassLoader);
         for (Plugin plugin : pluginLoader.loadPlugins()) {
+        	LOG.info("Check plugin: {}", plugin);
             final PluginMetaData metadata = plugin.metadata();
             if (capabilities().containsAll(metadata.getRequiredCapabilities())) {
+            	LOG.info("Capabilities check plugin: {}", plugin);
                 if (version.sameOrHigher(metadata.getRequiredVersion())) {
                     LOG.info("Loaded plugin: {}", plugin);
                     plugins.add(plugin);
@@ -290,7 +303,7 @@ public abstract class CmdLineTool implements CliCommand {
                     LOG.error("Plugin \"" + metadata.getName() + "\" requires version " + metadata.getRequiredVersion() + " - not loading!");
                 }
             } else {
-                LOG.debug("Skipping plugin \"{}\" because some capabilities are missing ({}).",
+                LOG.warn("Skipping plugin \"{}\" because some capabilities are missing ({}).",
                         metadata.getName(),
                         Sets.difference(plugin.metadata().getRequiredCapabilities(), capabilities()));
             }
@@ -301,7 +314,7 @@ public abstract class CmdLineTool implements CliCommand {
 
     protected Collection<Repository> getConfigRepositories(String configFile) {
         return Arrays.asList(
-                new EnvironmentRepository("LOGMANAGER_"),
+                new EnvironmentRepository("ALERTMANAGER_"),
                 new SystemPropertiesRepository("logmanager."),
                 // Legacy prefixes
                 new EnvironmentRepository("logmanager2_"),
@@ -364,7 +377,7 @@ public abstract class CmdLineTool implements CliCommand {
                     binder.bind(String.class).annotatedWith(Names.named("BootstrapCommand")).toInstance(commandName);
                 }
             });
-
+//            modules.add(new PostGsJpaModule());
             return GuiceInjectorHolder.createInjector(modules.build());
         } catch (CreationException e) {
             annotateInjectorCreationException(e);
@@ -413,3 +426,4 @@ public abstract class CmdLineTool implements CliCommand {
         return Collections.emptySet();
     }
 }
+

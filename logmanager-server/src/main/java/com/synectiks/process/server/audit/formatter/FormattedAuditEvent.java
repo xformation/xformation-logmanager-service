@@ -24,7 +24,7 @@ public interface FormattedAuditEvent {
     /**
      * The audit event namespace.
      *
-     * Each plugin should have its own, unique namespace. The Logmanager server namespace is {@code server}.
+     * Each plugin should have its own, unique namespace. The logmanager server namespace is {@code server}.
      *
      * @return namespace string
      */

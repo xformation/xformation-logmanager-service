@@ -1,5 +1,5 @@
 # this must be the same as for your elasticsearch cluster
-cluster.name: logmanager
+cluster.name: xformation
 
 # you could also leave this out, but makes it easier to identify the Graylog embedded Elasticsearch node
 node.name: "logmanager-server"

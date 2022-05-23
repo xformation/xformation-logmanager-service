@@ -96,6 +96,7 @@ public class AbsoluteSearchResource extends SearchResource {
     }
 
     @GET
+    @Path("/searchAbsoluteChunked")
     @Timed
     @ApiOperation(value = "Message search with absolute timerange.",
             notes = "Search for messages using an absolute timerange, specified as from/to " +

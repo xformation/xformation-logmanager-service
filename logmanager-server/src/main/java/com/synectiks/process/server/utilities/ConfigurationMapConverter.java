@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class ConfigurationMapConverter {
     /**
-     * Converts the values in the map to the requested types. This has been copied from the Logmanager web interface
+     * Converts the values in the map to the requested types. This has been copied from the logmanager web interface
      * and should be removed once we have better configuration objects.
      */
     public static Map<String, Object> convertValues(final Map<String, Object> data, final ConfigurationRequest configurationRequest) throws ValidationException {

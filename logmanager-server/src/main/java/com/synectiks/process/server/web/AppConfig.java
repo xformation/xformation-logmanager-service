@@ -14,10 +14,10 @@ import java.net.URI;
 @WithBeanGetter
 @JsonAutoDetect
 public abstract class AppConfig {
-    @JsonProperty("gl2ServerUrl")
+    @JsonProperty("xflogServerUrl")
     public abstract URI serverUri();
 
-    @JsonProperty("gl2AppPathPrefix")
+    @JsonProperty("xflogAppPathPrefix")
     public abstract String appPathPrefix();
 
     @JsonCreator

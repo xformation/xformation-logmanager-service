@@ -103,10 +103,10 @@ public class IndexRangesResource extends RestResource {
     @ApiOperation(value = "Show single index range")
     @Produces(MediaType.APPLICATION_JSON)
     public IndexRangeSummary show(
-            @ApiParam(name = "index", value = "The name of the Logmanager-managed Elasticsearch index", required = true)
+            @ApiParam(name = "index", value = "The name of the logmanager-managed Elasticsearch index", required = true)
             @PathParam("index") @NotEmpty String index) throws NotFoundException {
         if (!indexSetRegistry.isManagedIndex(index)) {
-            throw new BadRequestException(index + " is not a Logmanager-managed Elasticsearch index.");
+            throw new BadRequestException(index + " is not a logmanager-managed Elasticsearch index.");
         }
         checkPermission(RestPermissions.INDEXRANGES_READ, index);
 
@@ -174,10 +174,10 @@ public class IndexRangesResource extends RestResource {
     @Produces(MediaType.APPLICATION_JSON)
     @AuditEvent(type = AuditEventTypes.ES_INDEX_RANGE_UPDATE_JOB)
     public Response rebuildIndex(
-            @ApiParam(name = "index", value = "The name of the Logmanager-managed Elasticsearch index", required = true)
+            @ApiParam(name = "index", value = "The name of the logmanager-managed Elasticsearch index", required = true)
             @PathParam("index") @NotEmpty String index) {
         if (!indexSetRegistry.isManagedIndex(index)) {
-            throw new BadRequestException(index + " is not a Logmanager-managed Elasticsearch index.");
+            throw new BadRequestException(index + " is not a logmanager-managed Elasticsearch index.");
         }
         checkPermission(RestPermissions.INDEXRANGES_REBUILD, index);
 

@@ -58,7 +58,7 @@ public class ClusterSystemResource extends ProxiedResource {
 
     @GET
     @Timed
-    @ApiOperation(value = "Get system overview of all Logmanager nodes")
+    @ApiOperation(value = "Get system overview of all logmanager nodes")
     public Map<String, Optional<SystemOverviewResponse>> get() {
         return getForAllNodes(RemoteSystemResource::system, createRemoteInterfaceProvider(RemoteSystemResource.class));
     }

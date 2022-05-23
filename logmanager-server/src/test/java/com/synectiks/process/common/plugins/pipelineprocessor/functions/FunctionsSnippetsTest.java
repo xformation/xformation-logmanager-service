@@ -697,7 +697,7 @@ public class FunctionsSnippetsTest extends BaseParserTest {
         assertThat(clonedMessage.getSource()).isEqualTo(origMessage.getSource());
         assertThat(clonedMessage.getStreams()).isEqualTo(origMessage.getStreams());
         assertThat(clonedMessage.getTimestamp()).isNotNull();
-        assertThat(clonedMessage.getField("gl2_original_timestamp")).isEqualTo(origMessage.getField("timestamp"));
+        assertThat(clonedMessage.getField("xflog_original_timestamp")).isEqualTo(origMessage.getField("timestamp"));
     }
 
     @Test

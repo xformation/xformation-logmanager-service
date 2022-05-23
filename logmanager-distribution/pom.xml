@@ -45,7 +45,7 @@
                     <attach>true</attach>
                     <appendAssemblyId>true</appendAssemblyId>
                     <descriptors>
-                        <descriptor>src/main/assembly/logmanager.xml</descriptor>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
                     </descriptors>
                     <!-- to make it easier to collect assemblies, we put them into the _parent's_ build directory -->
                     <!-- FIXME: Use a proper output directory. parent.parent.build.directory is a hack… -->
@@ -62,6 +62,16 @@
                 <artifactId>logmanager-storage-elasticsearch6</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.synectiks.logmanager</groupId>
+                <artifactId>logmanager-storage-elasticsearch7</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- <dependency>
+                <groupId>com.synectiks.logmanager</groupId>
+                <artifactId>logmanager-storage-postgresdb</artifactId>
+                <version>${project.version}</version>
+            </dependency> -->
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -70,10 +80,15 @@
             <artifactId>logmanager-storage-elasticsearch6</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--<dependency>
-            <groupId>org.graylog</groupId>
-            <artifactId>graylog-storage-elasticsearch7</artifactId>
+        <dependency>
+            <groupId>com.synectiks.logmanager</groupId>
+            <artifactId>logmanager-storage-elasticsearch7</artifactId>
             <version>${project.version}</version>
-        </dependency>-->
+        </dependency>
+        <!-- <dependency>
+            <groupId>com.synectiks.logmanager</groupId>
+            <artifactId>logmanager-storage-postgresdb</artifactId>
+            <version>${project.version}</version>
+        </dependency> -->
     </dependencies>
 </project>

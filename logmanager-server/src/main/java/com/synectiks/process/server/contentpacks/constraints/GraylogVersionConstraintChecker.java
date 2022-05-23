@@ -14,20 +14,20 @@ import java.util.Collection;
 import java.util.Set;
 
 public class GraylogVersionConstraintChecker implements ConstraintChecker {
-    private final Semver logmanagerVersion;
+    private final Semver serverVersion;
 
     public GraylogVersionConstraintChecker() {
         this(com.synectiks.process.server.plugin.Version.CURRENT_CLASSPATH.toString());
     }
 
     @VisibleForTesting
-    GraylogVersionConstraintChecker(String logmanagerVersion) {
-        this(new Semver(logmanagerVersion));
+    GraylogVersionConstraintChecker(String serverVersion) {
+        this(new Semver(serverVersion));
     }
 
     @VisibleForTesting
-    GraylogVersionConstraintChecker(Semver logmanagerVersion) {
-        this.logmanagerVersion = logmanagerVersion;
+    GraylogVersionConstraintChecker(Semver serverVersion) {
+        this.serverVersion = serverVersion;
     }
 
 
@@ -38,7 +38,7 @@ public class GraylogVersionConstraintChecker implements ConstraintChecker {
             if (constraint instanceof GraylogVersionConstraint) {
                 final GraylogVersionConstraint versionConstraint = (GraylogVersionConstraint) constraint;
                 final Requirement requiredVersion = versionConstraint.version();
-                if (requiredVersion.isSatisfiedBy(logmanagerVersion.withClearedSuffixAndBuild())) {
+                if (requiredVersion.isSatisfiedBy(serverVersion.withClearedSuffixAndBuild())) {
                     fulfilledConstraints.add(constraint);
                 }
             }
@@ -54,7 +54,7 @@ public class GraylogVersionConstraintChecker implements ConstraintChecker {
                 final GraylogVersionConstraint versionConstraint = (GraylogVersionConstraint) constraint;
                 final Requirement requiredVersion = versionConstraint.version();
                 final ConstraintCheckResult constraintCheckResult = ConstraintCheckResult.create(versionConstraint,
-                        requiredVersion.isSatisfiedBy(logmanagerVersion.withClearedSuffixAndBuild()));
+                        requiredVersion.isSatisfiedBy(serverVersion.withClearedSuffixAndBuild()));
                 fulfilledConstraints.add(constraintCheckResult);
             }
         }

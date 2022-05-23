@@ -32,8 +32,8 @@ public class EventOriginContextTest {
 
     @Test
     public void elasticsearchEvent() {
-        assertThat(EventOriginContext.elasticsearchEvent("gl-events_0", "01DF13GB094MT6390TYQB2Q73Q"))
-                .isEqualTo("urn:logmanager:event:es:gl-events_0:01DF13GB094MT6390TYQB2Q73Q");
+        assertThat(EventOriginContext.elasticsearchEvent("xflog-events_0", "01DF13GB094MT6390TYQB2Q73Q"))
+                .isEqualTo("urn:logmanager:event:es:xflog-events_0:01DF13GB094MT6390TYQB2Q73Q");
 
         assertThatCode(() -> EventOriginContext.elasticsearchEvent("", "01DF13GB094MT6390TYQB2Q73Q"))
                 .hasMessageContaining("indexName")
@@ -42,10 +42,10 @@ public class EventOriginContextTest {
                 .hasMessageContaining("indexName")
                 .isInstanceOf(IllegalArgumentException.class);
 
-        assertThatCode(() -> EventOriginContext.elasticsearchEvent("gl-events_0", ""))
+        assertThatCode(() -> EventOriginContext.elasticsearchEvent("xflog-events_0", ""))
                 .hasMessageContaining("eventId")
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatCode(() -> EventOriginContext.elasticsearchEvent("gl-events_0", null))
+        assertThatCode(() -> EventOriginContext.elasticsearchEvent("xflog-events_0", null))
                 .hasMessageContaining("eventId")
                 .isInstanceOf(IllegalArgumentException.class);
     }

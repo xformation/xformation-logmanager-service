@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 import java.util.Objects;
 
 /**
- * Logmanager's rule language wrapper for {@link InetAddress}.
+ * logmanager's rule language wrapper for {@link InetAddress}.
  * <br>
  * The purpose of this class is to guard against accidentally accessing properties which can trigger name resolutions
  * and to provide a known interface to deal with IP addresses.

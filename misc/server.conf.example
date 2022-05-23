@@ -101,9 +101,9 @@ plugin_dir = plugin
 #
 # If the port is omitted, Logmanager will use port 9000 by default.
 #
-# Default: 127.0.0.1:7037
-http_bind_address = 100.81.3.27:7037
-#http_bind_address = [2001:db8::1]:7037
+# Default: 127.0.0.1:7035
+http_bind_address = 127.0.0.1:7037
+#http_bind_address = [2001:db8::1]:7035
 
 #### HTTP publish URI
 #
@@ -120,7 +120,7 @@ http_bind_address = 100.81.3.27:7037
 #
 # Default: http://$http_bind_address/
 #http_publish_uri = http://192.168.1.1:9000/
-http_publish_uri = http://100.81.3.27:7037/
+http_publish_uri = http://127.0.0.1:7037/
 
 #### External Logmanager URI
 #
@@ -666,12 +666,12 @@ proxied_requests_thread_pool_size = 32
 #processing_status_journal_write_rate_threshold = 1
 
 # Configures the prefix used for logmanager event indices
-# Default: gl-events
-#default_events_index_prefix = gl-events
+# Default: xflog-events
+#default_events_index_prefix = xflog-events
 
 # Configures the prefix used for logmanager system event indices
-# Default: gl-system-events
-#default_system_events_index_prefix = gl-system-events
+# Default: xflog-system-events
+#default_system_events_index_prefix = xflog-system-events
 
 # Automatically load content packs in "content_packs_dir" on the first start of Logmanager.
 #content_packs_loader_enabled = false

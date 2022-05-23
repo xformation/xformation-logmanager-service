@@ -97,7 +97,7 @@ public abstract class AbstractTcpTransport extends NettyTransport {
     protected final Configuration configuration;
     protected final EventLoopGroup parentEventLoopGroup;
     private final NettyTransportConfiguration nettyTransportConfiguration;
-    private final com.synectiks.process.server.Configuration logmanagerConfiguration;
+    private final com.synectiks.process.server.Configuration serverConfiguration;
     private final AtomicReference<Channel> channelReference;
 
     private final boolean tlsEnable;
@@ -119,12 +119,12 @@ public abstract class AbstractTcpTransport extends NettyTransport {
             EventLoopGroup parentEventLoopGroup,
             EventLoopGroupFactory eventLoopGroupFactory,
             NettyTransportConfiguration nettyTransportConfiguration,
-            com.synectiks.process.server.Configuration logmanagerConfiguration) {
+            com.synectiks.process.server.Configuration serverConfiguration) {
         super(configuration, eventLoopGroupFactory, throughputCounter, localRegistry);
         this.configuration = configuration;
         this.parentEventLoopGroup = parentEventLoopGroup;
         this.nettyTransportConfiguration = nettyTransportConfiguration;
-        this.logmanagerConfiguration = logmanagerConfiguration;
+        this.serverConfiguration = serverConfiguration;
         this.channelReference = new AtomicReference<>();
         this.childChannels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
@@ -318,8 +318,8 @@ public abstract class AbstractTcpTransport extends NettyTransport {
                         .sslProvider(tlsProvider)
                         .clientAuth(clientAuth)
                         .trustManager(clientAuthCerts);
-                if (!logmanagerConfiguration.getEnabledTlsProtocols().isEmpty()) {
-                    sslContext.protocols(logmanagerConfiguration.getEnabledTlsProtocols());
+                if (!serverConfiguration.getEnabledTlsProtocols().isEmpty()) {
+                    sslContext.protocols(serverConfiguration.getEnabledTlsProtocols());
                 }
 
                 // TODO: Use byte buffer allocator of channel

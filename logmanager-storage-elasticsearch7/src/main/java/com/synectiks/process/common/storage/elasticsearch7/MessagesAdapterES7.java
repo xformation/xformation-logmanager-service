@@ -3,33 +3,8 @@
  */
 package com.synectiks.process.common.storage.elasticsearch7;
 
-import com.codahale.metrics.Meter;
-import com.codahale.metrics.MetricRegistry;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.collect.Iterables;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.ElasticsearchException;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.bulk.BulkItemResponse;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.bulk.BulkRequest;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.bulk.BulkResponse;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.get.GetRequest;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.get.GetResponse;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.index.IndexRequest;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.client.indices.AnalyzeRequest;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.client.indices.AnalyzeResponse;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.common.xcontent.XContentType;
-import org.graylog.shaded.elasticsearch7.org.elasticsearch.rest.RestStatus;
-import com.synectiks.process.server.indexer.messages.ChunkedBulkIndexer;
-import com.synectiks.process.server.indexer.messages.DocumentNotFoundException;
-import com.synectiks.process.server.indexer.messages.Indexable;
-import com.synectiks.process.server.indexer.messages.IndexingRequest;
-import com.synectiks.process.server.indexer.messages.Messages;
-import com.synectiks.process.server.indexer.messages.MessagesAdapter;
-import com.synectiks.process.server.indexer.results.ResultMessage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static com.codahale.metrics.MetricRegistry.name;
 
-import javax.inject.Inject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,7 +15,41 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static com.codahale.metrics.MetricRegistry.name;
+import javax.inject.Inject;
+
+import org.dom4j.io.DocumentResult;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.ElasticsearchException;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.bulk.BulkItemResponse;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.bulk.BulkRequest;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.bulk.BulkResponse;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.get.GetRequest;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.get.GetResponse;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.index.IndexRequest;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.update.UpdateRequest;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.action.update.UpdateResponse;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.client.indices.AnalyzeRequest;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.client.indices.AnalyzeResponse;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.client.indices.CreateIndexRequest;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.common.xcontent.XContentType;
+import org.graylog.shaded.elasticsearch7.org.elasticsearch.rest.RestStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.codahale.metrics.Meter;
+import com.codahale.metrics.MetricRegistry;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.common.collect.Iterables;
+import com.synectiks.process.server.indexer.IndexMapping;
+import com.synectiks.process.server.indexer.messages.ChunkedBulkIndexer;
+import com.synectiks.process.server.indexer.messages.DocumentNotFoundException;
+import com.synectiks.process.server.indexer.messages.Indexable;
+import com.synectiks.process.server.indexer.messages.IndexingRequest;
+import com.synectiks.process.server.indexer.messages.Messages;
+import com.synectiks.process.server.indexer.messages.MessagesAdapter;
+import com.synectiks.process.server.indexer.results.ResultMessage;
 
 public class MessagesAdapterES7 implements MessagesAdapter {
     private static final Logger LOG = LoggerFactory.getLogger(MessagesAdapterES7.class);
@@ -76,6 +85,34 @@ public class MessagesAdapterES7 implements MessagesAdapter {
         return ResultMessage.parseFromSource(messageId, index, result.getSource());
     }
 
+    @Override
+    public ResultMessage updateDocument(String status, String indexName, String documentId) throws IOException, DocumentNotFoundException {
+    	LOG.info("Updating a document: ");
+    	final GetRequest getRequest = new GetRequest(indexName, documentId);
+    	final GetResponse result = this.client.execute((c, requestOptions) -> c.get(getRequest, requestOptions));
+    	LOG.info("Index: "+indexName+", Document id: "+ documentId+", status: "+status);
+    	
+    	Map<String, Object> objMap = result.getSource();
+    	String strObj = objectMapper.writeValueAsString(result.getSource());
+    	JsonNode jn = objectMapper.readValue(strObj.getBytes(), JsonNode.class);
+    	
+    	String src = jn.get("message").asText();
+    	String dt = src.substring(0,20);
+    	src = src.substring(20);
+    	
+//    	src = src.replaceAll("New",status);
+    	ObjectNode msg = objectMapper.readValue(src.getBytes(), ObjectNode.class);
+    	msg.put("alert_state", status); 
+    	
+    	ObjectNode on = ((ObjectNode)jn).put("message", dt+" "+src);
+    	
+    	UpdateRequest updateRequest = new UpdateRequest(indexName, documentId).doc(on.toString(), XContentType.JSON);
+    	UpdateResponse updateResponse = this.client.execute((u, reqOptions) -> u.update(updateRequest, reqOptions));
+    	
+    	LOG.info("Document updated successfully: "+updateResponse.status());
+    	return get(documentId, indexName);
+    }
+    
     @Override
     public List<String> analyze(String toAnalyze, String index, String analyzer) {
         final AnalyzeRequest analyzeRequest = AnalyzeRequest.withIndexAnalyzer(index, analyzer, toAnalyze);

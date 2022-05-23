@@ -69,22 +69,22 @@ public class V20190705071400_AddEventIndexSetsMigration extends Migration {
     @Override
     public void upgrade() {
         ensureEventsStreamAndIndexSet(
-                "Logmanager Events",
-                "Stores Logmanager events.",
+                "logmanager Events",
+                "Stores logmanager events.",
                 elasticsearchConfiguration.getDefaultEventsIndexPrefix(),
                 ElasticsearchConfiguration.DEFAULT_EVENTS_INDEX_PREFIX,
                 Stream.DEFAULT_EVENTS_STREAM_ID,
                 "All events",
-                "Stream containing all events created by Logmanager"
+                "Stream containing all events created by logmanager"
         );
         ensureEventsStreamAndIndexSet(
-                "Logmanager System Events",
-                "Stores Logmanager system events.",
+                "logmanager System Events",
+                "Stores logmanager system events.",
                 elasticsearchConfiguration.getDefaultSystemEventsIndexPrefix(),
                 ElasticsearchConfiguration.DEFAULT_SYSTEM_EVENTS_INDEX_PREFIX,
                 Stream.DEFAULT_SYSTEM_EVENTS_STREAM_ID,
                 "All system events",
-                "Stream containing all system events created by Logmanager"
+                "Stream containing all system events created by logmanager"
         );
     }
 

@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.util.StringJoiner;
 
 /**
- * This is a helper class for GRNs - Logmanager Resource Names
+ * This is a helper class for GRNs - logmanager Resource Names
  * GRNs are like URNs that we use for internal purposes only
  * <p>
  * <pre>

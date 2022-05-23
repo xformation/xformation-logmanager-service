@@ -183,7 +183,7 @@ public class LegacyAlertConditionMigratorTest {
         assertThat((LegacyAlarmCallbackEventNotificationConfig) emailNotification.config()).satisfies(config -> {
             assertThat(config.callbackType()).isEqualTo("com.synectiks.process.server.alarmcallbacks.EmailAlarmCallback");
             assertThat(config.configuration().get("sender")).isEqualTo("logmanager@example.org");
-            assertThat(config.configuration().get("subject")).isEqualTo("Logmanager alert for stream: ${stream.title}: ${check_result.resultDescription}");
+            assertThat(config.configuration().get("subject")).isEqualTo("logmanager alert for stream: ${stream.title}: ${check_result.resultDescription}");
             assertThat((String) config.configuration().get("body")).contains("Alert Description: ${check_result.resultDescription}\nDate: ");
             assertThat(config.configuration().get("user_receivers")).isEqualTo(Collections.emptyList());
             assertThat(config.configuration().get("email_receivers")).isEqualTo(Collections.singletonList("jane@example.org"));
@@ -206,7 +206,7 @@ public class LegacyAlertConditionMigratorTest {
             assertThat(config.configuration().get("webhook_url")).isEqualTo("http://example.com/slack-hook");
             assertThat(config.configuration().get("color")).isEqualTo("#FF0000");
             assertThat(config.configuration().get("icon_emoji")).isEqualTo("");
-            assertThat(config.configuration().get("user_name")).isEqualTo("Logmanager");
+            assertThat(config.configuration().get("user_name")).isEqualTo("logmanager");
             assertThat(config.configuration().get("backlog_items")).isEqualTo(5);
             assertThat(config.configuration().get("custom_fields")).isEqualTo("");
             assertThat(config.configuration().get("proxy_address")).isEqualTo("");

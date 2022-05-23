@@ -16,12 +16,12 @@ public class EnterpriseMetadataSummary extends PluginMetadataSummary {
 
     @Override
     public String name() {
-        return "Logmanager Enterprise";
+        return "logmanager Enterprise";
     }
 
     @Override
     public String author() {
-        return "Logmanager, Inc.";
+        return "logmanager, Inc.";
     }
 
     @Override
@@ -36,7 +36,7 @@ public class EnterpriseMetadataSummary extends PluginMetadataSummary {
 
     @Override
     public String description() {
-        return "Logmanager Enterprise";
+        return "logmanager Enterprise";
     }
 
     @Override

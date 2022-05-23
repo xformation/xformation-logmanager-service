@@ -35,7 +35,7 @@ import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 
 @RequiresAuthentication
-@Api(value = "Cluster/Metrics", description = "Cluster-wide Internal Logmanager metrics")
+@Api(value = "Cluster/Metrics", description = "Cluster-wide Internal logmanager metrics")
 @Path("/cluster/metrics")
 @Produces(MediaType.APPLICATION_JSON)
 public class ClusterMetricsResource extends ProxiedResource {

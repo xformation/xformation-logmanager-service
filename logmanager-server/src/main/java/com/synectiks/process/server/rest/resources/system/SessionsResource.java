@@ -130,7 +130,7 @@ public class SessionsResource extends RestResource {
             if (session.isPresent()) {
                 return sessionResponseFactory.forSession(session.get());
             } else {
-                throw new NotAuthorizedException("Invalid credentials.", "Basic realm=\"Logmanager Server session\"");
+                throw new NotAuthorizedException("Invalid credentials.", "Basic realm=\"logmanager Server session\"");
             }
         } catch (AuthenticationServiceUnavailableException e) {
             throw new ServiceUnavailableException("Authentication service unavailable");

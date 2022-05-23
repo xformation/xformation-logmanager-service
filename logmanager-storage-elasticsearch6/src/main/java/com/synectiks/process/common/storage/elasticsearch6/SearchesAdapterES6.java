@@ -53,10 +53,10 @@ import static org.graylog.shaded.elasticsearch5.org.elasticsearch.index.query.Qu
 
 public class SearchesAdapterES6 implements SearchesAdapter {
     private static final String DEFAULT_SCROLLTIME = "1m";
-    private static final String AGG_CARDINALITY = "gl2_field_cardinality";
-    private static final String AGG_EXTENDED_STATS = "gl2_extended_stats";
-    private static final String AGG_FILTER = "gl2_filter";
-    private static final String AGG_VALUE_COUNT = "gl2_value_count";
+    private static final String AGG_CARDINALITY = "xflog_field_cardinality";
+    private static final String AGG_EXTENDED_STATS = "xflog_extended_stats";
+    private static final String AGG_FILTER = "xflog_filter";
+    private static final String AGG_VALUE_COUNT = "xflog_value_count";
 
     private static final Sorting DEFAULT_SORTING = new Sorting("_doc", Sorting.Direction.ASC);
     private final Configuration configuration;

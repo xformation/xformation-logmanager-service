@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import static java.util.Objects.requireNonNull;
 
 /**
- * A service that participates in the Logmanager server graceful shutdown.
+ * A service that participates in the logmanager server graceful shutdown.
  * <p>
  * Services can implement {@link GracefulShutdownHook} and register themselves with this service to make sure they
  * get shut down properly on server shutdown. During shutdown the registered hooks will be called in no particular

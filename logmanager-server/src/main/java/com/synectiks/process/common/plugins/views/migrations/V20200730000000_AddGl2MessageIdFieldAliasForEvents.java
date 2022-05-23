@@ -59,7 +59,7 @@ public class V20200730000000_AddGl2MessageIdFieldAliasForEvents extends Migratio
                 elasticsearchConfig.getDefaultEventsIndexPrefix(),
                 elasticsearchConfig.getDefaultSystemEventsIndexPrefix());
 
-        elasticsearch.addGl2MessageIdFieldAlias(eventIndexPrefixes);
+        elasticsearch.addXfAlertMessageIdFieldAlias(eventIndexPrefixes);
 
         writeMigrationCompleted(eventIndexPrefixes);
     }
@@ -92,7 +92,7 @@ public class V20200730000000_AddGl2MessageIdFieldAliasForEvents extends Migratio
     }
 
     public interface ElasticsearchAdapter {
-        void addGl2MessageIdFieldAlias(Set<String> indexPrefixes);
+        void addXfAlertMessageIdFieldAlias(Set<String> indexPrefixes);
     }
 
     @JsonAutoDetect

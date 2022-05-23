@@ -13,4 +13,6 @@ public interface MessagesAdapter {
     List<String> analyze(String toAnalyze, String index, String analyzer) throws IOException;
 
     List<Messages.IndexingError> bulkIndex(final List<IndexingRequest> messageList) throws IOException;
+    
+    ResultMessage updateDocument(String status, String indexName, String documentId) throws IOException, DocumentNotFoundException;
 }

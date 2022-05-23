@@ -11,15 +11,10 @@
 
     <artifactId>logmanager-plugin-archetype</artifactId>
     <name>logmanager-plugin-archetype</name>
-    <!--<url>https://www.graylog.org/</url>-->
+    
     <packaging>maven-archetype</packaging>
 
-	<!--
-    <issueManagement>
-        <system>GitHub Issues</system>
-        <url>https://github.com/Graylog2/graylog2-server/issues</url>
-    </issueManagement>
-	-->
+	
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <tagNameFormat>@{project.version}</tagNameFormat>
@@ -39,7 +34,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <configuration>
-                    <!-- Ensure that .gitignore files are copied, too. See https://issues.apache.org/jira/browse/MRESOURCES-190 -->
                     <addDefaultExcludes>false</addDefaultExcludes>
                 </configuration>
             </plugin>

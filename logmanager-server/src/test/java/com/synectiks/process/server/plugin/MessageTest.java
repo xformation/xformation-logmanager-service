@@ -444,7 +444,7 @@ public class MessageTest {
     public void testToElasticsearchObjectAddsAccountedMessageSize() {
         final Message message = new Message("message", "source", Tools.nowUTC());
 
-        assertThat(message.toElasticSearchObject(objectMapper, invalidTimestampMeter).get("gl2_accounted_message_size"))
+        assertThat(message.toElasticSearchObject(objectMapper, invalidTimestampMeter).get("xflog_accounted_message_size"))
                 .isEqualTo(43L);
     }
 
